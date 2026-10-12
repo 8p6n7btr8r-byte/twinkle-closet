@@ -69,7 +69,7 @@ button{touch-action:manipulation}
 .trade-preview-note{font-size:12px;color:#9871a3;background:#fff0fa;border-radius:12px;padding:9px;margin:10px 0}
 .master-scope-select{margin-top:6px}
 @media(min-width:450px){.trade-setting{grid-template-columns:1fr 1fr}}
-</style></head><body><div class="app"><header><div class="brand"><div class="bow">🎀</div><div><b>Twinkle <span style="color:#d8559c">Closet</span></b><small>MY LITTLE TREASURES ✦ v2.24</small></div></div><button class="iconbtn" id="settings-button" aria-label="設定">⚙</button></header><main class="main" id="content"><p class="note">読み込み中…</p></main><button class="floating" id="add-button" aria-label="商品を登録">＋</button><nav class="bottom" id="nav"><button class="nav on" data-page="home"><em>⌂</em>ホーム</button><button class="nav" data-page="cards"><em>♧</em>カード</button><button class="nav" data-page="goods"><em>🎁</em>グッズ</button><button class="nav" data-page="gacha"><em>🎰</em>ガチャ</button><button class="nav" data-page="trade"><em>♡</em>交換</button></nav></div><div id="overlay"></div><div id="toast" class="hide" role="status"></div>
+</style></head><body><div class="app"><header><div class="brand"><div class="bow">🎀</div><div><b>Twinkle <span style="color:#d8559c">Closet</span></b><small>MY LITTLE TREASURES ✦ v2.26</small></div></div><button class="iconbtn" id="settings-button" aria-label="設定">⚙</button></header><main class="main" id="content"><p class="note">読み込み中…</p></main><button class="floating" id="add-button" aria-label="商品を登録">＋</button><nav class="bottom" id="nav"><button class="nav on" data-page="home"><em>⌂</em>ホーム</button><button class="nav" data-page="cards"><em>♧</em>カード</button><button class="nav" data-page="goods"><em>🎁</em>グッズ</button><button class="nav" data-page="gacha"><em>🎰</em>ガチャ</button><button class="nav" data-page="trade"><em>♡</em>交換</button></nav></div><div id="overlay"></div><div id="toast" class="hide" role="status"></div>
 <script>
 'use strict';
 const DB='twinkle-closet-v2', OLDDB='twinkle-closet-v1';
@@ -367,10 +367,19 @@ const OFFICIAL_CARD_SEEDS=[
  {series:'初代アイカツ！',code:'03-48',title:'なないろマカロンアクセ',rarity:'ノーマル',cardCategory:'アクセサリー',cardType:'',brand:'',round:'第3弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215003'},
  {series:'初代アイカツ！',code:'03-49',title:'バレンタインカチューシャ',rarity:'ノーマル',cardCategory:'アクセサリー',cardType:'',brand:'',round:'第3弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215003'},
  {series:'初代アイカツ！',code:'03-50',title:'ゴスマジックミニハット',rarity:'レア',cardCategory:'アクセサリー',cardType:'クール',brand:'ロリゴシック',round:'第3弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215003'},
+ {series:'初代アイカツ！',code:'03-52',title:'ピンキッシュドットリボン',rarity:'ノーマル',cardCategory:'アクセサリー',cardType:'',brand:'',round:'第3弾',url:'https://card.aikatsu.net/cardlist/index.php?category=215003&search=true'},
+ {series:'初代アイカツ！',code:'03-CP01',title:'レッドストライプリボンアクセ',rarity:'キャンペーンレア',cardCategory:'アクセサリー',cardType:'',brand:'',round:'第3弾',url:'https://card.aikatsu.net/cardlist/index.php?category=215003&search=true'},
  {series:'初代アイカツ！',code:'03-51',title:'マルチカラーヘアコサージュ',rarity:'レア',cardCategory:'アクセサリー',cardType:'',brand:'',round:'第3弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215003'},
  {series:'スターズ！',code:'S2-83',title:'オーロラキスキャミソール',rarity:'プレミアムレア',cardType:'キュート',cardCategory:'トップス',brand:'エンジェリーシュガー',url:'https://www.aikatsu.com/stars/cardlist/dresslist_detail.php?dress_key=NP06_H2_L_PR_Qt_001_T01&parallel='},
  {series:'オンパレード',code:'OPPR-1',title:'オーロラキスキャミソール',rarity:'プレミアムレア',cardType:'キュート',cardCategory:'トップス',brand:'エンジェリーシュガー',url:'https://www.aikatsu.com/onparade/cardlist/detail.php?id=146758&page=2'}
 ];
+// v2.26: 一括カード図鑑インポート。登録済み所持品は変更しない。
+const CARD_CATALOG_KEY='twinkle_catalog_import_v1';
+function importedCardSeeds(){try{let x=JSON.parse(localStorage.getItem(CARD_CATALOG_KEY)||'[]');return Array.isArray(x)?x:[]}catch{return []}}
+function allCardSeeds(){const map=new Map();for(const x of [...OFFICIAL_CARD_SEEDS,...importedCardSeeds()])if(x.series&&x.code)map.set(x.series+'|'+x.code,x);return [...map.values()]}
+function parseCardCsv(text){let rows=[],row=[],field='',quoted=false;for(let i=0;i<text.length;i++){let c=text[i];if(c==='"'){if(quoted&&text[i+1]==='"'){field+='"';i++}else quoted=!quoted}else if(c===','&&!quoted){row.push(field);field=''}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(field);if(row.some(x=>x.trim()))rows.push(row);row=[];field=''}else field+=c}if(quoted)throw Error('CSVの引用符が閉じていません');row.push(field);if(row.some(x=>x.trim()))rows.push(row);return rows}
+function importCardCatalog(text){const t=text.trim();if(!t)throw Error('データが空です');let items;if(t.startsWith('[')){items=JSON.parse(t);if(!Array.isArray(items))throw Error('JSON配列が必要です')}else{let rows=parseCardCsv(t),header=(rows.shift()||[]).map(x=>x.trim().replace(/^\uFEFF/,''));if(['series','code','title'].some(x=>!header.includes(x)))throw Error('series,code,title の列が必要です');items=rows.map(row=>Object.fromEntries(header.map((h,i)=>[h,(row[i]||'').trim()])))}if(items.length>10000)throw Error('1回の上限は10000件です');let map=new Map(importedCardSeeds().map(x=>[x.series+'|'+x.code,x]));let added=0,updated=0,skipped=0;const valid=['初代アイカツ！','スターズ！','フレンズ！','オンパレード','アンコール','プラネット！'];for(let x of items){let series=String(x.series||'').trim(),code=String(x.code||'').trim(),title=String(x.title||'').trim();if(!valid.includes(series)||!code||!title||code.length>80||title.length>160){skipped++;continue}let key=series+'|'+code;let item={series,code,title,rarity:String(x.rarity||'').slice(0,80),cardType:String(x.cardType||'').slice(0,80),cardCategory:String(x.cardCategory||'').slice(0,80),brand:String(x.brand||'').slice(0,100),round:String(x.round||'').slice(0,80),url:safeSourceLink(String(x.url||''))?String(x.url):''};if(map.has(key)||OFFICIAL_CARD_SEEDS.some(y=>y.series===series&&y.code===code))updated++;else added++;map.set(key,item)}localStorage.setItem(CARD_CATALOG_KEY,JSON.stringify([...map.values()]));return {added,updated,skipped,total:allCardSeeds().length}}
+function cardCatalogImportDialog(){$('#overlay').innerHTML=modal('カード図鑑の一括取り込み',`<div class="note">自分で作成した、または利用許諾のあるカード表をCSV・JSONでまとめて登録できます。所持枚数や購入履歴は変更しません。</div><label class="label">CSV・JSONを貼り付け</label><textarea id="catalog-import-text" class="field" rows="7" placeholder="series,code,title,rarity,cardType,cardCategory,brand,round,url&#10;初代アイカツ！,01-01,オーロラキスキャミソール,プレミアムレア,キュート,トップス,エンジェリーシュガー,第1弾,"></textarea><p class="help">必須列：series,code,title。1回最大10,000件。シリーズ名＋カード番号で重複を統合します。</p><button class="primary wide" data-action="catalog-import-save">まとめて取り込む</button><p class="help">追加図鑑：${importedCardSeeds().length}件／検索候補合計：${allCardSeeds().length}件</p>`)}
 const OFFICIAL_CARD_LINKS={
  '初代アイカツ！':'https://card.aikatsu.net/cardlist/index.php?search=true',
  'スターズ！':'https://www.aikatsu.com/stars/cardlist/index.php?search=true',
@@ -381,14 +390,14 @@ const OFFICIAL_CARD_LINKS={
 };
 function officialCardMatches(){
  const c=app.cardDraft||{},q=String(c.officialQuery||'').trim().toLocaleLowerCase('ja-JP');
- return OFFICIAL_CARD_SEEDS.filter(x=>x.series===cardSeriesKey(c.cardSeries)&&(!q||[x.code,x.title,x.brand].join(' ').toLocaleLowerCase('ja-JP').includes(q)));
+ return allCardSeeds().filter(x=>x.series===cardSeriesKey(c.cardSeries)&&(!q||[x.code,x.title,x.brand].join(' ').toLocaleLowerCase('ja-JP').includes(q)));
 }
 function officialCardPanel(){
  const c=app.cardDraft||{},matches=officialCardMatches(),link=OFFICIAL_CARD_LINKS[cardSeriesKey(c.cardSeries)];
- return `<div class="note"><b>🔎 公式カード図鑑から探す（試験版）</b><p class="help">公式掲載情報を確認したカードを検索できるよ。ブランドなど未確認の項目は空欄のまま。全カードの自動収録は未対応だよ。</p>
+ return `<div class="note"><b>🔎 公式カード図鑑から探す（試験版）</b><p class="help">公式掲載情報を確認したカードを検索できるよ。ブランドなど未確認の項目は空欄のまま。全カードの自動収録は未対応だよ。現在の収録候補は ${allCardSeeds().length}件（ブランド確認済み ${allCardSeeds().filter(x=>x.brand).length}件）。未確認項目は推測せず空欄にしているよ。</p>
  <input class="field" id="official-card-query" placeholder="カード名・番号で検索" value="${esc(c.officialQuery||'')}">
- <div id="official-card-results">${matches.length?matches.map((x,i)=>`<div style="padding:7px 0"><button class="suggest-button" data-official-card="${i}" style="width:100%;text-align:left">${esc(x.code)}｜${esc(x.title)}（${esc(x.rarity)}）</button>${x.url?`<a style="display:inline-block;margin:5px 0 0 6px" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">公式掲載ページ・画像を確認 ↗</a>`:''}</div>`).join(''):'<p class="help">登録済みの公式候補はまだないよ。公式サイトで確認して手動入力してね。</p>'}</div>
- <a href="${esc(link||'https://www.aikatsu.com/')}" target="_blank" rel="noopener noreferrer">公式カード図鑑を開く ↗</a></div>`;
+ <div id="official-card-results">${matches.length?matches.map((x,i)=>`<div style="padding:7px 0"><button class="suggest-button" data-official-card="${i}" style="width:100%;text-align:left">${esc(x.code)}｜${esc(x.title)}（${esc(x.rarity)}）${x.brand?`｜${esc(x.brand)}`:"｜ブランド未確認"}</button>${x.url?`<a style="display:inline-block;margin:5px 0 0 6px" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">公式掲載ページ・画像を確認 ↗</a>`:''}</div>`).join(''):'<p class="help">登録済みの公式候補はまだないよ。公式サイトで確認して手動入力してね。</p>'}</div>
+ <a href="${esc(link||'https://www.aikatsu.com/')}" target="_blank" rel="noopener noreferrer">公式カード図鑑を開く ↗</a><div style="margin-top:10px"><button class="soft" data-action="catalog-import-open">CSV・JSONで図鑑を一括取り込み</button></div></div>`;
 }
 function renderCardEditor(keep=true){
 const c=app.cardDraft;if(!c)return;const oldScroll=keep?$('#overlay .sheet')?.scrollTop||0:0;
@@ -862,7 +871,7 @@ function page(p){if(p==='trade'&&app.page!=='trade'){app.tagManual=false;app.tag
 function splitParts(v){return String(v||'').split(':')}
 function closeOverlay(){app.ocrDraft=null;app.editor=null;app.buy=null;$('#overlay').innerHTML=''}
 // 画面ごとの要素は毎回作り直すため、イベントは一か所で受け取る。
-document.addEventListener('click',async ev=>{let b=ev.target.closest('button');if(!b)return;let d=b.dataset;try{
+document.addEventListener('click',async ev=>{let b=ev.target.closest('button');if(!b)return;let d=b.dataset;try{if(d.action==='catalog-import-open'){cardCatalogImportDialog();return}if(d.action==='catalog-import-save'){try{let r=importCardCatalog($('#catalog-import-text').value);toast(`追加${r.added}件・更新${r.updated}件・除外${r.skipped}件`);renderCardEditor()}catch(e){toast('取り込み失敗：'+e.message)}return}
 if(d.filterReset){app.catalogFilters[d.filterReset]={open:true};render(true);return}
  if(d.tradeKind){if($$('[data-trade]').length){saveTradeSelections();tradeSelectionSet().initialized=true}app.tradeKind=d.tradeKind;app.tagSeriesId='';app.tagExcluded.clear();app.tagManual=false;render(true);return}
  if(d.tradeSide){app.tradeSide=d.tradeSide;render(true);return}
