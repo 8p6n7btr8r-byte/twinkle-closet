@@ -1,0 +1,865 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f9d0ec"><meta name="apple-mobile-web-app-capable" content="yes"><title>Twinkle Closet ♡ v2.15</title>
+<style>
+:root{--pink:#e65da2;--rose:#cc468a;--lav:#9874d3;--pale:#ffe5f2;--lavp:#f1e9ff;--paper:#fffbfe;--ink:#60426c;--sub:#927a99;--line:#eed8e9;--gold:#ddae43;--shade:0 7px 22px #b58bba22}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:#ece4f1;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;color:var(--ink);font-size:14px}button,input,select,textarea{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent}button:disabled{opacity:.45;cursor:default}input,select,textarea{min-width:0}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #aa83e2;outline-offset:2px}h1,h2,h3,p{margin:0}img{max-width:100%;display:block}.app{max-width:520px;margin:auto;min-height:100dvh;box-shadow:0 0 60px #745e8730;background:var(--paper)}
+header{height:105px;padding:18px 19px;background:linear-gradient(108deg,#ffbbdd,#f6cbe9 50%,#d7c7fb);position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;overflow:hidden}header:after{content:"";position:absolute;bottom:0;left:0;right:0;height:9px;background:radial-gradient(circle at 7px -1px,transparent 7px,var(--paper) 7.6px) 0 0/14px 11px repeat-x}header:before{content:"✧  ⋆  ♡  ✦";position:absolute;right:4px;top:6px;letter-spacing:11px;color:#fffd;font-size:13px}.brand{display:flex;gap:10px;align-items:center}.brand .bow{font-size:37px;filter:drop-shadow(0 2px #fff8)}.brand b{font-size:21px;letter-spacing:.2px}.brand small{display:block;font-size:9px;letter-spacing:2px;color:#946596;margin-top:6px;font-weight:800}.iconbtn{border:1px solid #fff;background:#fffd;color:var(--rose);width:40px;height:40px;border-radius:50%;font-size:20px;box-shadow:var(--shade);z-index:2}.main{padding:20px 16px 130px;min-height:70dvh;background:linear-gradient(180deg,#fff8fd,#fffefd 50%,#fcf8ff)}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--rose);font-weight:900;margin-bottom:7px}.title{font-size:23px;line-height:1.4;font-weight:900;margin:0 0 5px}.sub{font-size:12px;color:var(--sub);line-height:1.7;margin-bottom:12px}.lace{display:flex;align-items:center;gap:8px;color:#d891be;letter-spacing:2px;font-size:11px;margin:8px 0 17px}.lace:before,.lace:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,#eebedd,#d7bcf0)}
+.hero{border-radius:23px;background:linear-gradient(118deg,#ffe5f3,#f7dff1 46%,#e5d9ff);padding:22px 17px 20px;position:relative;min-height:154px;box-shadow:var(--shade);border:2px solid white}.hero:before{content:"";position:absolute;inset:7px;border:1px dashed #fffe;border-radius:17px;pointer-events:none}.hero h1{font-size:21px;line-height:1.5;margin:8px 0}.hero .ribbon{position:absolute;right:12px;top:48px;font-size:54px;transform:rotate(13deg)}.hero p{font-size:11px;line-height:1.7;color:#99789f;max-width:245px}.hrow{display:flex;align-items:center;justify-content:space-between;margin:21px 1px 11px;gap:9px}.hrow h2{font-size:15px}.hrow h2:before{content:"✦ ";color:var(--gold)}.smallbtn{background:none;border:0;color:var(--rose);font-size:12px;font-weight:800}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.stat{border:1px solid var(--line);border-radius:17px;padding:14px;background:white;box-shadow:0 3px 12px #aa80b615}.stat small{display:block;font-size:11px;font-weight:800;color:var(--sub)}.stat strong{display:block;font-size:25px;color:#dc6fa8;margin-top:4px}.stat:nth-child(even) strong{color:var(--lav)}.stat .foot{font-size:10px;color:var(--sub)}.quick{display:grid;grid-template-columns:1fr 1fr;gap:9px}.quick button{border:1px solid #efd5e9;border-radius:17px;background:white;text-align:left;color:var(--ink);padding:14px 11px;box-shadow:0 3px 10px #b090ba18;min-height:76px;display:flex;gap:9px;align-items:center}.quick button:nth-child(even){background:#f7f1ff}.quick .emoji{font-size:25px}.quick b{display:block;font-size:12px}.quick small{display:block;font-size:10px;color:var(--sub);margin-top:3px;line-height:1.5}.panel{border:1px solid var(--line);border-radius:18px;background:white;padding:15px;margin:12px 0;box-shadow:var(--shade)}.panel-title{font-weight:900;margin-bottom:9px;font-size:14px}.note{font-size:11px;line-height:1.7;color:#947697;background:#fff0f8;border-left:3px solid #dba0cb;border-radius:8px;padding:10px 12px;margin:12px 0}.notice{background:#f4edff;border-color:#a990d8}.primary,.soft,.outline{min-height:44px;border-radius:14px;padding:11px 15px;font-weight:900;border:0;font-size:13px}.primary{background:linear-gradient(115deg,#ee79b4,#a78be6);color:white;box-shadow:0 5px 13px #c890c75c}.soft{background:#ffe7f4;color:#b44d8b}.outline{background:white;border:1px solid #e5cfea;color:#9171ad}.wide{width:100%}.btnline{display:flex;gap:8px;flex-wrap:wrap}.btnline>*{flex:1}.mini{min-height:32px;padding:7px 11px;font-size:11px;border-radius:10px}.field{display:block;border:1px solid #e8d3e9;padding:12px 11px;width:100%;min-height:43px;background:#fff;border-radius:12px;color:var(--ink);font-size:14px}.field:focus{border-color:var(--lav)}.label{display:block;font-size:12px;font-weight:900;color:#80618b;margin:12px 0 6px}.help{font-size:10px;line-height:1.6;color:var(--sub);margin-top:5px}.formcols{display:grid;grid-template-columns:1fr 1fr;gap:9px}.segmented{display:flex;gap:6px;overflow-x:auto;margin:9px 0 13px;padding:2px 0}.segmented button{border:1px solid #e5d5e7;background:#fff;border-radius:30px;padding:9px 11px;color:#9980a3;font-size:11px;font-weight:900;white-space:nowrap}.segmented .sel{background:linear-gradient(115deg,#ef86b7,#ac97e9);color:white;border-color:transparent}.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}.chips button{border-radius:24px;padding:7px 10px;border:1px solid #eed0e4;color:#a55990;background:#fff3f9;font-size:11px;font-weight:800}.search{border:1px solid #ecd5e7;padding:10px 12px;border-radius:14px;background:white;display:flex;align-items:center;gap:8px}.search input{border:0;outline:none;flex:1;min-width:0;font-size:14px;color:var(--ink)}.itemgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:12px}.tile{border-radius:17px;border:1px solid #efdeeb;background:#fff;overflow:hidden;box-shadow:0 4px 10px #ad89b017}.cover{height:144px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#ffe5f2,#e9dfff);overflow:hidden;font-size:53px}.cover img{width:100%;height:100%;object-fit:cover}.tile-body{padding:10px}.tile h3{font-size:12px;line-height:1.5;overflow-wrap:anywhere;margin:0 0 4px}.tile small{font-size:10px;color:var(--sub);display:block;line-height:1.5}.pill{display:inline-block;border-radius:20px;background:#ffe7f3;color:#c85593;padding:5px 7px;font-weight:900;font-size:10px;margin-top:7px}.pill.lav{background:#efe7ff;color:#8866b9}.tile button{width:100%;border:1px solid #ead5e9;border-radius:10px;background:#fff8fd;color:var(--rose);font-size:11px;font-weight:900;padding:9px;margin-top:9px}.empty{border:1px dashed #e6bedb;background:#fff;border-radius:18px;text-align:center;padding:28px 13px;line-height:1.8;color:var(--sub);margin-top:15px}.empty .big{font-size:42px}.row{display:flex;gap:10px;align-items:center}.grow{flex:1;min-width:0}.thumbnail{width:64px;height:64px;object-fit:cover;border-radius:12px;background:#f2e4fa}.tinyimg{width:45px;height:52px;object-fit:cover;border-radius:10px;background:#f1e7f7}.group-item{padding:10px 0;border-bottom:1px solid #f1e1ee}.group-item:last-child{border:0}.steps{display:flex;gap:4px;margin:0 0 15px}.steps span{flex:1;background:#f2e7f2;border-radius:12px;text-align:center;padding:9px 2px;font-size:10px;color:#a08ca9;font-weight:900}.steps .current{background:linear-gradient(110deg,#f3a1c8,#c3b0ee);color:#6c3d75}.btn-num{border:1px solid #ead6eb;border-radius:10px;background:#fff;width:32px;height:32px;color:#b55392;font-weight:900}.nums{display:flex;align-items:center;gap:7px}.nums b{min-width:16px;text-align:center;font-size:15px}.lineup-row{background:#fff;border:1px solid #eddaeb;border-radius:16px;padding:11px;margin:10px 0;box-shadow:0 2px 8px #ab89ab15}.lineup-row .rowtop{display:flex;gap:8px;align-items:center}.grab{border:0;background:#f5edfc;border-radius:8px;padding:8px;color:#a17bb7;font-size:17px;touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab}.rowphoto{width:48px;height:55px;background:#f4e7f7;border:1px dashed #e4c6e3;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:23px;overflow:hidden;flex-shrink:0}.rowphoto img{width:100%;height:100%;object-fit:cover}.rowsmall{display:grid;grid-template-columns:1fr 1fr;gap:8px}.rowcontrols{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:9px}.rowcontrols label{font-size:11px;color:var(--sub)}.suggest-results{display:flex;flex-wrap:wrap;gap:6px;margin:7px 0 5px}.suggest-results button{border:1px solid #e3c3dc;background:#f9eefb;color:#865b96;border-radius:16px;padding:7px 10px;font-weight:750;font-size:11px}.suggest-caption{font-size:10px;color:#9e86a5;margin-top:7px}.check{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:800;min-height:37px}.check input{width:18px;height:18px;accent-color:#d768ae}
+.crop-area{width:100%;max-width:440px;margin:10px auto;touch-action:none;cursor:crosshair;display:block;border:2px solid #ecd1e7;border-radius:12px;background:#fff;max-height:54dvh;object-fit:contain}
+.crop-actions{display:flex;gap:8px;margin-top:12px}.crop-actions button{flex:1}.crop-note{font-size:11px;color:var(--sub);line-height:1.65;margin:8px 0}
+.ledgerline{padding:12px 0;border-bottom:1px solid #f1e1ee}.ledgerline:last-child{border-bottom:0}.ledger-summary{background:#fff2fa;border-radius:12px;padding:9px 12px;margin:10px 0;font-size:12px;line-height:1.7}
+.floating{position:fixed;bottom:calc(84px + env(safe-area-inset-bottom,0px));right:max(14px,calc((100vw - 520px)/2 + 18px));width:54px;height:54px;background:linear-gradient(135deg,#ed71b0,#af98ed);color:white;border-radius:50%;font-size:28px;box-shadow:0 5px 15px #ba89c574;border:0;z-index:30}.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,520px);display:grid;grid-template-columns:repeat(5,1fr);height:calc(73px + env(safe-area-inset-bottom,0px));padding:8px 2px calc(9px + env(safe-area-inset-bottom,0px));z-index:25;box-shadow:0 -4px 16px #a688af23;background:#fffdfef7;border-top:1px solid #f1e1ee;backdrop-filter:blur(8px)}.nav{display:flex;align-items:center;justify-content:center;flex-direction:column;border:0;background:transparent;color:#9983a3;font-size:10px;font-weight:900;gap:4px}.nav em{font-style:normal;font-size:21px}.nav.on{color:#d6559b}.nav.on:before{content:"";position:absolute;top:4px;width:20px;height:3px;background:#f398c4;border-radius:5px}
+.overlay{position:fixed;inset:0;background:#3d274aa6;display:flex;align-items:flex-end;justify-content:center;z-index:80}.sheet{width:min(100%,520px);max-height:95dvh;overflow:auto;overscroll-behavior:contain;border-radius:25px 25px 0 0;padding:21px 16px calc(30px + env(safe-area-inset-bottom,0px));background:linear-gradient(#fff9fd,#fff);box-shadow:0 -10px 30px #30172a25}.sheethead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}.sheethead h2{font-size:20px}.xbtn{border:none;background:#f7e8f6;border-radius:50%;width:35px;height:35px;font-size:21px;color:#a87ea7}.previewphoto{min-height:98px;max-height:150px;border:1px dashed #e0b6df;border-radius:13px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f9ecf8;color:#ae8baf}.previewphoto img{width:100%;height:150px;object-fit:contain}.hide{display:none!important}#toast{position:fixed;bottom:calc(105px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);z-index:100;background:#684b73;color:white;border-radius:100px;padding:12px 17px;max-width:90vw;text-align:center;font-size:12px;box-shadow:var(--shade);line-height:1.6}#toast.hide{display:none}.image-result{max-height:58dvh;overflow:auto}.image-result img{width:100%;border-radius:12px}.image-result p{margin:12px 0;font-size:11px;line-height:1.7}.dragging{opacity:.35;border:2px dashed #bd84d8!important}.dropzone{border:2px dashed #eac4df;border-radius:14px;padding:13px;background:#fff6fc;line-height:1.7}.muted{color:var(--sub);font-size:12px;line-height:1.7}.separator{border:0;border-top:1px solid #f1dceb;margin:15px 0}@media(min-width:600px){.itemgrid{grid-template-columns:repeat(3,minmax(0,1fr))}.cover{height:145px}}
+.qty-picker{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}.qty-select{appearance:auto;-webkit-appearance:menulist;border:1px solid #e9c9e2;border-radius:10px;background:#fff7fc;color:#a75091;font-size:13px;font-weight:800;min-height:39px;padding:6px 3px;max-width:123px}.qty-picker .unit{font-size:11px;color:var(--sub)}.char-pop{padding:6px 2px 3px}.char-pop[hidden]{display:none!important}.char-pop .suggest-results{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 0}.char-pop button{border:1px solid #e4c9e8;background:#fff3fc;border-radius:20px;padding:7px 10px;color:#9464a0;font-size:11px;font-weight:700}.char-pop .helper{font-size:10px;color:#9b7e9b;display:block;margin-bottom:5px} .stock-picker{display:flex;justify-content:flex-end;align-items:center;gap:9px;margin-top:9px}.stock-picker span{font-size:11px;color:var(--sub)}
+
+/* v2.5: iPhone Safariの入力欄フォーカス時の強制ズーム対策。手動のピンチズームは有効。 */
+html,body{max-width:100%;overflow-x:clip}
+.app,.main,#overlay{max-width:100%;min-width:0}
+input:not([type="checkbox"]):not([type="radio"]),select,textarea{font-size:16px!important}
+.sheet{min-width:0;max-width:100vw;width:min(100vw,520px);overflow-x:hidden}
+.crop-area,#crop-canvas{max-width:100%!important;inline-size:100%;block-size:auto}
+.crop-actions{min-width:0}.crop-actions button{min-width:0;overflow-wrap:anywhere}
+button{touch-action:manipulation}
+.trade-options{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.trade-options label{display:flex;gap:5px;align-items:center;font-size:13px;font-weight:700}
+.trade-image-card{border:1px solid #f0d7ea;background:#fff;padding:11px;border-radius:13px;margin:13px 0}
+.trade-image-card img{display:block;width:100%;height:auto;max-width:100%;border-radius:10px;background:#fcf2fb}
+.trade-image-card .primary{margin-top:10px;display:block;text-align:center;text-decoration:none}
+.tweet-box{min-height:120px;resize:vertical;line-height:1.65;overflow-wrap:anywhere}
+.tag-group{margin:13px 0}.tag-heading{font-size:12px;font-weight:900;color:#8867a2;margin-bottom:6px}.tag-chips{display:flex;gap:8px;flex-wrap:wrap}.tag-chip{background:#fff;border:1px solid #e8d3ec;color:#937a9d;padding:9px 10px;border-radius:16px;font-size:12px;overflow-wrap:anywhere;max-width:100%}.tag-chip.on{background:linear-gradient(125deg,#fff0f8,#eee3ff);border-color:#ce9dd8;color:#a13d89;font-weight:800}.tag-chip .checkmark{font-size:12px;margin-right:3px}.tag-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.tag-toolbar button{flex:1;min-width:110px}.tag-textarea{min-height:94px;resize:vertical;line-height:1.65;font-size:16px}.tag-tip{background:#f8f2ff;color:#806996;border-radius:10px;padding:10px;font-size:11px;line-height:1.65;margin-top:10px}
+.tag-batch-title{margin-top:18px;color:#a55796;font-weight:900;font-size:14px}.tag-batch{padding:12px;border:1px solid #ead1e6;border-radius:13px;margin:12px 0;background:#fff9fd}.tag-batch-text{font-size:13px;line-height:1.8;overflow-wrap:anywhere;padding:10px 0}.tag-batch .soft{margin-top:5px}.card-filter{margin-top:9px}.card-filter select{background-color:#fff}
+.crop-tool-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:9px;min-width:0}
+.crop-tool-row>.crop-trigger{white-space:nowrap!important;writing-mode:horizontal-tb!important;word-break:keep-all!important;flex:0 0 auto;max-width:100%;padding:9px 12px}
+.crop-tool-row>.crop-file{flex:1 1 145px;min-width:0;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.crop-tool-row input[type=file]{font-size:11px;min-width:0;max-width:100%;width:100%}
+[data-card-brand-box]{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.suggest-button{border:1px solid #e6c7e2;background:#fbf0fb;color:#79538c;border-radius:100px;padding:8px 11px;max-width:100%;font-size:12px;overflow-wrap:anywhere}
+.mastergrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mastergrid button{border:1px solid #e9d1e7;background:#fff;border-radius:11px;padding:11px;color:#6c5579;text-align:left;font-size:12px}.master-ops{display:flex;justify-content:space-between;align-items:center;gap:9px;min-width:0}.master-ops .muted{min-width:0;overflow-wrap:anywhere}.master-ops .btnline{flex-shrink:0}
+
+/* v2.8 カード図鑑：公式の画像グリッドを参考にした、写真主体のコンパクトな3列表示 */
+.card-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0 9px;flex-wrap:wrap}
+.card-toolbar .total{font-size:13px;font-weight:900;color:var(--rose)}
+.card-toolbar label{font-size:11px;color:var(--sub);font-weight:800}
+.card-sort{width:min(220px,100%);border:1px solid #e8c6e0;color:#8c4d86;background:#fff;border-radius:24px;padding:10px;font-weight:800;font-size:14px;min-width:0}
+.card-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:9px 0 14px}
+.card-art{border:0;padding:0;margin:0;min-width:0;background:transparent;position:relative;border-radius:9px;overflow:hidden;box-shadow:0 3px 9px #a771a02a;aspect-ratio:0.704;display:flex;align-items:stretch;justify-content:center}
+.card-art img{width:100%;height:100%;object-fit:cover;display:block}
+.card-art:focus-visible{outline:3px solid #a78ad9;outline-offset:2px}
+.card-art .card-blank{width:100%;height:100%;padding:8px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#ffe6f2,#eee1ff);color:#8668a3;font-size:12px;gap:7px;overflow-wrap:anywhere;text-align:center}
+.card-art .card-blank b{font-size:10px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.card-art .card-blank .placeholder-symbol{font-size:24px}
+.card-gallery-help{font-size:11px;color:var(--sub);line-height:1.5;margin-bottom:8px}
+.card-detail-img{display:block;max-width:min(72%,260px);max-height:390px;object-fit:contain;margin:8px auto 17px;border-radius:10px;box-shadow:0 3px 15px #bb87a83c}
+.card-detail-noimg{height:210px;max-width:170px;margin:10px auto 15px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(140deg,#ffdded,#e6d9fc);color:#9c77b3;text-align:center;padding:10px}
+.card-detail-pair{display:grid;grid-template-columns:95px minmax(0,1fr);gap:7px;padding:9px 0;border-bottom:1px solid #f2e4ef;font-size:12px}
+.card-detail-pair>span{color:var(--sub)}.card-detail-pair>strong{overflow-wrap:anywhere}
+.card-legacy-list{margin-top:16px}
+@media(max-width:340px){.card-gallery{gap:5px}.card-toolbar{gap:5px}.card-sort{width:100%}}
+
+/* v2.15 検索・9種類の交換画像・候補管理 */
+.catalog-filters{margin:12px 0;padding:12px;border-radius:18px;border:1px solid #edd8e9;background:#fff9fd}
+.catalog-filters summary{cursor:pointer;color:#b24e8e;font-weight:900;list-style:revert;padding:3px}
+.filter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}
+.filter-grid>label{min-width:0;font-size:12px;font-weight:800;color:#8e6c92}
+.filter-grid select{width:100%;font-size:16px;min-width:0;margin-top:5px;background:#fff;border:1px solid #e8cfe3;border-radius:12px;padding:10px 6px}
+.filter-result{font-size:12px;color:#8c638d;margin:12px 0 5px;font-weight:800}
+.trade-setting{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0}
+.trade-setting .segmented{display:flex;gap:6px;overflow-x:auto;flex-wrap:nowrap}
+.trade-setting .segmented button{flex:1 0 0;min-width:0;padding:10px 4px;font-size:12px;white-space:nowrap}
+.trade-setting .label{margin:0 0 5px}
+.trade-preview-note{font-size:12px;color:#9871a3;background:#fff0fa;border-radius:12px;padding:9px;margin:10px 0}
+.master-scope-select{margin-top:6px}
+@media(min-width:450px){.trade-setting{grid-template-columns:1fr 1fr}}
+</style></head><body><div class="app"><header><div class="brand"><div class="bow">🎀</div><div><b>Twinkle <span style="color:#d8559c">Closet</span></b><small>MY LITTLE TREASURES ✦ v2.21</small></div></div><button class="iconbtn" id="settings-button" aria-label="設定">⚙</button></header><main class="main" id="content"><p class="note">読み込み中…</p></main><button class="floating" id="add-button" aria-label="商品を登録">＋</button><nav class="bottom" id="nav"><button class="nav on" data-page="home"><em>⌂</em>ホーム</button><button class="nav" data-page="cards"><em>♧</em>カード</button><button class="nav" data-page="goods"><em>🎁</em>グッズ</button><button class="nav" data-page="gacha"><em>🎰</em>ガチャ</button><button class="nav" data-page="trade"><em>♡</em>交換</button></nav></div><div id="overlay"></div><div id="toast" class="hide" role="status"></div>
+<script>
+'use strict';
+const DB='twinkle-closet-v2', OLDDB='twinkle-closet-v1';
+const TYPES={cards:'アイカツカード',goods:'アニメグッズ',gacha:'ガチャ'}, EMO={cards:'🃏',goods:'🎁',gacha:'🎰'};
+const WORKS=['アイカツ！','アイカツ！オンパレード！','アイカツ！アンコール','名探偵コナン','ONE PIECE','響け！ユーフォニアム','ヴァイオレット・エヴァーガーデン','薬屋のひとりごと','かぐや様は告らせたい'];
+const CATS=['缶バッジ','アクリルスタンド','アクリルキーホルダー','めじるしアクセサリー','コースター','紙類','カード','ぬいぐるみ','フィギュア','ラバーストラップ','その他'];
+const MAKERS=['バンダイ','バンダイスピリッツ','セガ','タカラトミーアーツ','エンスカイ','ブシロード','ムービック','その他'];
+const CHARS={'アイカツ！':['星宮いちご','霧矢あおい','紫吹蘭','有栖川おとめ','藤堂ユリカ','神崎美月','大空あかり','氷上スミレ','新条ひなき'],'名探偵コナン':['江戸川コナン','工藤新一','毛利蘭','灰原哀','安室透','赤井秀一','怪盗キッド','服部平次'],'ONE PIECE':['モンキー・D・ルフィ','ロロノア・ゾロ','ナミ','サンジ','トニートニー・チョッパー']};
+const CARD_SERIES=[['初代アイカツ！','アイカツ！'],['スターズ！','アイカツスターズ！'],['フレンズ！','アイカツフレンズ！'],['オンパレード','アイカツ！オンパレード！'],['アンコール','アイカツ！アンコール'],['プラネット！','アイカツプラネット！']];
+const CARD_ROUNDS={
+ '初代アイカツ！':['第1弾','第2弾','第3弾','第4弾','第5弾','第6弾',...['2013','2014','2015','2016'].flatMap(y=>Array.from({length:y==='2016'?4:6},(_,i)=>`${y}シリーズ第${i+1}弾`)),'プロモーションカード'],
+ 'スターズ！':['第1弾','第2弾','第3弾','第4弾','星のツバサ1弾','星のツバサ2弾','星のツバサ3弾','星のツバサ4弾','星のツバサ5弾','星のツバサ6弾','プロモーションカード'],
+ 'フレンズ！':['第1弾','第2弾','第3弾','第4弾','第5弾','ジュエリング1弾','ジュエリング2弾','ジュエリング3弾','プロモーションカード'],
+ 'オンパレード':['第1弾','第2弾','第3弾','ドリームストーリー第1弾','ドリームストーリー第2弾','ドリームストーリー第3弾','フルコーデカード','アイカツ！マシンプロモーションカード','プロモーションカード'],
+ 'アンコール':['1弾','プロモーションカード'],
+ 'プラネット！':['1弾','2弾','3弾','4弾','5弾','6弾','プロモーションスイング']
+};
+const CARD_TYPES=['キュート','クール','セクシー','ポップ'];
+const CARD_CATEGORIES=['トップス','ボトムス','トップス＆ボトムス','シューズ','アクセサリー','フルコーデ'];
+const CARD_RARITIES={
+ '初代アイカツ！':['ノーマル','レア','プレミアムレア','キャンペーンレア'],
+ 'スターズ！':['ノーマル','レア','プレミアムレア','キャンペーンレア'],
+ 'フレンズ！':['ノーマル','レア','プレミアムレア','フレンズレア','ジュエリングレア','キャンペーンレア'],
+ 'オンパレード':['ノーマル','レア','プレミアムレア','レジェンドプレミアムレア','ジュエリングレア','キャンペーンレア'],
+ 'アンコール':['ノーマル','レア','プレミアムレア','アンコールレア'],
+ 'プラネット！':['ノーマル','レア','プレミアムレア']
+};
+// 公式ポータルのブランド名を候補に。タイプは確実な対応が分かるものだけ設定する。
+const CARD_BRANDS=['ノーブランド','エンジェリーシュガー','フューチャリングガール','スパイシーアゲハ','ハッピーレインボー','ロリゴシック','オーロラファンタジー','マジカルトイ','ラブクイーン','ラブムーンライズ','スイングロック','ボヘミアンスカイ','ヴィヴィッドキス','ドリーミークラウン','サングリアロッサ','ダンスフュージョン','桜色花伝','レトロクローバー','ドーリーデビル','メチャパニック','レインボーベリーパルフェ','ベリーパルフェ','マイリトルハート','スパイスコード','ロイヤルソード','ゴシックヴィクトリア','パーフェクトクイーン','ロマンスキス','フワフワドリーム','シャイニースマイル','シュガーメロディ','クラシカルアンジュ','アンティークセーラー','ハミングリーフ','マテリアルカラー','ルナウィッチ','ムーンメイデン','グロリアススノー','ダンシングミラージュ','ヘヴンリーパフューム','シルキーオーシャン','カラフルシェイク','ミルキージョーカー','ピュアパレット','ラブミーティア','ハニーキャット','リフレクトムーン','アイビリーブ','ベイビーパイレーツ','メープルリボン','チアスター'];
+const BRAND_TYPE={
+ 'エンジェリーシュガー':'キュート','Angely Sugar':'キュート','フューチャリングガール':'クール','スパイシーアゲハ':'セクシー','ハッピーレインボー':'ポップ','ロリゴシック':'クール','オーロラファンタジー':'キュート','マジカルトイ':'ポップ','マジカル トイ':'ポップ','ラブクイーン':'セクシー','ラブムーンライズ':'セクシー','スイングロック':'クール','ボヘミアンスカイ':'セクシー','ヴィヴィッドキス':'ポップ','ドリーミークラウン':'キュート','サングリアロッサ':'セクシー','ダンスフュージョン':'クール','ドーリーデビル':'セクシー','ベリーパルフェ':'キュート','マイリトルハート':'キュート','スパイスコード':'クール','ロイヤルソード':'クール','ゴシックヴィクトリア':'クール','メープルリボン':'キュート','チアスター':'キュート','パーフェクトクイーン':'セクシー','フワフワドリーム':'ポップ','シャイニースマイル':'ポップ','シュガーメロディ':'キュート','クラシカルアンジュ':'キュート','アンティークセーラー':'クール','ハミングリーフ':'キュート','マテリアルカラー':'クール','グロリアススノー':'クール','ダンシングミラージュ':'セクシー','ミルキージョーカー':'ポップ'
+};
+const cardSeriesKey=v=>{const t=String(v||'');return t.includes('プラネット')?'プラネット！':t.includes('アンコール')?'アンコール':t.includes('オンパレード')?'オンパレード':t.includes('スターズ')?'スターズ！':t.includes('フレンズ')?'フレンズ！':'初代アイカツ！'};
+const cardLabel=k=>CARD_SERIES.find(a=>a[0]===k)?.[1]||k;
+function hiddenChoices(key,scope=''){return app.state.vocab?.hidden?.[`${key}::${scope}`]||[]}
+function isShown(key,value,scope=''){return !hiddenChoices(key,scope).includes(value)}
+function scopedExtras(key,scope=''){return app.state.vocab?.[`${key}ByScope`]?.[scope]||[]}
+function cardRounds(k,current=''){
+ const scope=cardSeriesKey(k);
+ const base=CARD_ROUNDS[scope]||[];
+ const old=allSingles().filter(x=>x.type==='cards'&&cardSeriesKey(x.cardSeries||x.series||x.work)===scope).map(x=>x.cardRound).filter(Boolean);
+ return [...new Set([...base,...scopedExtras('round',scope),...old,current].filter(Boolean))].filter(x=>x===current||isShown('round',x,scope));
+}
+function cardRarities(k,current=''){
+ const scope=cardSeriesKey(k);return [...new Set([...(CARD_RARITIES[scope]||[]),...scopedExtras('rarity',scope),current].filter(Boolean))];
+}
+function cardBrandChoices(query=''){
+ const extra=app.state.vocab?.brand||[];
+ const stored=allSingles().filter(x=>x.type==='cards').map(x=>x.brand);
+ const q=String(query||'').toLowerCase().trim();
+ return [...new Set([...extra,...stored,...CARD_BRANDS].filter(Boolean))].filter(x=>isShown('brand',x)&&(!q||x.toLowerCase().includes(q))).slice(0,q?20:10);
+}
+function selectOptions(values,value,placeholder='指定なし'){
+ return `<option value="">${placeholder}</option>`+[...new Set([...values,value].filter(Boolean))].map(x=>`<option value="${esc(x)}" ${x===value?'selected':''}>${esc(x)}</option>`).join('');
+}
+const ALIAS={'コナン':'名探偵コナン','アクキー':'アクリルキーホルダー','アクスタ':'アクリルスタンド','ワンピース':'ONE PIECE','アイカツ':'アイカツ！'};
+const $=q=>document.querySelector(q), $$=q=>[...document.querySelectorAll(q)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
+const n=v=>Math.max(0,Math.floor(Number(v)||0));const yen=v=>v==null?'未設定':'¥'+Math.round(v).toLocaleString('ja-JP');const id=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,9);const today=()=>new Date().toISOString();
+const canonical=s=>ALIAS[String(s||'').trim()]||String(s||'').trim();
+let app={db:null,ready:false,state:{version:2,series:[],singles:[]},page:'home',tab:'all',query:'',tradeDraft:'',tradeDraftManual:false,editor:null,viewId:null,photo:null,chosen:new Set(),crop:null,ledger:null,tagExcluded:new Set(),tagSeriesId:"",tagDraft:"",tagManual:false,tagReserved:180,tagCandidateSnapshot:null,cardDraft:null,cardSort:'code-asc',tradeKind:'gacha',tradeSide:'both',tradeSelections:{},catalogFilters:{goods:{},gacha:{}}};
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.remove('hide');clearTimeout(toast._timer);toast._timer=setTimeout(()=>t.classList.add('hide'),3000)}
+function openDb(name=DB,version=1){return new Promise((ok,fail)=>{const req=indexedDB.open(name,version);req.onupgradeneeded=()=>{if(name===DB&&!req.result.objectStoreNames.contains('snap'))req.result.createObjectStore('snap')};req.onsuccess=()=>ok(req.result);req.onerror=()=>fail(req.error);req.onblocked=()=>fail(new Error('保存先が別タブで使用中'))})}
+function dbGet(db,store,key){return new Promise((ok,fail)=>{let q=db.transaction(store,'readonly').objectStore(store).get(key);q.onsuccess=()=>ok(q.result);q.onerror=()=>fail(q.error)})}
+function dbAll(db,store){return new Promise((ok,fail)=>{let q=db.transaction(store,'readonly').objectStore(store).getAll();q.onsuccess=()=>ok(q.result);q.onerror=()=>fail(q.error)})}
+function dbPut(db,store,key,obj){return new Promise((ok,fail)=>{const tx=db.transaction(store,'readwrite');tx.objectStore(store).put(obj,key);tx.oncomplete=()=>ok();tx.onerror=()=>fail(tx.error)})}
+async function persist(){if(!app.ready)throw Error('この環境では保存不可');await dbPut(app.db,'snap','main',app.state)}
+async function oldImport(){let old;try{old=await openDb(OLDDB,1);if(!old.objectStoreNames.contains('items'))return 0;let list=await dbAll(old,'items');app.state.singles=list.filter(x=>x&&TYPES[x.type]).map(x=>({id:String(x.id||id()),type:x.type,title:String(x.title||''),work:String(x.work||''),character:String(x.character||''),category:String(x.category||''),series:String(x.series||''),photo:String(x.photo||''),code:String(x.code||''),memo:String(x.memo||''),owned:n(x.owned),trade:Math.min(n(x.trade),n(x.owned)),wanted:!!x.wanted,createdAt:x.createdAt||today(),updatedAt:x.updatedAt||today()}));return app.state.singles.length}catch(e){console.info('旧データ取り込みなし',e);return 0}finally{old?.close()}}
+function allSeries(){return app.state.series||[]}function allSingles(){return app.state.singles||[]}
+function variants(){return allSeries().flatMap(s=>s.variants.map(v=>({...v,type:s.type,seriesId:s.id,seriesName:s.title,work:s.work,category:s.category,price:s.price,seriesPhoto:s.photo}))) }
+function numsFor(t){return variants().filter(v=>v.type===t).reduce((a,v)=>a+n(v.owned),0)+allSingles().filter(v=>v.type===t).reduce((a,v)=>a+n(v.owned),0)}
+function trades(){return variants().reduce((a,v)=>a+n(v.trade),0)+allSingles().reduce((a,v)=>a+n(v.trade),0)}
+function missingPriceCount(v){const lots=v.lots||[];const counted=lots.reduce((a,l)=>a+n(l.qty),0);return lots.filter(l=>l.amount==null).reduce((a,l)=>a+n(l.qty),0)+Math.max(0,n(v.owned)-counted)}
+function spent(){let normal=0,mercari=0,unknown=0;for(const s of allSeries())for(const v of s.variants){unknown+=missingPriceCount(v);for(const lot of v.lots||[]){if(lot.amount==null)continue;if(lot.mercari)mercari+=Number(lot.amount)||0;else normal+=Number(lot.amount)||0;}}return {normal,mercari,unknown,total:normal+mercari}}
+function intro(en,jp,sub){return `<div class="eyebrow">✦ ${en} ✦</div><h1 class="title">${jp}</h1><p class="sub">${sub}</p><div class="lace">✦ ♡ ✦</div>`}
+function heading(s,extra=''){return `<div class="hrow"><h2>${s}</h2>${extra}</div>`}
+function photoMarkup(src,emoji='🎀'){return src?`<img src="${esc(src)}" alt="登録写真">`:emoji}
+function thumb(src,emoji='🎀'){return src?`<img class="tinyimg" src="${esc(src)}" alt="">`:`<div class="tinyimg" style="display:grid;place-items:center;font-size:23px">${emoji}</div>`}
+function home(){let s=spent();return `<div class="hero"><div class="eyebrow">WELCOME TO MY CLOSET ♡</div><h1>ときめく宝物を<br>きらきら整理しよう。</h1><p>写真も、所持数も、グッズに使ったお金も。<br>自分だけのコレクションに。</p><div class="ribbon">🎀</div></div>
+${heading('わたしのコレクション')}<div class="stats">${[['🃏 カード',numsFor('cards'),'枚'],['🎁 グッズ',numsFor('goods'),'個'],['🎰 ガチャ',numsFor('gacha'),'個'],['♡ 交換可能',trades(),'点']].map((a,i)=>`<div class="stat"><small>${a[0]}</small><strong>${a[1]}</strong><span class="foot">${a[2]}</span></div>`).join('')}</div>
+${heading('グッズに使ったお金',`<button class="smallbtn" data-page="finance">内訳を見る →</button>`)}<div class="panel" style="background:linear-gradient(110deg,#ffeef7,#f0e8ff)"><div class="eyebrow">COLLECTION BUDGET ♡</div><div style="font-size:29px;font-weight:900;color:#c85a99;margin:6px 0">${yen(s.total)}</div><div class="muted">定価換算 ${yen(s.normal)} ＋ 二次流通の購入価格 ${yen(s.mercari)}</div><div class="help">登録済みの金額のみ。価格未設定${s.unknown}個</div></div>
+${heading('かんたん登録')}<div class="quick"><button data-add="goods"><span class="emoji">🎁</span><span><b>グッズをまとめて登録</b></span></button><button data-add="gacha"><span class="emoji">🎰</span><span><b>ガチャをまとめて登録</b></span></button><button data-add="cards"><span class="emoji">🃏</span><span><b>カードを登録</b></span></button><button data-page="trade"><span class="emoji">💌</span><span><b>交換画像を作る</b></span></button></div>
+${heading('最近登録した商品')}<div class="panel">${allSeries().length?allSeries().slice(-3).reverse().map(s=>`<button class="row" style="width:100%;text-align:left;background:none;border:0;border-bottom:1px solid #f3e5f1;padding:8px 0" data-view="${esc(s.id)}">${thumb(s.photo,EMO[s.type])}<span class="grow"><b>${esc(s.title)}</b><span class="muted" style="display:block">${esc(s.work)}・${s.variants.length}種類</span></span><span>›</span></button>`).join(''):'まだ登録されたシリーズはないよ 🎀'}</div>`}
+// v2.8: 画像中心のカード一覧。詳細を見るまで編集項目は隠す。
+function cardSortValue(){return app.cardSort||'code-asc'}
+function cardRank(c){
+  const series=cardSeriesKey(c.cardSeries||c.series||c.work);
+  const rank=cardRarities(series).indexOf(c.rarity||'');
+  return rank<0?-1:rank;
+}
+function sortedCardList(items){
+ const k=cardSortValue(),collator=new Intl.Collator('ja-JP',{numeric:true,sensitivity:'base'});
+ return items.sort((a,b)=>{
+   let v=0;
+   if(k.startsWith('code')){if(!a.code||!b.code){if(!a.code&&!b.code)return collator.compare(a.title||'',b.title||'');return !a.code?1:-1;}v=collator.compare(a.code,b.code);}
+   else if(k.startsWith('rarity')){if(cardRank(a)<0||cardRank(b)<0){if(cardRank(a)<0&&cardRank(b)<0)return collator.compare(a.title||'',b.title||'');return cardRank(a)<0?1:-1;}v=cardRank(a)-cardRank(b);}
+   else if(k==='name')v=collator.compare(a.title||'',b.title||'');
+   else if(k==='latest')v=collator.compare(b.updatedAt||b.createdAt||'',a.updatedAt||a.createdAt||'');
+   if(k==='code-desc'||k==='rarity-desc')v=-v;
+   return v||collator.compare(a.code||a.title||'',b.code||b.title||'');
+ });
+}
+function cardGalleryPage(){
+ const q=app.query.trim().toLocaleLowerCase('ja-JP');
+ let cards=allSingles().filter(c=>c.type==='cards');
+ if(app.tab!=='all')cards=cards.filter(c=>cardSeriesKey(c.cardSeries||c.series||c.work)===app.tab);
+ if(app.cardRoundFilter)cards=cards.filter(c=>(c.cardRound||'')===app.cardRoundFilter);
+ if(q)cards=cards.filter(c=>[c.title,c.code,c.brand,c.character,c.cardType,c.rarity,c.cardCategory,c.cardRound,cardLabel(cardSeriesKey(c.cardSeries||c.series||c.work))].join(' ').toLocaleLowerCase('ja-JP').includes(q));
+ cards=sortedCardList(cards);
+ const old=allSeries().filter(s=>s.type==='cards').filter(s=>(app.tab==='all'||cardSeriesKey(s.cardSeries)===app.tab)&&(!q||[s.title,s.work].join(' ').toLocaleLowerCase('ja-JP').includes(q)));
+ const options=[['code-asc','カード番号昇順'],['code-desc','カード番号降順'],['rarity-asc','レアリティ昇順'],['rarity-desc','レアリティ降順'],['name','カード名順'],['latest','最近更新した順']];
+ return `${intro('MY CARD CLOSET','アイカツカード','カード画像を並べて図鑑のように一覧表示。タップで詳細や編集ができるよ。')}
+ <div class="segmented">${['all','初代アイカツ！','スターズ！','フレンズ！','オンパレード','アンコール','プラネット！'].map(t=>`<button data-tab="${esc(t)}" class="${app.tab===t?'sel':''}">${t==='all'?'すべて':cardLabel(t)}</button>`).join('')}</div>
+ <label class="label">弾数で絞り込む</label><select class="field" id="card-round-filter"><option value="">すべての弾数</option>${(app.tab==='all'?[...new Set(CARD_SERIES.flatMap(([k])=>cardRounds(k)))]:cardRounds(app.tab)).map(r=>`<option value="${esc(r)}" ${app.cardRoundFilter===r?'selected':''}>${esc(r)}</option>`).join('')}</select>
+ <div class="search" style="margin-top:11px">⌕ <input id="query" placeholder="カード番号・名前・ブランドなどで検索" value="${esc(app.query)}"></div>
+ <div class="card-toolbar"><span class="total">見つかったカード ${cards.length} 枚</span><label for="card-sort">ならびかえ</label></div>
+ <select id="card-sort" class="card-sort">${options.map(([v,l])=>`<option value="${v}" ${cardSortValue()===v?'selected':''}>${l}</option>`).join('')}</select>
+ <p class="card-gallery-help">画像をタップするとカードの詳細・編集ができるよ。画像なしのカードは仮の表示になるよ。</p>
+ <div class="card-gallery" id="listing">${cards.map(c=>`<button class="card-art" data-card-detail="${esc(c.id)}" aria-label="${esc(c.title)}の詳細を表示" title="${esc(c.title)}">${c.photo?`<img src="${esc(c.photo)}" loading="lazy" alt="${esc(c.title)}">`:`<div class="card-blank"><span class="placeholder-symbol">🃏</span><b>${esc(c.title||'画像未登録')}</b></div>`}</button>`).join('')}</div>
+ ${!cards.length?'<div class="empty">一致するカードがありません。<br>カード登録・弾数・検索条件を確認してね。</div>':''}
+ <button class="primary wide" data-add="cards">＋ カードを登録</button>
+ ${old.length?`<div class="card-legacy-list"><div class="hrow"><h2>以前の形式で登録したカード</h2></div><div class="itemgrid">${old.map(s=>seriesTile(s)).join('')}</div></div>`:''}`;
+}
+function openCardDetail(cardId){
+ const c=allSingles().find(x=>x.id===cardId&&x.type==='cards');if(!c)return;
+ const pairs=[['カード番号',c.code],['カードシリーズ',cardLabel(cardSeriesKey(c.cardSeries||c.series))],['弾数',c.cardRound],['カード名',c.title],['レアリティ',c.rarity],['タイプ',c.cardType],['カテゴリー',c.cardCategory],['ブランド',c.brand],['キャラクター',c.character],['レベル',c.swingLevel],['所持数',n(c.owned)+'枚'],['交換可能数',n(c.trade)+'枚'],['欲しい',c.wanted?'登録済み':'未登録']];
+ $('#overlay').innerHTML=modal('カードの詳細 ♡',`${c.photo?`<img class="card-detail-img" src="${esc(c.photo)}" alt="${esc(c.title)}">`:`<div class="card-detail-noimg">🃏<br>カード画像は未登録</div>`}<div class="panel" style="margin:0 0 13px">${pairs.filter(([k,v])=>v!==undefined&&v!==null&&String(v)!=='').map(([label,val])=>`<div class="card-detail-pair"><span>${esc(label)}</span><strong>${esc(String(val))}</strong></div>`).join('')}</div><button class="primary wide" data-card-edit="${esc(c.id)}">✎ このカードを編集する</button>`);
+}
+function catalogFilterState(type){app.catalogFilters??={};return app.catalogFilters[type]??={}}
+function catalogPage(type){
+ const f=catalogFilterState(type),group=allSeries().filter(s=>s.type===type),single=allSingles().filter(s=>s.type===type);
+ const uniq=a=>[...new Set(a.filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ja-JP'));
+ const works=uniq([...group.map(s=>s.work),...single.map(s=>s.work)]);
+ const categories=uniq([...group.map(s=>s.category),...single.map(s=>s.category)]);
+ const chars=uniq([...group.filter(s=>!f.work||s.work===f.work).flatMap(s=>s.variants.map(v=>v.character)),...single.filter(s=>!f.work||s.work===f.work).map(s=>s.character)]);
+ const q=app.query.toLocaleLowerCase('ja-JP').trim();
+ const showVariant=v=>(!f.character||v.character===f.character)&&(!f.status||f.status==='all'||(f.status==='owned'&&n(v.owned)>0)||(f.status==='offer'&&n(v.trade)>0)||(f.status==='want'&&(n(v.want)>0||!!v.wanted)));
+ let list=group.filter(s=>(!f.work||s.work===f.work)&&(!f.category||s.category===f.category)&&s.variants.some(v=>showVariant(v)&&(!q||[s.title,s.work,s.category,v.name,v.character].join(' ').toLocaleLowerCase('ja-JP').includes(q))));
+ let singles=single.filter(x=>(!f.work||x.work===f.work)&&(!f.category||x.category===f.category)&&showVariant(x)).filter(x=>!q||[x.title,x.work,x.character,x.category,x.series,x.code].join(' ').toLocaleLowerCase('ja-JP').includes(q));
+ const options=(values,chosen,allLabel)=>`<option value="">${allLabel}</option>${values.map(v=>`<option value="${esc(v)}" ${v===chosen?'selected':''}>${esc(v)}</option>`).join('')}`;
+ const title=type==='gacha'?'ガチャ':'アニメグッズ';
+ return `${intro('MY TREASURES',title,'商品・作品・キャラ名で検索。詳しい条件は絞り込みから選べるよ。')}
+ <div class="search">⌕ <input id="query" value="${esc(app.query)}" placeholder="商品・作品・キャラ名を検索"></div>
+ <details class="catalog-filters" ${f.open?'open':''}><summary>✦ 詳細検索・絞り込み ${Object.entries(f).some(([k,v])=>k!=='open'&&v&&v!=='all')?'（設定中）':''}</summary>
+ <div class="filter-grid"><label>作品名<select data-filter="work">${options(works,f.work,'すべての作品')}</select></label>
+ <label>${type==='gacha'?'ガチャの種類':'グッズの種類'}<select data-filter="category">${options(categories,f.category,'すべての種類')}</select></label>
+ <label>キャラクター<select data-filter="character">${options(chars,f.character,'すべてのキャラ')}</select></label>
+ <label>所持状況<select data-filter="status">${[['all','すべて'],['owned','所持あり'],['offer','交換可能'],['want','欲しいもの']].map(([k,v])=>`<option value="${k}" ${(f.status||'all')===k?'selected':''}>${v}</option>`).join('')}</select></label></div>
+ <button class="outline mini" data-filter-reset="${type}" style="margin-top:11px">条件をリセット</button></details>
+ <div class="btnline"><button class="primary" data-add="${type}">＋ 商品シリーズを登録</button></div>
+ <div class="filter-result" id="catalog-result-count">商品シリーズ ${list.length}件 ・ 個別登録 ${singles.length}件</div>
+ <div class="itemgrid" id="listing">${list.map(seriesTile).join('')}${singles.map(singleTile).join('')}</div>
+ ${!list.length&&!singles.length?'<div class="empty">条件に一致するアイテムはありません。<br>条件を変えて探してね。</div>':''}`;
+}
+function listPage(type){if(type==='cards')return cardGalleryPage();if(type==='goods'||type==='gacha')return catalogPage(type);let title=type==='cards'?'アイカツカード':type==='gacha'?'ガチャ':'アニメグッズ';let desc=type==='cards'?'初代・オンパレード・アンコールから選んで弾数ごとに整理。公式カードリストの自動取り込みは今後対応予定。':type==='gacha'?'ガチャの全ラインナップを商品ごとに管理':'缶バッジ・アクスタ・紙類など、作品別にまとめて管理';const q=app.query.toLowerCase();let list=allSeries().filter(s=>s.type===type).filter(s=>[s.title,s.work,s.category,s.maker,...s.variants.flatMap(v=>[v.name,v.character])].join(' ').toLowerCase().includes(q));let singles=allSingles().filter(s=>s.type===type).filter(s=>[s.title,s.work,s.character,s.category,s.brand,s.cardRound,s.code].join(' ').toLowerCase().includes(q));if(type==='cards'&&app.tab!=='all'){list=list.filter(s=>cardSeriesKey(s.cardSeries)===app.tab);singles=singles.filter(s=>cardSeriesKey(s.cardSeries||s.series)===app.tab)}if(type==='cards'&&app.cardRoundFilter){list=list.filter(x=>String(x.cardRound||'')===app.cardRoundFilter);singles=singles.filter(x=>String(x.cardRound||'')===app.cardRoundFilter)}let tabs=type==='cards'?`<div class="segmented">${['all','初代アイカツ！','スターズ！','フレンズ！','オンパレード','アンコール','プラネット！'].map(t=>`<button data-tab="${esc(t)}" class="${app.tab===t?'sel':''}">${t==='all'?'すべて':cardLabel(t)}</button>`).join('')}</div>`:'';
+return `${intro('MY TREASURES',title,desc)}${tabs}${type==='cards'?`<div class="card-filter"><label class="label">弾数で絞り込む</label><select class="field" id="card-round-filter"><option value="">すべての弾数</option>${(app.tab==='all'?[...new Set(CARD_SERIES.flatMap(([k])=>cardRounds(k)))]:cardRounds(app.tab)).map(r=>`<option value="${esc(r)}" ${app.cardRoundFilter===r?'selected':''}>${esc(r)}</option>`).join('')}</select></div>`:''}<div class="search">⌕ <input id="query" placeholder="商品・作品・キャラ名で検索" value="${esc(app.query)}"></div><div class="btnline" style="margin-top:12px"><button class="primary" data-add="${type}">＋ ${type==='cards'?'カード':'商品シリーズ'}を登録</button></div><div class="muted" style="margin-top:12px">商品シリーズ ${list.length}件 ・ 個別登録 ${singles.length}件</div><div class="itemgrid" id="listing">${list.map(s=>seriesTile(s)).join('')}${singles.map(x=>singleTile(x)).join('')}</div>${!list.length&&!singles.length?`<div class="empty"><div class="big">${EMO[type]}</div>まだアイテムがありません。<br>上の「＋」から登録してね。</div>`:''}`}
+function seriesTile(s){let qty=s.variants.reduce((a,v)=>a+n(v.owned),0),tr=s.variants.reduce((a,v)=>a+n(v.trade),0);return `<article class="tile"><div class="cover">${photoMarkup(s.photo,EMO[s.type])}</div><div class="tile-body"><h3>${esc(s.title)}</h3><small>${esc(s.work)}・${s.variants.length}種類</small><div><span class="pill">所持 ${qty}</span> <span class="pill lav">交換 ${tr}</span></div><button data-view="${esc(s.id)}">ラインナップを見る ›</button></div></article>`}
+function singleTile(x){return `<article class="tile"><div class="cover">${photoMarkup(x.photo,EMO[x.type])}</div><div class="tile-body"><h3>${esc(x.title)}</h3><small>${esc(x.type==='cards'?cardLabel(cardSeriesKey(x.cardSeries||x.series))+' / '+(x.cardRound||'弾数未設定'):x.work||x.series)}</small><span class="pill">所持 ${n(x.owned)}</span> <span class="pill lav">交換 ${n(x.trade)}</span><button ${x.type==='cards'?`data-card-edit="${esc(x.id)}"`:`data-legacy="${esc(x.id)}"`}>${x.type==='cards'?'カード情報を編集':'所持数を編集'} ›</button></div></article>`}
+function viewSeries(seriesId){let s=allSeries().find(s=>s.id===seriesId);if(!s)return;app.viewId=seriesId;app.page='detail';render()}
+function detail(){let s=allSeries().find(s=>s.id===app.viewId);if(!s)return `<p>商品が見つかりませんでした。</p><button data-page="home">戻る</button>`;let owned=s.variants.reduce((a,v)=>a+n(v.owned),0);return `${intro('SERIES COLLECTION',s.title,`${esc(s.work)}・${esc(s.category)}`)}<div class="panel"><div class="row">${thumb(s.photo,EMO[s.type])}<div class="grow"><b data-detail-summary>${s.variants.length}種類 / 所持 ${owned}個</b><div class="muted">定価（税込） ${yen(s.price)}</div>${safeSourceLink(s.sourceUrl)?`<div class="help"><a target="_blank" rel="noopener noreferrer" href="${esc(s.sourceUrl)}">↗ 商品情報の根拠ページを見る</a></div>`:''}</div></div><div class="btnline" style="margin-top:12px"><button class="outline" data-edit-series="${esc(s.id)}">✎ ラインナップを編集</button><button class="soft" data-page="trade">♡ 交換画像</button></div></div>${heading('ラインナップ（並び順を保存）')}<div class="panel">${s.variants.map((v,i)=>`<div class="group-item" data-detail-vid="${esc(v.id)}"><div class="row">${thumb(v.photo||s.photo,EMO[s.type])}<div class="grow"><b>${i+1}. ${esc(v.name)}</b><small style="display:block;color:var(--sub)">${esc(v.character||'')}　♡ 欲しい ${n(v.want)}</small><div style="margin-top:5px"><span class="pill" data-detail-owned>所持 ${n(v.owned)}</span> <span class="pill lav" data-detail-trade>交換 ${n(v.trade)}</span></div></div><div style="display:flex;flex-direction:column;gap:5px"><button class="outline mini" data-addpurchase="${esc(s.id)}:${esc(v.id)}">＋購入</button><button class="outline mini" data-crop="${esc(s.id)}:${esc(v.id)}">✂ 写真を切り出す</button></div></div><div class="btnline" style="margin-top:8px"><button class="outline mini" data-ledger="${esc(s.id)}:${esc(v.id)}">¥ 購入金額の記録を見る</button></div><div class="stock-picker"><span>所持数を直接変更（支出は加算されません）</span><span class="qty-picker"><select class="qty-select" aria-label="${esc(v.name)}の所持数" data-detail-qty="${esc(s.id)}:${esc(v.id)}">${quantityOptions(v.owned)}</select><span class="unit">個</span></span></div></div>`).join('')}</div><button class="outline wide" data-listback="${s.type}">← ${TYPES[s.type]}へ戻る</button><div class="note">所持数の「＋1 / −1」は個数だけの調整で、支出には加算されません。購入分として記録する際は「＋購入」を使ってね。</div>`}
+function unpriced(){const rows=[];for(const s of allSeries())for(const v of s.variants){const missing=missingPriceCount(v);if(missing>0)rows.push({s,v,missing})}return `${intro('UNPRICED ITEMS','価格未記録のグッズ','金額を後からまとめて登録できる一覧。購入金額の記録を開いて入力してね。')}<div class="panel"><div class="row"><b>未記録 ${rows.reduce((a,r)=>a+r.missing,0)}個・${rows.length}種類</b><button class="outline mini" data-page="finance">← 家計簿へ</button></div></div><div class="panel">${rows.length?rows.map(({s,v,missing})=>`<div class="group-item"><div class="row">${thumb(v.photo||s.photo,EMO[s.type])}<div class="grow"><b>${esc(v.name)}</b><small style="display:block;color:var(--sub)">${esc(s.title)} ・ ${esc(s.work)}</small><span class="pill">未記録 ${missing}個</span></div></div><button class="soft wide" style="margin-top:8px" data-ledger="${esc(s.id)}:${esc(v.id)}">¥ 金額を登録・編集</button></div>`).join(''):'<p class="help">価格未記録のグッズはないよ。</p>'}</div>`}
+function finance(){let total=spent();let byType={};for(let s of allSeries()){let amt=s.variants.flatMap(v=>v.lots||[]).reduce((a,l)=>a+(l.amount==null?0:Number(l.amount)||0),0);byType[s.type]=(byType[s.type]||0)+amt}return `${intro('MY COLLECTION BUDGET','コレクション家計簿','購入日・入手方法の入力なし。定価を基本に、二次流通だけ購入価格で計算。')}<div class="panel" style="background:linear-gradient(120deg,#ffe6f2,#eadfff)"><div class="eyebrow">登録済みの金額</div><div style="font-size:32px;font-weight:900;color:#cc548e">${yen(total.total)}</div><div class="muted">定価換算 ${yen(total.normal)} / 二次流通 ${yen(total.mercari)}</div></div><div class="stats">${['cards','goods','gacha'].map(t=>`<div class="stat"><small>${EMO[t]} ${TYPES[t]}</small><strong style="font-size:19px">${yen(byType[t]||0)}</strong></div>`).join('')}<button class="stat" data-page="unpriced" style="text-align:left;cursor:pointer;border:1px solid var(--line);font:inherit;color:inherit"><small>価格未記録の数量　↗</small><strong>${total.unknown}</strong></button></div><div class="note">※ 交換・処分で所持数が減っても購入記録は残ります。</div>${heading('商品シリーズ別の記録')}<div class="panel">${allSeries().length?allSeries().map(s=>{let amount=s.variants.flatMap(v=>v.lots||[]).reduce((a,l)=>a+(l.amount==null?0:+l.amount||0),0);return `<div class="row group-item"><div class="grow"><b>${esc(s.title)}</b><small style="display:block;color:var(--sub)">${esc(s.work)}</small></div><b>${yen(amount)}</b></div>`}).join(''):'まだ購入金額の記録がありません'}</div>`}
+function guessCharacters(work){let w=canonical(work);if(w.startsWith('アイカツ'))return CHARS['アイカツ！'];return CHARS[w]||[]}
+function suggestions(key,work=''){
+ if(key==='category'){
+  const type=app.editor?.type||'goods',scoped=type==='gacha'?'gachaCategory':'goodsCategory';
+  const own=app.state.vocab?.categoryByType?.[type]||[];
+  const existing=allSeries().filter(s=>s.type===type).map(s=>s.category);
+  const fromSingles=allSingles().filter(x=>x.type===type).map(x=>x.category);
+  return [...new Set([...own,...existing,...fromSingles,...CATS].map(canonical).filter(Boolean))].filter(x=>isShown(scoped,x,type));
+ }
+ const preset=key==='work'?WORKS:key==='character'?guessCharacters(work):[];
+ const own=app.state.vocab?.[key]||[];
+ const existing=allSeries().flatMap(s=>key==='character'?s.variants.map(v=>v.character):[s[key]||'']);
+ return [...new Set([...own,...existing,...preset].map(canonical).filter(Boolean))].filter(x=>isShown(key,x));
+}
+function characterCandidates(work,query=''){
+ const w=canonical(work),mapped=app.state.vocab?.characterByWork||{};
+ // Existing records are used as candidates, even when created before v2.3.
+ const fromRecords=allSeries().filter(s=>canonical(s.work)===w).flatMap(s=>s.variants.map(v=>v.character));
+ const fromSingles=allSingles().filter(s=>canonical(s.work)===w).map(s=>s.character);
+ const all=[...(mapped[w]||[]),...fromRecords,...fromSingles,...guessCharacters(w)];
+ const unique=[...new Set(all.map(v=>String(v||'').trim()).filter(Boolean))];
+ const q=String(query||'').trim().toLocaleLowerCase('ja-JP');
+ return (q?unique.filter(v=>v.toLocaleLowerCase('ja-JP').includes(q)):unique).filter(x=>isShown('character',x,w)).slice(0,8);
+}
+function refreshCharacterChoices(field){
+ if(!app.editor||!field)return;
+ let v=variantById(field.dataset.vid),row=field.closest('.lineup-row'),box=row?.querySelector('[data-char-choices]');
+ if(!v||!box)return;
+ const choices=characterCandidates(app.editor.work,field.value);
+ box.hidden=false;
+ box.innerHTML=`<span class="helper">${esc(app.editor.work||'選択した作品')}のキャラクター候補</span>`+
+  `<div class="suggest-results">${choices.length?choices.map(x=>`<button type="button" data-char-pick="${esc(x)}" data-char-id="${esc(v.id)}">${esc(x)}</button>`).join(''):'<span class="helper">候補なし。そのまま新しい名前を入力して保存できるよ。</span>'}</div>`;
+}
+function quantityOptions(value,max=30,min=0){
+ const val=n(value),last=Math.max(min,Math.min(30,max));let html='';
+ for(let i=min;i<=last;i++)html+=`<option value="${i}" ${i===val?'selected':''}>${i}</option>`;
+ if(val>last)html+=`<option value="${val}" selected>${val}</option>`;
+ html+='<option value="custom">✎ 数字を入力…</option>';
+ return html;
+}
+function quantityControl(value,key,variantId,max=999){
+ return `<span class="qty-picker"><select aria-label="${key==='owned'?'所持数':'交換可能数'}" class="qty-select" data-vqty="${key}" data-vid="${esc(variantId)}">${quantityOptions(value,max)}</select><span class="unit">個</span></span>`;
+}
+function askQuantity(label,current,min=0,max=99999){
+ const raw=window.prompt(`${label}を数字で入力してね`,String(current));
+ if(raw===null)return null;
+ if(!/^\d+$/.test(raw.trim())||Number(raw)>max||Number(raw)<min){toast(`個数は${min}〜${max}の数字で入力してね`);return null}
+ return Number(raw);
+}
+function rememberVocabulary(series){
+ app.state.vocab??={work:[],category:[],brand:[],character:[],characterByWork:{}};
+ const add=(key,value)=>{value=canonical(value);if(!value)return;let arr=app.state.vocab[key]||[];app.state.vocab[key]=[value,...arr.filter(x=>x!==value)].slice(0,500)};
+ add('work',series.work);add('category',series.category);
+ app.state.vocab.categoryByType??={};let prev=app.state.vocab.categoryByType[series.type]||[];
+ app.state.vocab.categoryByType[series.type]=[series.category,...prev.filter(x=>x!==series.category)].filter(Boolean).slice(0,500);
+ const work=canonical(series.work);app.state.vocab.characterByWork??={};
+ let used=app.state.vocab.characterByWork[work]||[];
+ for(let v of series.variants){add('character',v.character);if(v.character){let name=v.character.trim();used=[name,...used.filter(x=>x!==name)]}}
+ app.state.vocab.characterByWork[work]=used.slice(0,500);
+}
+function choices(key,filter=''){
+ let all=suggestions(key),q=String(filter||'').trim().toLocaleLowerCase('ja-JP');
+ const hits=q?all.filter(x=>x.toLocaleLowerCase('ja-JP').includes(q)):all;
+ const limit=q?12:6;
+ return `<div class="suggest-caption">${q?'検索に一致する候補':'最近使った候補・よく使う項目'}${hits.length>limit?'（さらに絞り込み可能）':''}</div><div class="suggest-results" data-suggest-list="${key}">${hits.slice(0,limit).map(x=>`<button type="button" data-select="${key}" data-value="${esc(x)}">${esc(x)}</button>`).join('')||'<span class="help">一致する候補なし。新しい名前として保存できるよ。</span>'}</div>`;
+}
+function refreshChoices(key,filter){let el=$(`[data-choice-box="${key}"]`);if(el)el.innerHTML=choices(key,filter)}
+function chips(key,current,work=''){return `<div class="chips">${suggestions(key,work).slice(0,10).map(v=>`<button type="button" data-select="${key}" data-value="${esc(v)}" class="${v===current?'picked':''}">${esc(v)}</button>`).join('')}</div>`}
+function newVariant(name=''){return {id:id(),name,character:'',photo:'',owned:0,trade:0,want:0,lots:[],mercari:false,cost:''}}
+function openEditor(type='goods',seriesId=null){if(type==='cards'&&!seriesId){openCardEditor();return}let s=seriesId?allSeries().find(x=>x.id===seriesId):null;if(s){app.editor={...JSON.parse(JSON.stringify(s)),isNew:false,step:1,variants:s.variants.map(v=>({...v,mercari:false,cost:''}))};}else{app.editor={id:id(),type,isNew:true,step:1,title:'',work:type==='cards'?'アイカツ！':'',cardSeries:type==='cards'?'初代アイカツ！':'',category:type==='cards'?'カード':'',maker:'',brand:'',price:null,photo:'',sourceUrl:'',variants:[newVariant()]}}renderEditor()}
+// アイカツカードは商品シリーズ／ラインナップではなく、カードシリーズ＋弾数＋1枚ずつ登録する。
+function newCardRecord(){const key='初代アイカツ！';return {id:id(),type:'cards',cardSeries:key,cardRound:'第1弾',series:key,work:cardLabel(key),title:'',code:'',brand:'',cardType:'',rarity:'',cardCategory:'',character:'',photo:'',owned:1,trade:0,wanted:false,createdAt:today()}}
+function openCardEditor(cardId=null){let old=cardId?allSingles().find(x=>x.id===cardId&&x.type==='cards'):null;app.cardDraft=old?{...JSON.parse(JSON.stringify(old)),cardSeries:cardSeriesKey(old.cardSeries||old.series),cardRound:old.cardRound||(CARD_ROUNDS[cardSeriesKey(old.cardSeries||old.series)]||['第1弾'])[0],isNew:false}:{...newCardRecord(),isNew:true};renderCardEditor()}
+// v2.16: 公式掲載情報を照合済みの小規模な検索候補。画像は転載せず公式ページへ案内。
+const OFFICIAL_CARD_SEEDS=[
+ {series:'初代アイカツ！',code:'01-01',title:'オーロラキスキャミソール',rarity:'プレミアムレア',cardType:'キュート',cardCategory:'トップス',brand:'エンジェリーシュガー',round:'第1弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215001'},
+ {series:'初代アイカツ！',code:'01-02',title:'アイスブルーフリルキャミソール',rarity:'レア',cardCategory:'トップス',brand:'',round:'第1弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215001'},
+ {series:'初代アイカツ！',code:'01-03',title:'パフスリーブレモンカラーボレロ',rarity:'ノーマル',cardCategory:'トップス',brand:'',round:'第1弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215001'},
+ {series:'初代アイカツ！',code:'01-04',title:'ピンクリボンつきフリルシャツ',rarity:'ノーマル',cardCategory:'トップス',brand:'',round:'第1弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215001'},
+ {series:'初代アイカツ！',code:'02-01',title:'スカイレストランシャツ',rarity:'レア',cardCategory:'トップス',brand:'',round:'第2弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215002'},
+ {series:'初代アイカツ！',code:'02-02',title:'水色ギンガムブラウス',rarity:'ノーマル',cardCategory:'トップス',brand:'',round:'第2弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215002'},
+ {series:'初代アイカツ！',code:'03-01',title:'バレンタインスタイルケープ',rarity:'レア',cardCategory:'トップス',brand:'',round:'第3弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215003'},
+ {series:'初代アイカツ！',code:'03-02',title:'マリンカラーブラウス',rarity:'ノーマル',cardCategory:'トップス',brand:'',round:'第3弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215003'},
+ {series:'初代アイカツ！',code:'03-11',title:'ゴスマジックシャツ',rarity:'プレミアムレア',cardCategory:'トップス',brand:'',round:'第3弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215003'},
+ {series:'初代アイカツ！',code:'03-12',title:'ネオルックチューブトップ',rarity:'レア',cardCategory:'トップス',brand:'',round:'第3弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215003'},
+ {series:'初代アイカツ！',code:'05-02',title:'フラワーピルエットトップス',rarity:'ノーマル',cardCategory:'トップス',cardType:'キュート',brand:'オーロラファンタジー',round:'第5弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215005'},
+ {series:'初代アイカツ！',code:'05-06',title:'フラワーピルエットスカート',rarity:'ノーマル',cardCategory:'ボトムス',cardType:'キュート',brand:'オーロラファンタジー',round:'第5弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215005'},
+ {series:'初代アイカツ！',code:'05-07',title:'オーロラフレアスカート',rarity:'ノーマル',cardCategory:'ボトムス',brand:'',round:'第5弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215005'},
+ {series:'初代アイカツ！',code:'05-08',title:'エンジェリーベアパステルスカート',rarity:'ノーマル',cardCategory:'ボトムス',brand:'',round:'第5弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215005'},
+ {series:'初代アイカツ！',code:'05-09',title:'リボンハウスシューズ',rarity:'レア',cardCategory:'シューズ',brand:'エンジェリーシュガー',round:'第5弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215005'},
+ {series:'初代アイカツ！',code:'05-01',title:'リボンハウスブラウス',rarity:'レア',cardType:'キュート',cardCategory:'トップス',brand:'エンジェリーシュガー',round:'第5弾',url:'https://card.aikatsu.net/cardlist/index.php?search=true&category=215005'},
+ {series:'スターズ！',code:'S2-83',title:'オーロラキスキャミソール',rarity:'プレミアムレア',cardType:'キュート',cardCategory:'トップス',brand:'エンジェリーシュガー',url:'https://www.aikatsu.com/stars/cardlist/dresslist_detail.php?dress_key=NP06_H2_L_PR_Qt_001_T01&parallel='},
+ {series:'オンパレード',code:'OPPR-1',title:'オーロラキスキャミソール',rarity:'プレミアムレア',cardType:'キュート',cardCategory:'トップス',brand:'エンジェリーシュガー',url:'https://www.aikatsu.com/onparade/cardlist/detail.php?id=146758&page=2'}
+];
+const OFFICIAL_CARD_LINKS={
+ '初代アイカツ！':'https://card.aikatsu.net/cardlist/index.php?search=true',
+ 'スターズ！':'https://www.aikatsu.com/stars/cardlist/index.php?search=true',
+ 'フレンズ！':'https://www.aikatsu.com/friends/cardlist/',
+ 'オンパレード':'https://www.aikatsu.com/onparade/cardlist/',
+ 'アンコール':'https://dcd.aikatsu.com/encore/cardlist/',
+ 'プラネット！':'https://www.aikatsu.com/planet/swinglist/'
+};
+function officialCardMatches(){
+ const c=app.cardDraft||{},q=String(c.officialQuery||'').trim().toLocaleLowerCase('ja-JP');
+ return OFFICIAL_CARD_SEEDS.filter(x=>x.series===cardSeriesKey(c.cardSeries)&&(!q||[x.code,x.title,x.brand].join(' ').toLocaleLowerCase('ja-JP').includes(q)));
+}
+function officialCardPanel(){
+ const c=app.cardDraft||{},matches=officialCardMatches(),link=OFFICIAL_CARD_LINKS[cardSeriesKey(c.cardSeries)];
+ return `<div class="note"><b>🔎 公式カード図鑑から探す（試験版）</b><p class="help">公式掲載情報を確認したカードを検索できるよ。ブランドなど未確認の項目は空欄のまま。全カードの自動収録は未対応だよ。</p>
+ <input class="field" id="official-card-query" placeholder="カード名・番号で検索" value="${esc(c.officialQuery||'')}">
+ <div id="official-card-results">${matches.length?matches.map((x,i)=>`<div style="padding:7px 0"><button class="suggest-button" data-official-card="${i}" style="width:100%;text-align:left">${esc(x.code)}｜${esc(x.title)}（${esc(x.rarity)}）</button>${x.url?`<a style="display:inline-block;margin:5px 0 0 6px" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">公式掲載ページ・画像を確認 ↗</a>`:''}</div>`).join(''):'<p class="help">登録済みの公式候補はまだないよ。公式サイトで確認して手動入力してね。</p>'}</div>
+ <a href="${esc(link||'https://www.aikatsu.com/')}" target="_blank" rel="noopener noreferrer">公式カード図鑑を開く ↗</a></div>`;
+}
+function renderCardEditor(keep=true){
+const c=app.cardDraft;if(!c)return;const oldScroll=keep?$('#overlay .sheet')?.scrollTop||0:0;
+const key=cardSeriesKey(c.cardSeries),rounds=cardRounds(key,c.cardRound),rarities=cardRarities(key,c.rarity||'');
+const guessed=BRAND_TYPE[c.brand]||'';const planet=key==='プラネット！';
+$('#overlay').innerHTML=modal(c.isNew?'アイカツカードを登録':'アイカツカードを編集',`<label class="label">カードシリーズ</label><select class="field" id="card-series-select">${CARD_SERIES.map(([k,t])=>`<option value="${esc(k)}" ${key===k?'selected':''}>${esc(t)}</option>`).join('')}</select>
+${officialCardPanel()}
+<div class="note">${key==='プラネット！'?'スイング名・番号・タイプ・レベルを登録するよ。':'カードシリーズと弾数で管理。ブランド・タイプ・レアリティ・カテゴリーを選択できるよ。'}<br>公式図鑑との連携は試験版です。</div>
+<label class="label">弾数</label><select class="field" id="card-round-select">${rounds.map(x=>`<option ${c.cardRound===x?'selected':''}>${esc(x)}</option>`).join('')}<option value="__custom__">＋ その他の弾数を入力</option></select>
+${c.cardRoundCustom?`<input class="field" id="card-round-custom" placeholder="例：2014シリーズ第2弾" value="${esc(c.cardRound)}">`:''}
+<label class="label">${planet?'スイング名':'カード名'} <span style="color:var(--pink)">必須</span></label><input class="field" data-card-field="title" value="${esc(c.title)}" placeholder="例：オーロラキスキャミソール" autocomplete="off">
+<label class="label">${planet?'スイング番号':'カード番号'}（任意）</label><input class="field" data-card-field="code" value="${esc(c.code||'')}" placeholder="例：E1-01">
+${planet?'':`<label class="label">ブランド（任意・アイカツカード専用）</label><input class="field" data-card-field="brand" value="${esc(c.brand||'')}" placeholder="一部の文字で検索／新しく入力" autocomplete="off"><div data-card-brand-box>${cardBrandChoices(c.brand).map(x=>`<button class="suggest-button" data-card-brand="${esc(x)}">${esc(x)}</button>`).join('')}</div>`}
+<label class="label">タイプ</label><select class="field" data-card-select="cardType">${selectOptions(planet?['キュート','クール','セクシー','ポップ','その他']:CARD_TYPES,c.cardType||'')}</select>
+${planet?'':`<p class="help">ブランドからタイプを自動入力。違う場合はこの欄で変更できるよ。${guessed?`（${esc(c.brand)} の基本タイプ：${guessed}）`:''}</p>`}
+<label class="label">レアリティ（シリーズ別）</label><select class="field" data-card-select="rarity">${selectOptions(rarities,c.rarity||'')}<option value="__custom__" ${c.rarityCustom?'selected':''}>＋ その他のレアリティを入力</option></select>${c.rarityCustom?`<input class="field" id="card-rarity-custom" placeholder="レアリティ名を入力" value="${esc(c.rarity||'')}">`:''}
+${planet?`<label class="label">レベル（任意）</label><input class="field" data-card-field="swingLevel" value="${esc(c.swingLevel||'')}" placeholder="例：4" inputmode="numeric">`:`<label class="label">カテゴリー</label><select class="field" data-card-select="cardCategory">${selectOptions(CARD_CATEGORIES,c.cardCategory||'')}</select>`}
+<label class="label">所持数</label><select class="field" data-card-qty="owned">${quantityOptions(c.owned,30)}</select>
+<label class="label">交換可能数</label><select class="field" data-card-qty="trade">${quantityOptions(c.trade,n(c.owned))}</select>
+<label class="check"><input type="checkbox" id="card-wanted" ${c.wanted?'checked':''}> 欲しいカードに登録</label>
+${c.officialSourceUrl?`<p class="help"><a href="${esc(c.officialSourceUrl)}" target="_blank" rel="noopener noreferrer">公式掲載ページで画像を確認 ↗</a></p>`:''}<label class="label">${planet?'スイング':'カード'}の写真（任意）</label><div class="row"><div class="previewphoto" style="width:90px;min-height:100px">${c.photo?`<img src="${esc(c.photo)}" alt="カードの写真">`:'🃏'}</div><div class="grow"><input class="field" type="file" accept="image/*" id="card-photo"><small class="muted">自分で撮影したカード画像をおすすめするよ。</small></div></div>
+<button class="primary wide" style="margin-top:18px" data-action="card-save">♡ カードを保存</button><p class="help">公式のカード情報と異なる候補は、保存前に確認してね。</p>`);
+const el=$('#overlay .sheet');if(el&&keep)el.scrollTop=oldScroll;
+}
+function applyBrandToDraft(brand){
+ if(!app.cardDraft)return;const before=app.cardDraft.brand;
+ app.cardDraft.brand=brand;
+ const proposed=BRAND_TYPE[brand]||'';
+ if(proposed)app.cardDraft.cardType=proposed;
+ renderCardEditor();
+}
+async function saveCardEditor(){const c=app.cardDraft;if(!c||!app.ready)return;if(!String(c.title||'').trim()){toast('カード名・スイング名を入力してね');return}const old=allSingles().find(x=>x.id===c.id);const fresh={...c,title:c.title.trim(),cardSeries:cardSeriesKey(c.cardSeries),work:cardLabel(cardSeriesKey(c.cardSeries)),series:cardSeriesKey(c.cardSeries),cardRound:String(c.cardRound||'').trim(),owned:n(c.owned),trade:Math.min(n(c.trade),n(c.owned)),updatedAt:today()};delete fresh.isNew;delete fresh.officialQuery;delete fresh.cardRoundCustom;delete fresh.rarityCustom;if(!fresh.cardRound){toast('弾数を選んでね');return}try{if(old){app.state.singles=allSingles().map(x=>x.id===fresh.id?fresh:x)}else{app.state.singles.push(fresh)}if(fresh.brand){app.state.vocab??={};let oldBrands=app.state.vocab.brand||[];app.state.vocab.brand=[fresh.brand,...oldBrands.filter(x=>x!==fresh.brand)]}app.state.vocab??={};app.state.vocab.roundByScope??={};const arr=app.state.vocab.roundByScope[fresh.cardSeries]||[];app.state.vocab.roundByScope[fresh.cardSeries]=[...new Set([fresh.cardRound,...arr])];app.state.vocab.rarityByScope??={};if(fresh.rarity&&!CARD_RARITIES[fresh.cardSeries].includes(fresh.rarity)){app.state.vocab.rarityByScope[fresh.cardSeries]=[...new Set([fresh.rarity,...(app.state.vocab.rarityByScope[fresh.cardSeries]||[])])]}await persist();app.cardDraft=null;$('#overlay').innerHTML='';app.page='cards';app.tab='all';app.cardRoundFilter='';render();toast('カードを保存したよ ♡')}catch(e){console.error(e);toast('保存できませんでした')}}
+
+function modal(title,body,subtitle=''){return `<div class="overlay"><div class="sheet" role="dialog" aria-modal="true"><div class="sheethead"><div><div class="eyebrow">TWINKLE CLOSET ♡</div><h2>${title}</h2>${subtitle?`<p class="muted">${subtitle}</p>`:''}</div><button class="xbtn" data-action="close" aria-label="閉じる">×</button></div>${body}</div></div>`}
+
+function safeSourceLink(url){try{const u=new URL(String(url||''));return /^https?:$/.test(u.protocol)&&!['localhost','127.0.0.1'].includes(u.hostname)}catch{return false}}
+const WORKER_KEY='twinkle_vision_worker_url_v1', TOKEN_KEY='twinkle_vision_access_v1';
+function imageSearchConfigured(){try{return !!localStorage.getItem(WORKER_KEY)}catch{return false}}
+function imageSearchUrl(){try{return localStorage.getItem(WORKER_KEY)||''}catch{return ''}}
+function searchToken(){try{return sessionStorage.getItem(TOKEN_KEY)||''}catch{return ''}}
+function imageSearchSettings(){
+ $('#overlay').innerHTML=modal('画像検索サービスの接続 ⚙️',`<div class="note">この機能では画像を検索サービス（Google Lens検索API）へ送信するよ。APIキーをHTMLに入れずに使うため、別途安全な検索用サーバーを接続する必要があります。</div><label class="label">検索用サーバーのURL</label><input id="photo-worker" class="field" type="url" placeholder="https://xxxx.workers.dev" value="${esc(imageSearchUrl())}"><label class="label">検索用の合言葉</label><input id="photo-token" class="field" type="password" autocomplete="off" placeholder="サーバーで設定した合言葉" value="${esc(searchToken())}"><p class="help">合言葉はこのタブを開いている間だけ記憶。画像検索の有料／無料枠の利用を他人に許さないための設定だよ。</p><div class="btnline"><button type="button" class="outline" data-action="photo-config-back">戻る</button><button type="button" class="primary" data-action="photo-config-save">設定を保存</button></div><p class="help">接続前は写真検索できないけれど、商品名・価格の手動登録はそのまま使えるよ。</p>`)
+}
+function imageSearchConfigSave(){const url=$('#photo-worker')?.value.trim()||'',token=$('#photo-token')?.value||'';if(url&&!safeSourceLink(url)){toast('httpsの検索サーバーURLを入力してね');return}if(url)localStorage.setItem(WORKER_KEY,url.replace(/\/$/,''));else localStorage.removeItem(WORKER_KEY);if(token)sessionStorage.setItem(TOKEN_KEY,token);else sessionStorage.removeItem(TOKEN_KEY);renderEditor();toast('接続設定を保存したよ ♡')}
+function tinyImageForSearch(data){return new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>{const k=Math.min(1,900/Math.max(img.width,img.height));const cv=document.createElement('canvas');cv.width=Math.round(img.width*k);cv.height=Math.round(img.height*k);const ctx=cv.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,cv.width,cv.height);ctx.drawImage(img,0,0,cv.width,cv.height);let out='';for(const q of [0.78,0.6,0.42,0.25]){out=cv.toDataURL('image/jpeg',q);if(out.length<580000)break}if(out.length>670000)reject(new Error('写真が大きいため検索用に縮小できません'));else resolve(out)};img.onerror=()=>reject(Error('写真を読み込めません'));img.src=data})}
+async function imageSearchStart(){const e=app.editor;if(!e?.photo||!e.work.trim()){toast('作品名と写真を先に入れてね');return}if(!imageSearchConfigured()){imageSearchSettings();return}const worker=imageSearchUrl(),token=searchToken();if(!token){imageSearchSettings();toast('検索用の合言葉を入力してね');return}
+ $('#overlay').innerHTML=modal('画像から商品を探す 🔎',`<div class="note">${esc(e.work)}のグッズをWeb画像検索中。画像検索先には、商品画像が送信されるよ。</div><div class="panel"><div id="photo-search-status">写真を準備中…</div></div><button type="button" class="outline wide" data-action="photo-search-back">登録に戻る</button>`);
+ try{const image=await tinyImageForSearch(e.photo);const status=$('#photo-search-status');if(status)status.textContent='画像が一致する商品ページと定価の候補を検索しています…';const res=await fetch(worker,{method:'POST',headers:{'Content-Type':'application/json','X-Twinkle-Token':token},body:JSON.stringify({work:e.work,image})});let data=await res.json().catch(()=>({}));if(!res.ok)throw Error(data.error||`検索に失敗しました（HTTP ${res.status}）`);if(!app.editor||app.editor!==e)return;app.photoResults={work:e.work,...data};imageSearchResults()}catch(err){console.error(err);$('#overlay').innerHTML=modal('画像検索の結果',`<div class="note">画像検索を実行できなかったよ：${esc(err.message||'接続エラー')}</div><div class="btnline"><button class="outline" data-action="photo-search-back">入力画面に戻る</button><button class="soft" data-action="photo-settings">接続設定を確認</button></div>`)}
+}
+function imageSearchResults(){const r=app.photoResults;if(!r)return;const matches=(r.matches||[]).slice(0,10),prices=(r.prices||[]).slice(0,8);
+ $('#overlay').innerHTML=modal('商品候補を確認 🔎',`<div class="note">検索結果が正しい商品とは限らないよ。<strong>各候補の「根拠ページを開く」を押して別タブで確認</strong>してから反映してね。</div><b>① 商品シリーズ名の候補（${matches.length}件）</b>${matches.length?matches.map((m,i)=>`<div class="panel" style="padding:11px;margin-top:9px"><div class="row" style="align-items:center;gap:10px">${safeSourceLink(m.thumbnail)?`<img alt="候補画像" src="${esc(m.thumbnail)}" style="width:65px;height:65px;object-fit:contain;border-radius:9px">`:''}<div class="grow"><b style="font-size:13px;overflow-wrap:anywhere">${esc(m.title)}</b><p class="help">${esc(m.source||'検索結果')}</p>${m.salePrice!=null?`<small class="muted">掲載の販売価格：${yen(m.salePrice)}（定価とは限らない）</small>`:''}</div></div><div class="btnline"><a class="outline mini" target="_blank" rel="noopener noreferrer" href="${esc(m.link)}">↗ 根拠ページを開く</a><button class="soft mini" data-action="photo-select-match" data-pick="${i}">この商品名を反映</button></div></div>`).join(''):'<p class="help">画像に一致する掲載ページが見つからなかったよ。写真を変えて再検索してね。</p>'}
+ <div class="divider" style="margin:14px 0"></div><b>② 定価の候補（${prices.length}件）</b><p class="help">価格はWeb上の表記から抽出した候補。販売価格・セット価格・税抜表示が混ざる可能性があるので、必ずページ本文で確認してね。</p>${prices.length?prices.map((m,i)=>`<div class="panel" style="padding:11px;margin:9px 0"><b>${yen(m.price)} <small class="muted">${esc(m.confidence||'要確認')}</small></b><p class="help" style="overflow-wrap:anywhere">${esc(m.title)}</p><div class="btnline"><a class="outline mini" target="_blank" rel="noopener noreferrer" href="${esc(m.link)}">↗ 根拠ページを開く</a><button class="soft mini" data-action="photo-select-price" data-pick="${i}">確認した定価を反映</button></div></div>`).join(''):'<p class="help">定価の候補は見つからなかったよ。商品名が分かったら、公式の商品ページで確認して入力してね。</p>'}
+ <div class="btnline"><button class="outline wide" data-action="photo-search-back">← 登録画面に戻る</button></div><p class="help">※候補の選択だけでは商品は保存されないよ。入力画面で確認後に「この内容で保存」を押してね。</p>`)
+}
+function applyPhotoResult(kind,index){const r=app.photoResults,e=app.editor;if(!r||!e)return;const x=(kind==='price'?r.prices:r.matches)?.[index];if(!x)return;if(kind==='price'){if(!Number.isFinite(+x.price)||+x.price<0){toast('価格候補を確認できないよ');return}e.price=Number(x.price)}else{e.title=x.productTitle||x.title}if(safeSourceLink(x.link))e.sourceUrl=x.link;renderEditor();toast(kind==='price'?'定価候補を反映したよ ♡':'商品名候補を反映したよ ♡')}
+function editorCommon(e){return `<div class="steps"><span class="current">① 商品情報</span><span>② ラインナップ</span><span>③ 確認・保存</span></div><label class="label">登録するもの</label><div class="segmented">${['cards','goods','gacha'].map(t=>`<button type="button" data-etype="${t}" class="${e.type===t?'sel':''}" ${e.isNew?'':'disabled'}>${EMO[t]} ${TYPES[t]}</button>`).join('')}</div>
+${e.type==='cards'?`<label class="label">カードシリーズ</label><select class="field" data-e-field="cardSeries">${CARD_SERIES.map(([x])=>x).map(x=>`<option ${e.cardSeries===x?'selected':''}>${x}</option>`).join('')}</select>`:''}
+<label class="label">① 作品名 <span style="color:var(--pink)">必須</span></label><input class="field" data-e-field="work" value="${esc(e.work)}" placeholder="作品名を検索／新しく入力" autocomplete="off"><div data-choice-box="work">${choices('work',e.work)}</div><p class="help">作品名を入力してね。</p>
+<label class="label">② 商品画像・ラインナップ画像</label><div class="row" style="align-items:center"><div class="previewphoto" style="width:116px;min-height:90px">${e.photo?`<img src="${esc(e.photo)}" alt="検索したい商品画像">`:'📸'}</div><div class="grow"><input class="field" type="file" accept="image/*" data-upload="series"><p class="help">商品画像やラインナップ画像を登録できるよ。</p></div></div>
+
+<label class="label">商品シリーズ名 <span style="color:var(--pink)">必須</span></label><input class="field" data-e-field="title" maxlength="120" value="${esc(e.title)}" placeholder="商品シリーズ名を入力">
+<label class="label">${e.type==='gacha'?'ガチャの種類':e.type==='cards'?'カードの種類':'グッズの種類'}</label><input class="field" data-e-field="category" value="${esc(e.category)}" placeholder="${e.type==='gacha'?'例：めじるしアクセサリー':'例：缶バッジ'}" autocomplete="off"><div data-choice-box="category">${choices('category',e.category)}</div>
+<label class="label">定価（税込）・1個／1回あたり</label><input class="field" type="number" min="0" step="1" data-e-field="price" value="${e.price??''}" placeholder="例：400"><p class="help">フリマや中古店の販売価格は定価ではないので、根拠ページを確認してから入力してね。</p>
+<label class="label">定価・商品名の根拠URL（任意）</label><input class="field" inputmode="url" type="url" data-e-field="sourceUrl" value="${esc(e.sourceUrl||'')}" placeholder="https://公式商品ページなど"><p class="help">公式ページなどのURLを保存すると、登録後も商品詳細から開けるよ。</p>${safeSourceLink(e.sourceUrl)?`<p class="help"><a href="${esc(e.sourceUrl)}" target="_blank" rel="noopener noreferrer">↗ 根拠ページを別タブで開く</a></p>`:''}
+<div class="btnline" style="margin-top:22px"><button type="button" class="primary wide" data-action="ed-next">ラインナップ登録へ →</button></div>`}
+function editorLineup(e){return `<div class="steps"><span>① 商品情報</span><span class="current">② ラインナップ</span><span>③ 確認・保存</span></div><div class="note">商品情報は「① 商品情報」から。ここでは全種類の名前と所持数をまとめて設定できるよ。</div><div class="panel"><b>まとめて枠を作る</b><div class="btnline" style="margin-top:9px"><button class="soft mini" data-action="ed-add5">＋5種類</button><button class="soft mini" data-action="ed-add10">＋10種類</button><button class="outline mini" data-action="ed-add1">＋1種類</button></div><label class="label">名前をまとめて入力（1行1種類）</label><textarea id="paste-names" class="field" rows="3" placeholder="江戸川コナン&#10;灰原哀&#10;安室透"></textarea><button class="outline wide mini" style="margin-top:8px" data-action="ed-paste">名前からラインナップを作る</button><p class="help">まとめ貼り付けで既存の空欄を埋め、足りない行は追加する。すでに入力した行は上書きしないよ。</p></div>
+<p class="muted">全${e.variants.length}種類。名前の検索候補は作品別。所持・交換可能数はタップして選択。 ≡ または ↑↓ で並べ替え。</p><div id="variant-rows">${e.variants.map((v,i)=>variantEditor(v,i,e)).join('')}</div>
+<div class="btnline" style="margin-top:16px"><button class="outline" data-action="ed-prev">← 商品情報</button><button class="primary" data-action="ed-next">確認へ →</button></div>`}
+function variantEditor(v,i,e){return `<div class="lineup-row" data-vid="${esc(v.id)}"><div class="rowtop"><button type="button" class="grab" data-grab="${esc(v.id)}" aria-label="並べ替え">≡</button><div class="rowphoto">${v.photo?`<img src="${esc(v.photo)}">`:'✨'}</div><div class="grow"><div style="font-size:10px;color:var(--rose);font-weight:900">No.${i+1}</div><input aria-label="ラインナップ名" data-vfield="name" data-vid="${esc(v.id)}" class="field" style="min-height:37px;padding:7px 9px" value="${esc(v.name)}" placeholder="名前・絵柄"></div></div>
+<div class="crop-tool-row"><button class="outline mini crop-trigger" type="button" data-crop="editor:${esc(v.id)}" ${!e.photo?'disabled':''}>✂ 共通画像から切り出す</button><label class="muted crop-file">個別写真 <input type="file" accept="image/*" data-upload="variant" data-vid="${esc(v.id)}"></label></div><div class="row" style="justify-content:flex-end;margin-top:8px"><button class="outline mini" aria-label="上に移動" data-reorder="${esc(v.id)}:-1" ${i===0?'disabled':''}>↑</button><button class="outline mini" aria-label="下に移動" data-reorder="${esc(v.id)}:1" ${i===e.variants.length-1?'disabled':''}>↓</button><button class="outline mini" data-deletevariant="${esc(v.id)}" aria-label="種類を削除">×</button></div>
+<label class="label">キャラクター（任意）</label><input class="field" style="min-height:39px" data-vfield="character" data-vid="${esc(v.id)}" value="${esc(v.character)}" autocomplete="off" placeholder="名前の一部で検索・新規入力"><div class="char-pop" data-char-choices="${esc(v.id)}" hidden></div>
+<div class="rowcontrols"><label>所持 ${quantityControl(v.owned,'owned',v.id)}</label><label style="margin-left:auto">交換可 ${quantityControl(v.trade,'trade',v.id,n(v.owned))}</label></div>
+<div class="rowcontrols"><label class="check"><input type="checkbox" data-vcheck="want" data-vid="${esc(v.id)}" ${v.want?'checked':''}>♡ 欲しい</label><span style="margin-left:auto"></span><label class="check"><input type="checkbox" data-vcheck="mercari" data-vid="${esc(v.id)}" ${v.mercari?'checked':''} ${!e.isNew&&(v.lots||[]).length?'disabled':''}>二次流通</label></div>
+${v.mercari?`<label class="label">購入価格（この種類の合計・税込）</label><input type="number" inputmode="numeric" min="0" data-vfield="cost" data-vid="${esc(v.id)}" class="field" placeholder="例：850" value="${esc(v.cost||'')}"><div class="help">チェックを入れたときだけ表示。送料込みで支払った合計額を入力。</div>`:''}
+${!e.isNew&&(v.lots||[]).length?`<div class="help">既存の購入記録は維持。買い足しは商品詳細の「＋購入」から。</div>`:''}</div>`}
+// OCRをオンデマンドで読み込む。外部AIの鍵は使わず、Safari内で文字を読み取る。
+// Tesseract.jsは初回のみ言語データをダウンロード。画像は商品検索サイトへ送信しない。
+let ocrScriptPromise=null,ocrWorker=null;
+function ensureOcrScript(){
+ if(window.Tesseract?.createWorker)return Promise.resolve();
+ if(ocrScriptPromise)return ocrScriptPromise;
+ ocrScriptPromise=new Promise((resolve,reject)=>{
+  const script=document.createElement('script');script.src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';script.async=true;
+  script.onload=()=>window.Tesseract?.createWorker?resolve():reject(Error('文字認識ライブラリを読み込めません'));
+  script.onerror=()=>reject(Error('文字認識ライブラリの取得に失敗しました。通信を確認してね'));
+  document.head.appendChild(script);
+ }).catch(err=>{ocrScriptPromise=null;throw err});return ocrScriptPromise;
+}
+function setOcrStatus(message){let status=$('#ocr-status');if(status)status.textContent=message}
+function ocrRawToCandidates(text){
+ const reject=/^(?:https?:|www\.|©|ⓒ|copyright|bandai|bnp|監修中|商品画像|対象年齢|全[0-9０-９]+種|※|価格|発売|サンプル|sample|ガシャポン|オンライン|取扱|使用上の注意)/i;
+ const seen=new Set();const lines=[];
+ for(let part of String(text||'').replace(/\r/g,'\n').split(/\n/)){
+  const line=part.replace(/[\t]+/g,' ').replace(/[・•◆★☆✦]+/g,' ').replace(/^[\s\-_,、。:：]+|[\s\-_,、。:：]+$/g,'').trim();
+  if(line.length<2||line.length>65||reject.test(line)||/^[0-9\s.]+$/.test(line))continue;
+  const normalized=line.toLocaleLowerCase('ja-JP');if(seen.has(normalized))continue;
+  seen.add(normalized);lines.push(line);
+ }
+ return lines;
+}
+async function startOcr(){
+ if(!app.editor?.photo){toast('先にラインナップ画像を追加してね');return}
+ const currentEditor=app.editor;app.ocrDraft={text:'',raw:'',busy:true};
+ $('#overlay').innerHTML=modal('画像から種類名を読み取る ✨',`<div class="note">日本語・英語の文字を読み取る試験機能。画像検索で商品を自動特定する機能ではないよ。候補はあとで修正できるよ。</div><div class="panel"><div class="eyebrow">文字認識中</div><p id="ocr-status">読み込みの準備中…</p></div><button type="button" class="outline wide" data-action="ocr-back">編集画面へ戻る</button>`);
+ try{
+  await ensureOcrScript();setOcrStatus('日本語・英語の認識データを準備中…（初回は時間がかかるよ）');
+  if(!ocrWorker)ocrWorker=await window.Tesseract.createWorker(['jpn','eng'],1,{logger:m=>{if(m.status==='recognizing text')setOcrStatus('画像の文字を読み取っています… '+Math.round((m.progress||0)*100)+'%')}});
+  setOcrStatus('画像を認識中…');const ret=await ocrWorker.recognize(app.editor.photo);
+  if(app.editor!==currentEditor||!app.ocrDraft)return;const raw=ret?.data?.text||'';const suggestions=ocrRawToCandidates(raw);
+  app.ocrDraft={raw,text:suggestions.join('\n'),busy:false};renderOcrReview();
+ }catch(err){console.error('OCR',err);if(app.editor!==currentEditor||!app.ocrDraft)return;app.ocrDraft.busy=false;$('#overlay').innerHTML=modal('画像の文字認識',`<div class="note">文字認識できなかったよ。ネット接続やSafariのメモリ制限が原因の可能性があるよ。${esc(err.message||'')}</div><button type="button" class="outline wide" data-action="ocr-back">ラインナップ編集に戻る</button>`)}
+}
+function renderOcrReview(){let o=app.ocrDraft;if(!o)return;
+ $('#overlay').innerHTML=modal('読み取った文字を確認 ✨',`<div class="note">読み取った文字から名前の候補を作ったよ。<strong>名前だけを1行に1種類</strong>残して、不要な文字を消してね。既存の入力は上書きしないよ。</div><label class="label" for="ocr-lines">ラインナップ名の候補（編集可能）</label><textarea id="ocr-lines" class="field" rows="9" style="line-height:1.7" spellcheck="false">${esc(o.text)}</textarea><p class="help">OCRは商品名・画像・キャラクターを正確に判断できるものではないので、公式ラインナップに照らして確認してね。</p><details><summary style="padding:8px 0">読み取り結果の原文を見る</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px">${esc(o.raw||'')}</pre></details><div class="btnline" style="margin-top:15px"><button type="button" class="outline" data-action="ocr-back">← 戻る</button><button type="button" class="primary" data-action="ocr-apply">候補を反映 →</button></div>`)
+}
+function applyOcrCandidates(){const e=app.editor;if(!e||!app.ocrDraft)return;
+ const names=String($('#ocr-lines')?.value||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+ if(!names.length){toast('名前の候補を1行以上入力してね');return}
+ const used=new Set(e.variants.filter(v=>v.name.trim()).map(v=>v.name.trim().toLocaleLowerCase('ja-JP')));let added=0;
+ for(const name of names){const normalized=name.toLocaleLowerCase('ja-JP');if(used.has(normalized))continue;used.add(normalized);let blank=e.variants.find(v=>!v.name.trim());if(blank)blank.name=name;else e.variants.push(newVariant(name));added++}
+ app.ocrDraft=null;renderEditor(false);toast(added+'件の候補を反映したよ。間違いは修正してね ♡');
+}
+function editorReview(e){let qty=e.variants.reduce((a,v)=>a+n(v.owned),0);let cost=e.variants.reduce((a,v)=>{if(!v.owned||(!e.isNew&&(v.lots||[]).length))return a;return a+(v.mercari?Number(v.cost)||0:(e.price??0)*n(v.owned))},0);return `<div class="steps"><span>① 商品情報</span><span>② ラインナップ</span><span class="current">③ 確認・保存</span></div><div class="panel"><div class="eyebrow">保存する内容 ♡</div><h2 style="font-size:19px;margin:7px 0">${esc(e.title)}</h2><p class="muted">${esc(e.work)}・${esc(e.category)}　定価 ${yen(e.price)}</p><div class="stats" style="margin-top:13px"><div class="stat"><small>ラインナップ</small><strong>${e.variants.length}</strong><span class="foot">種類</span></div><div class="stat"><small>所持</small><strong>${qty}</strong><span class="foot">個</span></div></div><div class="note">今回新たに金額を記録するもの：${yen(cost)}（価格未設定品は除く）。二次流通にチェックした種類は購入価格を使うよ。</div></div>
+<div class="panel">${e.variants.map((v,i)=>`<div class="row group-item">${thumb(v.photo,EMO[e.type])}<div class="grow"><b>${i+1}. ${esc(v.name)}</b><small style="display:block;color:var(--sub)">所持 ${v.owned} / 交換 ${v.trade} ${v.mercari?'・二次流通':''}</small></div></div>`).join('')}</div><div class="btnline"><button class="outline" data-action="ed-prev">← 修正する</button><button class="primary" id="confirm-save" data-action="ed-save">♡ この内容で保存</button></div>`}
+function renderEditor(preserveScroll=true){let e=app.editor;if(!e)return;
+ const before=$('#overlay .sheet'),oldScroll=preserveScroll&&before?before.scrollTop:0;
+ $('#overlay').innerHTML=modal(e.isNew?'商品シリーズをまとめて登録':'商品シリーズを編集',e.step===1?editorCommon(e):e.step===2?editorLineup(e):editorReview(e));
+ if(e.step===2){setupDrag();}
+ if(preserveScroll){let sheet=$('#overlay .sheet');if(sheet)sheet.scrollTop=oldScroll;}
+}
+function edStep(delta){let e=app.editor;if(!e)return;if(delta===1&&e.step===1){if(!e.title.trim()||!e.work.trim()){toast('作品名と商品シリーズ名を入力してね');return}e.work=canonical(e.work);e.category=canonical(e.category);}if(delta===1&&e.step===2){if(e.variants.length<1){toast('最低1種類を追加してね');return}if(e.variants.some(v=>!v.name.trim())){toast('名前の空欄を埋めてね（仮名でもOK）');return}if(e.variants.some(v=>v.mercari&&n(v.owned)>0&&(v.cost===''||!Number.isFinite(Number(v.cost))||Number(v.cost)<0))){toast('二次流通の購入価格を入力してね');return}}e.step=Math.max(1,Math.min(3,e.step+delta));renderEditor(false)}
+function variantById(vid){return app.editor?.variants.find(v=>v.id===vid)}
+function refreshStepRow(vid){let v=variantById(vid);let row=$('#variant-rows .lineup-row[data-vid="'+vid+'"]');if(!v||!row)return;
+ const owned=row.querySelector('[data-vqty="owned"]'),trade=row.querySelector('[data-vqty="trade"]');
+  if(owned){owned.innerHTML=quantityOptions(v.owned)}
+  if(trade){trade.innerHTML=quantityOptions(v.trade,n(v.owned))}
+}
+function addVariants(num){const e=app.editor;if(!e)return;for(let i=0;i<num;i++)e.variants.push(newVariant());renderEditor()}
+function pasteNames(){let text=$('#paste-names')?.value||'';let names=text.split(/[\r\n]+/).map(x=>x.trim()).filter(Boolean);if(!names.length){toast('1行ずつ名前を貼り付けてね');return}let e=app.editor;for(let name of names){let blank=e.variants.find(v=>!v.name.trim());if(blank)blank.name=name;else e.variants.push(newVariant(name))}renderEditor();toast(names.length+'種類の名前を反映したよ ♡')}
+function moveVariant(vid,dir){let a=app.editor.variants,i=a.findIndex(v=>v.id===vid),j=i+dir;if(i<0||j<0||j>=a.length)return;[a[i],a[j]]=[a[j],a[i]];renderEditor()}
+function setupDrag(){let handle=$('[data-grab]');if(!handle)return;let drag=null;$('#variant-rows').addEventListener('pointerdown',ev=>{let gr=ev.target.closest('[data-grab]');if(!gr)return;drag={vid:gr.dataset.grab,startY:ev.clientY,wasMoved:false};try{gr.setPointerCapture(ev.pointerId)}catch{}}, {passive:true});$('#variant-rows').addEventListener('pointermove',ev=>{if(!drag)return;if(Math.abs(ev.clientY-drag.startY)>12)drag.wasMoved=true;let row=$(`[data-vid="${drag.vid}"].lineup-row`);if(row)row.classList.toggle('dragging',drag.wasMoved)},{passive:true});$('#variant-rows').addEventListener('pointerup',ev=>{if(!drag)return;let source=drag.vid,moved=drag.wasMoved;drag=null;$$('.lineup-row.dragging').forEach(r=>r.classList.remove('dragging'));if(!moved)return;let el=document.elementFromPoint(ev.clientX,ev.clientY)?.closest('.lineup-row');let target=el?.dataset.vid;if(!target||target===source)return;let a=app.editor.variants,from=a.findIndex(v=>v.id===source),to=a.findIndex(v=>v.id===target);if(from<0||to<0)return;a.splice(to,0,a.splice(from,1)[0]);renderEditor()},{passive:true});}
+async function saveEditor(){let e=app.editor;if(!e||!app.ready)return;let fresh=JSON.parse(JSON.stringify(e));const old=allSeries().find(s=>s.id===e.id);for(let v of fresh.variants){if(!v.name.trim()){toast('未入力の種類があります');return}let prior=old?.variants.find(x=>x.id===v.id);if(prior){v.lots=prior.lots||[];}else if(n(v.owned)>0){if(v.mercari&&v.cost===''){toast('二次流通の購入価格を入力してね');return}v.lots=[{id:id(),qty:n(v.owned),mercari:!!v.mercari,amount:v.mercari?Number(v.cost):fresh.price==null?null:Number(fresh.price)*n(v.owned)}];}else v.lots=[];v.trade=Math.min(n(v.owned),n(v.trade));v.owned=n(v.owned);v.want=v.want?1:0;v.name=v.name.trim();v.character=canonical(v.character);delete v.mercari;delete v.cost;}
+fresh.title=fresh.title.trim();fresh.work=canonical(fresh.work);fresh.category=canonical(fresh.category);fresh.maker=canonical(fresh.maker);rememberVocabulary(fresh);fresh.price=fresh.price==null||fresh.price===''?null:n(fresh.price);delete fresh.isNew;delete fresh.step;fresh.updatedAt=today();if(!old)fresh.createdAt=today();try{if(old)app.state.series=allSeries().map(x=>x.id===fresh.id?fresh:x);else app.state.series.push(fresh);await persist();app.editor=null;$('#overlay').innerHTML='';toast('まとめて登録したよ ♡');viewSeries(fresh.id)}catch(err){console.error(err);toast('保存できませんでした。容量を確認してね')}}
+function addPurchase(seriesId,variantId){let s=allSeries().find(x=>x.id===seriesId),v=s?.variants.find(x=>x.id===variantId);if(!s||!v)return;app.buy={seriesId,variantId,qty:1,mercari:false,cost:''};renderPurchase()}
+function renderPurchase(){let b=app.buy,s=allSeries().find(x=>x.id===b.seriesId),v=s.variants.find(x=>x.id===b.variantId);$('#overlay').innerHTML=modal('購入を追加 ♡',`<div class="panel"><b>${esc(v.name)}</b><div class="muted">${esc(s.title)} ・ 定価 ${yen(s.price)}</div></div><label class="label">購入個数</label><div class="row" style="justify-content:center"><span class="qty-picker"><select id="buy-qty" aria-label="購入個数" class="qty-select">${quantityOptions(b.qty,30,1)}</select><span class="unit">個</span></span></div><label class="check" style="margin-top:16px"><input type="checkbox" id="buy-mercari" ${b.mercari?'checked':''}> 二次流通で取得</label>${b.mercari?`<label class="label">購入価格（税込・この購入の総額）</label><input class="field" id="buy-cost" type="number" inputmode="numeric" min="0" value="${esc(b.cost)}" placeholder="例：1200"><p class="help">送料込みの場合、そのまま総額を入力してね。</p>`:`<div class="note">定価 ${yen(s.price)} × ${b.qty}個 ＝ ${s.price==null?'価格未設定':yen(s.price*b.qty)}</div>`}<button class="primary wide" style="margin-top:15px" data-action="save-purchase">♡ 購入分を追加する</button>`)}
+async function savePurchase(){let b=app.buy,s=allSeries().find(x=>x.id===b?.seriesId),v=s?.variants.find(x=>x.id===b.variantId);if(!v)return;if(b.mercari&&(b.cost===''||Number(b.cost)<0||!Number.isFinite(Number(b.cost)))){toast('購入価格を入力してね');return}v.owned+=n(b.qty);v.lots??=[];v.lots.push({id:id(),qty:b.qty,mercari:b.mercari,amount:b.mercari?Number(b.cost):s.price==null?null:s.price*b.qty});try{await persist();app.buy=null;$('#overlay').innerHTML='';toast('購入分を追加したよ ♡');render()}catch(e){v.owned-=n(b.qty);v.lots.pop();toast('保存に失敗しました')}}
+async function stockChange(sid,vid,delta){
+ let series=allSeries().find(s=>s.id===sid),v=series?.variants.find(v=>v.id===vid);if(!v)return;
+ const previous={owned:v.owned,trade:v.trade};v.owned=Math.max(0,n(v.owned)+delta);v.trade=Math.min(n(v.trade),v.owned);
+ try{await persist();
+  const row=[...document.querySelectorAll('[data-detail-vid]')].find(x=>x.dataset.detailVid===vid);
+  if(app.page==='detail'&&app.viewId===sid&&row){
+   row.querySelector('[data-detail-owned]').textContent='所持 '+n(v.owned);
+   row.querySelector('[data-detail-trade]').textContent='交換 '+n(v.trade);
+   let dec=row.querySelector('[data-stock$=":-1"]');if(dec)dec.disabled=v.owned<1;
+   let summary=$('[data-detail-summary]');if(summary)summary.textContent=series.variants.length+'種類 / 所持 '+series.variants.reduce((a,x)=>a+n(x.owned),0)+'個';
+  }else render(true);
+ }catch(e){v.owned=previous.owned;v.trade=previous.trade;toast('保存に失敗しました')}
+}
+// v2.1：共通のラインナップ画像から、各種類の写真を手動で切り出す。
+function cropOpen(sid,vid){
+ let inEditor=sid==='editor',series=inEditor?app.editor:allSeries().find(x=>x.id===sid);
+ let variant=series?.variants?.find(x=>x.id===vid);
+ if(!series||!variant){toast('種類が見つかりません');return}
+ if(!series.photo){toast('先に商品全体の画像を登録してね');return}
+ app.crop={inEditor,sid,vid,src:series.photo,img:null,rect:null,start:null};
+ $('#overlay').innerHTML=modal('画像を切り出す ✂',`<div class="note">${esc(variant.name)} の画像を設定するよ。<br>写真の中で切り出したい場所を指でなぞって四角く囲んでね。</div><canvas id="crop-canvas" class="crop-area" width="500" height="500" aria-label="切り抜く範囲を指定"></canvas><p class="crop-note">小さく選びすぎた場合は、もう一度指で囲むと選び直せるよ。AIによる自動切り抜きではありません。</p><div class="crop-actions"><button class="outline" data-action="crop-cancel">戻る</button><button class="primary" data-action="crop-save">♡ この範囲を保存</button></div>`);
+ loadImage(series.photo).then(im=>{if(!app.crop||app.crop.vid!==vid)return;app.crop.img=im;const w=im.naturalWidth,h=im.naturalHeight,max=1000,k=Math.min(1,max/Math.max(w,h));let c=$('#crop-canvas');if(!c)return;c.width=Math.max(1,Math.round(w*k));c.height=Math.max(1,Math.round(h*k));let side=Math.min(c.width,c.height)*.22;app.crop.rect={x:(c.width-side)/2,y:(c.height-side)/2,w:side,h:side};cropPaint()}).catch(()=>toast('画像が読み込めませんでした'));
+}
+function cropPaint(){let x=app.crop,c=$('#crop-canvas');if(!x?.img||!c)return;let ctx=c.getContext('2d');ctx.clearRect(0,0,c.width,c.height);ctx.drawImage(x.img,0,0,c.width,c.height);let r=x.rect;if(r){ctx.fillStyle='rgba(58,33,71,.3)';ctx.fillRect(0,0,c.width,r.y);ctx.fillRect(0,r.y, r.x,r.h);ctx.fillRect(r.x+r.w,r.y,c.width-r.x-r.w,r.h);ctx.fillRect(0,r.y+r.h,c.width,c.height-r.y-r.h);ctx.strokeStyle='#fa118b';ctx.lineWidth=Math.max(3,c.width/180);ctx.setLineDash([12,8]);ctx.strokeRect(r.x,r.y,r.w,r.h);ctx.setLineDash([])}}
+function cropPoint(ev){let c=$('#crop-canvas'),box=c.getBoundingClientRect();return {x:Math.max(0,Math.min(c.width,(ev.clientX-box.left)/box.width*c.width)),y:Math.max(0,Math.min(c.height,(ev.clientY-box.top)/box.height*c.height))}}
+function cropClose(){const editing=app.crop?.inEditor;app.crop=null;if(editing)renderEditor();else $('#overlay').innerHTML=''}
+async function cropSave(){let x=app.crop;if(!x?.img||!x.rect||x.rect.w<8||x.rect.h<8){toast('切り出す範囲を選んでね');return}let s=x.inEditor?app.editor:allSeries().find(s=>s.id===x.sid),v=s?.variants.find(v=>v.id===x.vid);if(!v)return;let r=x.rect,c=$('#crop-canvas'),scaleX=x.img.naturalWidth/c.width,scaleY=x.img.naturalHeight/c.height;let out=document.createElement('canvas'),max=560,k=Math.min(1,max/Math.max(r.w*scaleX,r.h*scaleY));out.width=Math.max(1,Math.round(r.w*scaleX*k));out.height=Math.max(1,Math.round(r.h*scaleY*k));let ctx=out.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,out.width,out.height);ctx.drawImage(x.img,r.x*scaleX,r.y*scaleY,r.w*scaleX,r.h*scaleY,0,0,out.width,out.height);let previous=v.photo;v.photo=out.toDataURL('image/jpeg',.78);if(!x.inEditor){try{await persist()}catch(e){v.photo=previous;toast('保存できません。容量を確認してね');return}}cropClose();if(!x.inEditor)render(true);toast('個別画像を設定したよ ♡')}
+// 金額記録は個数の増減とは別。訂正は金額の記録だけに反映する。
+function ledgerOpen(sid,vid){let s=allSeries().find(x=>x.id===sid),v=s?.variants.find(x=>x.id===vid);if(!v)return;app.ledger={sid,vid};renderLedger()}
+function renderLedger(){let a=app.ledger,s=allSeries().find(x=>x.id===a.sid),v=s?.variants.find(x=>x.id===a.vid);if(!v)return;let lots=v.lots||[],recorded=lots.reduce((sum,x)=>sum+n(x.qty),0),unrecorded=Math.max(0,n(v.owned)-recorded),total=lots.reduce((sum,x)=>sum+(Number(x.amount)||0),0);
+ $('#overlay').innerHTML=modal('購入金額の記録',`<div class="panel"><b>${esc(v.name)}</b><p class="muted">${esc(s.title)}</p><div class="ledger-summary">所持 ${n(v.owned)}個 ／ 金額記録 ${recorded}個分<br>記録済み合計：<b>${yen(total)}</b> ${unrecorded?`<br>⚠️ 金額未記録の所持分：${unrecorded}個`:''}</div>${unrecorded?`<button class="soft wide" data-action="ledger-fill">＋ 未記録の${unrecorded}個を定価で計上</button><p class="help">実際の購入額が不明な場合の参考額。二次流通で取得した分は「＋購入」から個別に登録してね。</p>`:''}<div class="panel-title" style="margin-top:16px">記録一覧</div>${lots.length?lots.map((lot,i)=>`<div class="ledgerline"><div class="row"><div class="grow"><b>記録${i+1}：${n(lot.qty)}個</b><small style="display:block;color:var(--sub)">${lot.mercari?'二次流通の購入価格':'定価換算'} ・ ${yen(lot.amount)}</small></div><button class="outline mini" data-ledger-edit="${esc(lot.id)}">編集</button><button class="outline mini" data-ledger-remove="${esc(lot.id)}">削除</button></div></div>`).join(''):`<div class="help">金額の記録はまだありません。</div>`}</div><button class="outline wide" data-action="ledger-close">閉じる</button><p class="help">この画面で金額記録を編集・削除しても、所持数や交換可能数は変わらないよ。</p>`)}
+function ledgerEdit(lotId){let a=app.ledger,s=allSeries().find(x=>x.id===a.sid),v=s?.variants.find(x=>x.id===a.vid),lot=(v?.lots||[]).find(l=>l.id===lotId);if(!lot)return;app.ledger.lotId=lotId;app.ledger.isMercari=!!lot.mercari;app.ledger.amount=lot.amount==null?'':String(lot.amount);renderLedgerEdit()}
+function renderLedgerEdit(){let a=app.ledger,s=allSeries().find(x=>x.id===a.sid),v=s.variants.find(x=>x.id===a.vid),lot=v.lots.find(l=>l.id===a.lotId);if(!lot)return;
+ $('#overlay').innerHTML=modal('金額記録を修正',`<div class="panel"><b>${esc(v.name)} ・ ${n(lot.qty)}個</b></div><label class="check"><input id="ledger-mercari" type="checkbox" ${a.isMercari?'checked':''}> 二次流通で取得</label>${a.isMercari?`<label class="label">購入価格（税込・この記録の合計）</label><input class="field" type="number" id="ledger-amount" inputmode="numeric" min="0" value="${esc(a.amount)}">`:`<div class="note">定価 ${yen(s.price)} × ${n(lot.qty)}個 → ${s.price==null?'未設定':yen(Number(s.price)*n(lot.qty))}<br>通常購入に戻すと、現在設定中の定価が適用されるよ。</div>`}<div class="btnline" style="margin-top:14px"><button class="outline" data-action="ledger-edit-cancel">戻る</button><button class="primary" data-action="ledger-edit-save">金額を更新</button></div>`)}
+async function ledgerSave(){let a=app.ledger,s=allSeries().find(x=>x.id===a.sid),v=s.variants.find(x=>x.id===a.vid),lot=v.lots.find(l=>l.id===a.lotId);if(a.isMercari&&(a.amount===''||!Number.isFinite(+a.amount)||+a.amount<0)){toast('購入価格を正しく入力してね');return}let copy={...lot};lot.mercari=a.isMercari;lot.amount=a.isMercari?Number(a.amount):s.price==null?null:Number(s.price)*n(lot.qty);try{await persist();renderLedger();toast('金額記録を更新したよ')}catch(e){Object.assign(lot,copy);toast('保存できませんでした')}}
+async function ledgerRemove(lotId){let a=app.ledger,s=allSeries().find(x=>x.id===a.sid),v=s.variants.find(x=>x.id===a.vid),pos=v.lots.findIndex(l=>l.id===lotId);if(pos<0||!confirm('この金額記録を削除する？ 所持数は減らないよ。'))return;let lot=v.lots.splice(pos,1)[0];try{await persist();renderLedger();toast('金額記録を削除したよ')}catch(e){v.lots.splice(pos,0,lot);toast('削除できませんでした')}}
+async function ledgerFill(){let a=app.ledger,s=allSeries().find(x=>x.id===a.sid),v=s.variants.find(x=>x.id===a.vid),recorded=(v.lots||[]).reduce((sum,l)=>sum+n(l.qty),0),qty=Math.max(0,n(v.owned)-recorded);if(!qty){toast('未記録の所持分はないよ');return}if(!confirm(`${qty}個分を現在の定価 ${yen(s.price)} で金額記録に追加する？\n※実際の支払額ではなく定価換算だよ。`))return;let lot={id:id(),qty,mercari:false,amount:s.price==null?null:Number(s.price)*qty};v.lots??=[];v.lots.push(lot);try{await persist();renderLedger();toast('未記録分を定価で計上したよ')}catch(e){v.lots.pop();toast('保存に失敗しました')}}
+
+function legacyEdit(key){const a=allSingles().find(x=>x.id===key);if(!a)return;app.legacyId=key;$('#overlay').innerHTML=modal('v1から引き継いだアイテム',`<div class="row">${thumb(a.photo,EMO[a.type])}<div class="grow"><b>${esc(a.title)}</b><div class="muted">${esc(a.work)} ・ 旧バージョンの登録品</div></div></div><div class="note">旧データの所持情報は残したよ。購入価格の記録は自動では作らないので、合計金額に含まれません。</div><label class="label">所持数</label><input id="legacy-owned" class="field" type="number" min="0" value="${n(a.owned)}"><label class="label">交換可能数</label><input id="legacy-trade" class="field" type="number" min="0" value="${n(a.trade)}"><label class="check"><input id="legacy-want" type="checkbox" ${a.wanted?'checked':''}> 欲しい</label><button class="primary wide" data-action="save-legacy">保存</button>`)}
+async function saveLegacy(){let a=allSingles().find(x=>x.id===app.legacyId);if(!a)return;a.owned=n($('#legacy-owned').value);a.trade=Math.min(a.owned,n($('#legacy-trade').value));a.wanted=$('#legacy-want').checked;await persist();$('#overlay').innerHTML='';render();toast('所持情報を更新したよ')}
+// v2.7: 候補の設定はタイプごとに独立させる。削除はデータを消さず候補のみ非表示。
+function masterType(){return app.masterType||'work'}
+function masterScope(){
+ const key=masterType();if(key==='round'||key==='rarity')return cardSeriesKey(app.masterSeries||'初代アイカツ！');
+ if(key==='character'||key==='seriesTitle'||key==='itemName')return String(app.masterWork||'アイカツ！');
+ if(key==='goodsCategory')return 'goods';if(key==='gachaCategory')return 'gacha';return '';
+}
+function masterEntries(key=masterType(),scope=masterScope()){
+ const group=allSeries(),single=allSingles();let base=[];
+ const byWork=s=>!scope||s.work===scope;
+ if(key==='work')base=[...WORKS,...(app.state.vocab?.work||[]),...group.map(s=>s.work),...single.map(s=>s.work)];
+ if(key==='goodsCategory'||key==='gachaCategory')base=[...CATS,...(app.state.vocab?.categoryByType?.[scope]||[]),...group.filter(s=>s.type===scope).map(s=>s.category),...single.filter(s=>s.type===scope).map(s=>s.category)];
+ if(key==='brand')base=[...CARD_BRANDS,...(app.state.vocab?.brand||[]),...single.filter(x=>x.type==='cards').map(x=>x.brand)];
+ if(key==='character')base=[...(app.state.vocab?.characterByWork?.[scope]||[]),...group.filter(byWork).flatMap(x=>x.variants.map(v=>v.character)),...single.filter(byWork).map(x=>x.character),...guessCharacters(scope)];
+ if(key==='round')base=[...(CARD_ROUNDS[scope]||[]),...scopedExtras('round',scope),...single.filter(x=>x.type==='cards'&&cardSeriesKey(x.cardSeries||x.series)===scope).map(x=>x.cardRound)];
+ if(key==='rarity')base=[...(CARD_RARITIES[scope]||[]),...scopedExtras('rarity',scope),...single.filter(x=>x.type==='cards'&&cardSeriesKey(x.cardSeries||x.series)===scope).map(x=>x.rarity)];
+ if(key==='cardType')base=[...CARD_TYPES,...(app.state.vocab?.cardType||[]),...single.filter(x=>x.type==='cards').map(x=>x.cardType)];
+ if(key==='cardCategory')base=[...CARD_CATEGORIES,...(app.state.vocab?.cardCategory||[]),...single.filter(x=>x.type==='cards').map(x=>x.cardCategory)];
+ if(key==='cardNumber')base=single.filter(x=>x.type==='cards').map(x=>x.code);
+ if(key==='cardName')base=single.filter(x=>x.type==='cards').map(x=>x.title);
+ if(key==='cardSeries')base=[...CARD_SERIES.map(x=>x[1]),...single.filter(x=>x.type==='cards').map(x=>x.cardSeries).filter(x=>x&&!CARD_SERIES.some(y=>y[0]===x))];
+ if(key==='seriesTitle')base=group.filter(byWork).map(x=>x.title);
+ if(key==='itemName')base=[...group.filter(byWork).flatMap(x=>x.variants.map(v=>v.name)),...single.filter(byWork).filter(x=>x.type!=='cards').map(x=>x.title)];
+ return [...new Set(base.filter(Boolean))];
+}
+function masterCount(key,scope,value){
+ const singles=allSingles(),series=allSeries();const byWork=x=>x.work===scope;
+ if(key==='work')return series.filter(x=>x.work===value).length+singles.filter(x=>x.work===value).length;
+ if(key==='goodsCategory'||key==='gachaCategory')return series.filter(x=>x.type===scope&&x.category===value).length+singles.filter(x=>x.type===scope&&x.category===value).length;
+ if(key==='brand')return singles.filter(x=>x.type==='cards'&&x.brand===value).length;
+ if(key==='character')return series.filter(byWork).reduce((n,x)=>n+x.variants.filter(v=>v.character===value).length,0)+singles.filter(x=>byWork(x)&&x.character===value).length;
+ if(key==='round'||key==='rarity')return singles.filter(x=>x.type==='cards'&&cardSeriesKey(x.cardSeries||x.series)===scope&&x[key==='round'?'cardRound':'rarity']===value).length;
+ if(key==='cardType'||key==='cardCategory')return singles.filter(x=>x.type==='cards'&&x[key]===value).length;
+ if(key==='cardNumber')return singles.filter(x=>x.type==='cards'&&x.code===value).length;
+ if(key==='cardName')return singles.filter(x=>x.type==='cards'&&x.title===value).length;
+ if(key==='cardSeries')return singles.filter(x=>x.type==='cards'&&cardLabel(cardSeriesKey(x.cardSeries||x.series))===value).length;
+ if(key==='seriesTitle')return series.filter(x=>byWork(x)&&x.title===value).length;
+ if(key==='itemName')return series.filter(byWork).reduce((n,x)=>n+x.variants.filter(v=>v.name===value).length,0)+singles.filter(x=>byWork(x)&&x.type!=='cards'&&x.title===value).length;
+ return 0;
+}
+function renderMaster(){
+ const key=masterType(),scope=masterScope(),all=masterEntries(key,scope),q=String(app.masterQuery||'').toLocaleLowerCase('ja-JP');
+ const labels={work:'作品名',seriesTitle:'商品シリーズ名',itemName:'ラインナップ・商品名',goodsCategory:'グッズの種類',gachaCategory:'ガチャの種類',character:'キャラクター',brand:'カードブランド',round:'カード弾数',rarity:'レアリティ',cardType:'カードタイプ',cardCategory:'カードカテゴリー',cardNumber:'カード番号',cardName:'カード名',cardSeries:'カードシリーズ'};
+ const limited=all.filter(x=>x.toLocaleLowerCase('ja-JP').includes(q));
+ $('#overlay').innerHTML=modal('候補・マスター管理',`<p class="help">全項目を検索して修正・候補の非表示・再表示ができるよ。登録済みデータへの反映前に対象件数を確認してね。</p>
+ <label class="label">修正する項目</label><select id="master-type" class="field">${Object.entries(labels).map(([k,v])=>`<option value="${k}" ${k===key?'selected':''}>${v}</option>`).join('')}</select>
+ ${key==='round'||key==='rarity'?`<label class="label">対象カードシリーズ</label><select class="field" id="master-series">${CARD_SERIES.map(([k,v])=>`<option value="${k}" ${cardSeriesKey(app.masterSeries||'初代アイカツ！')===k?'selected':''}>${esc(v)}</option>`).join('')}</select>`:''}
+ ${['character','seriesTitle','itemName'].includes(key)?`<label class="label">対象作品</label><select id="master-work" class="field">${masterEntries('work','').map(w=>`<option value="${esc(w)}" ${w===scope?'selected':''}>${esc(w)}</option>`).join('')}</select>`:''}
+ <label class="label">登録候補を検索</label><input id="master-search" class="field" value="${esc(app.masterQuery||'')}" placeholder="一部の文字で検索"><div id="master-result-list">${masterRows(limited,key,scope)}</div>
+ <div class="note">「隠す」は候補から消すだけ。すでに保存されているカードやグッズを削除しないよ。カードシリーズ・標準値は、内部で使う分類を保つため名称の一括置換を制限するよ。</div>`);
+}
+function masterRows(entries,key,scope){
+ return entries.slice(0,80).map(x=>{let shown=isShown(key,x,scope),cnt=masterCount(key,scope,x);return `<div class="group-item master-ops"><div class="muted"><b>${esc(x)}</b><small style="display:block">登録 ${cnt} 件${shown?'':' ・候補から非表示'}</small></div><div class="btnline"><button type="button" class="outline mini" data-master-rename="${esc(x)}">修正</button><button type="button" class="outline mini" data-master-hide="${esc(x)}">${shown?'隠す':'戻す'}</button></div></div>`}).join('')+(entries.length>80?'<p class="help">件数が多いため先頭80件のみ表示。検索して絞り込んでね。</p>':'');
+}
+async function masterRename(value){
+ const key=masterType(),scope=masterScope(),next=window.prompt(`「${value}」の修正後の名前を入力してね`,value)?.trim();
+ if(!next||next===value)return;
+ if(key==='cardSeries'){toast('カードシリーズの標準名称は固定だよ。カードごとのシリーズ変更は編集画面から行ってね。');return}
+ let count=masterCount(key,scope,value);
+ if(!confirm(`「${value}」→「${next}」に修正する？\n登録済み ${count} 件にも反映されるよ。`))return;
+ const before=structuredClone(app.state);const singles=allSingles(),series=allSeries();
+ const mapName=(obj,field)=>{if(obj[field]===value)obj[field]=next};
+ try{
+ if(key==='work'){
+   series.forEach(x=>mapName(x,'work'));singles.forEach(x=>mapName(x,'work'));
+   const by=app.state.vocab?.characterByWork;if(by?.[value]){by[next]=[...new Set([...(by[next]||[]),...by[value]])];delete by[value]}
+ }else if(key==='goodsCategory'||key==='gachaCategory'){
+   series.filter(x=>x.type===scope).forEach(x=>mapName(x,'category'));singles.filter(x=>x.type===scope).forEach(x=>mapName(x,'category'));
+ }else if(key==='character'){
+   series.filter(x=>x.work===scope).forEach(x=>x.variants.forEach(v=>mapName(v,'character')));
+   singles.filter(x=>x.work===scope).forEach(x=>mapName(x,'character'));
+   app.state.vocab??={};app.state.vocab.characterByWork??={};let names=app.state.vocab.characterByWork[scope]||[];
+   app.state.vocab.characterByWork[scope]=[next,...names.filter(x=>x!==value&&x!==next)];
+ }else if(key==='round'||key==='rarity'){
+   singles.filter(x=>x.type==='cards'&&cardSeriesKey(x.cardSeries||x.series)===scope).forEach(x=>mapName(x,key==='round'?'cardRound':'rarity'));
+ }else if(key==='brand'||key==='cardType'||key==='cardCategory')singles.filter(x=>x.type==='cards').forEach(x=>mapName(x,key));
+ else if(key==='cardNumber')singles.filter(x=>x.type==='cards').forEach(x=>mapName(x,'code'));
+ else if(key==='cardName')singles.filter(x=>x.type==='cards').forEach(x=>mapName(x,'title'));
+ else if(key==='seriesTitle')series.filter(x=>x.work===scope).forEach(x=>mapName(x,'title'));
+ else if(key==='itemName'){
+  series.filter(x=>x.work===scope).forEach(x=>x.variants.forEach(v=>mapName(v,'name')));
+  singles.filter(x=>x.type!=='cards'&&x.work===scope).forEach(x=>mapName(x,'title'));
+ }
+ app.state.vocab??={};
+ if(key==='round'||key==='rarity'){
+  app.state.vocab[`${key}ByScope`]??={};let items=scopedExtras(key,scope);app.state.vocab[`${key}ByScope`][scope]=[next,...items.filter(x=>x!==value&&x!==next)];
+ }else if(key==='goodsCategory'||key==='gachaCategory'){
+  app.state.vocab.categoryByType??={};app.state.vocab.categoryByType[scope]=[next,...(app.state.vocab.categoryByType[scope]||[]).filter(x=>x!==next&&x!==value)];
+ }else if(!['character','seriesTitle','itemName','cardNumber','cardName'].includes(key)){
+  app.state.vocab[key]=[next,...(app.state.vocab[key]||[]).filter(x=>x!==next&&x!==value)];
+ }
+ app.state.vocab.hidden??={};const prop=`${key}::${scope}`,hidden=app.state.vocab.hidden[prop]||[];
+ app.state.vocab.hidden[prop]=[value,...hidden.filter(x=>x!==next&&x!==value)];
+ await persist();app.masterQuery='';renderMaster();toast('候補と登録データを修正したよ ♡');
+ }catch(e){app.state=before;console.error(e);toast('修正を保存できませんでした')}
+}
+async function masterHide(value){
+ const key=masterType(),scope=masterScope();app.state.vocab??={};app.state.vocab.hidden??={};
+ const prop=`${key}::${scope}`,list=app.state.vocab.hidden[prop]||[];
+ if(!list.includes(value)&&masterCount(key,scope,value)>0){if(!confirm('この名前は登録済みアイテムで使用中だよ。候補から隠すだけで登録情報は変わらないけど、続ける？'))return}
+ app.state.vocab.hidden[prop]=list.includes(value)?list.filter(v=>v!==value):[...list,value];
+ await persist();renderMaster();toast('候補の表示を更新したよ');
+}
+function settings(){return `${intro('MY SETTINGS','設定・バックアップ','写真付きバックアップと、全項目の候補管理。')}
+ <div class="panel"><div class="panel-title">💾 バックアップ</div><p class="muted">データはこのURLを開いたブラウザ内に保存され、別端末へ自動同期されないよ。必ず定期的に保存してね。</p>
+ <button class="primary wide" data-action="backup" style="margin-top:12px">↓ 写真も含めてバックアップ</button>
+ <label class="outline wide" style="display:block;text-align:center;margin-top:11px">↑ JSONバックアップから復元<input id="restore-input" type="file" accept=".json,application/json" style="display:none"></label><p class="help">復元すると今のデータと置き換わるため、事前バックアップが必要だよ。</p></div>
+ <div class="panel"><div class="panel-title">🏷️ 表記ゆれ・マスター管理</div><p class="help">作品・商品シリーズ・個別商品名・グッズ／ガチャの種類・キャラ・カード番号・タイプ・ブランド・弾数・レアリティなど、項目別に修正できるよ。</p>
+ <button class="soft wide" data-action="master-open">候補・マスター管理を開く →</button></div>
+ <div class="note">🔒 ログイン認証・iPhoneとiPad間の自動同期は未実装。サイトの公開設定はNetlify側で管理してね。</div>`}
+function download(blob,name){let u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(u);a.remove()},5000)}
+function backup(){download(new Blob([JSON.stringify({...app.state,exportedAt:today()})],{type:'application/json;charset=utf-8'}),'twinkle-closet-v2-backup-'+new Date().toISOString().slice(0,10)+'.json');toast('バックアップを書き出したよ ♡')}
+async function restore(file){try{let obj=JSON.parse(await file.text());let incoming;if(obj.version===2&&Array.isArray(obj.series)&&Array.isArray(obj.singles)){incoming={version:2,series:obj.series,singles:obj.singles,vocab:obj.vocab||{work:[],category:[],brand:[],character:[]}}}else if(obj.version===1&&Array.isArray(obj.items)){incoming={version:2,series:[],singles:obj.items.filter(i=>TYPES[i.type]).map(x=>({...x,id:String(x.id||id())}))}}else throw Error('未対応のファイル');if(!confirm(`バックアップを読み込みますか？\n現在のv2データは上書きされます。\n（復元前のバックアップをおすすめします）`))return;app.state=incoming;await persist();app.page='home';render();toast('バックアップから復元したよ ♡')}catch(e){console.error(e);alert('バックアップファイルを読み込めませんでした。ファイルを確認してね。')}}
+async function renameBatch(){let key=$('#rename-field').value,from=$('#rename-old').value.trim(),to=$('#rename-new').value.trim();if(!from||!to||from===to){toast('変更前と変更後の名称を入力してね');return}let count=0;for(const s of allSeries()){if(key==='character'){count+=s.variants.filter(v=>v.character===from).length}else if(s[key]===from)count++}for(const a of allSingles()){if(a[key]===from)count++}if(!count){toast('一致する登録はありません');return}if(!confirm(`${count}件の「${from}」を「${to}」に変更しますか？`))return;for(const s of allSeries()){if(key==='character'){for(const v of s.variants)if(v.character===from)v.character=to}else if(s[key]===from)s[key]=to}for(const a of allSingles()){if(a[key]===from)a[key]=to}if(app.state.vocab?.[key]){let list=app.state.vocab[key].map(v=>v===from?to:v);app.state.vocab[key]=[...new Set(list)]}let per=app.state.vocab?.characterByWork;if(per){if(key==='character'){for(const w of Object.keys(per))per[w]=[...new Set(per[w].map(v=>v===from?to:v))]}else if(key==='work'&&per[from]){per[to]=[...new Set([...(per[to]||[]),...per[from]])];delete per[from]}}await persist();render();toast(`${count}件の名称を統一したよ`)}
+function tradeEntries(){return [...variants().map(v=>({id:v.id,type:v.type,title:v.name,series:v.seriesName,work:v.work,character:v.character||'',category:v.category||'',photo:v.photo||v.seriesPhoto,owned:n(v.owned),trade:n(v.trade),want:n(v.want)})),...allSingles().map(s=>({id:s.id,type:s.type,title:s.title,series:s.type==='cards'?cardLabel(cardSeriesKey(s.cardSeries||s.series)):s.series||s.title,work:s.work||'',character:s.character||'',category:s.category||'',photo:s.photo,owned:n(s.owned),trade:n(s.trade),want:s.wanted?1:0}))]}
+function tradeKindEntries(){return tradeEntries().filter(x=>x.type===(app.tradeKind||'gacha'))}
+function tradeSelectionSet(kind=app.tradeKind){app.tradeSelections??={};return app.tradeSelections[kind]??=( {want:[],offer:[]} )}
+function saveTradeSelections(){
+ const state=tradeSelectionSet();state.want=$$('[data-trade="want"]:checked').map(el=>el.value);state.offer=$$('[data-trade="offer"]:checked').map(el=>el.value);
+}
+function tradeDefaultSelected(it,side){const state=tradeSelectionSet(),list=state[side]||[];return state.initialized?list.includes(String(it.id)):(side==='want'?n(it.want)>0:n(it.trade)>0)}
+function selectedTrades(){
+ const opts=new Map(tradeKindEntries().map(x=>[String(x.id),x]));
+ const selections=tradeSelectionSet();
+ const want=$$('[data-trade="want"]:checked'),offer=$$('[data-trade="offer"]:checked');
+ if(want.length||offer.length||$$('[data-trade]').length){saveTradeSelections();selections.initialized=true}
+ return {wants:(selections.initialized?selections.want:[...opts.values()].filter(x=>x.want>0).map(x=>String(x.id))).map(x=>opts.get(x)).filter(Boolean),offers:(selections.initialized?selections.offer:[...opts.values()].filter(x=>x.trade>0).map(x=>String(x.id))).map(x=>opts.get(x)).filter(x=>x&&x.trade>0)};
+}
+// Xに貼るものは募集文ではなくハッシュタグだけ。スペース・句読点・絵文字はタグに含めない。
+function hashtagify(value){
+ let clean=String(value||'').normalize('NFKC').replace(/[^\p{L}\p{M}\p{N}_]/gu,'');
+ if(!clean||/^\p{N}+$/u.test(clean))return '';
+ return '#'+clean;
+}
+function tagCandidates(){
+ const t=selectedTrades();const sources=[...t.wants,...t.offers];
+ const buckets=[['series','商品シリーズ名','series'],['character','キャラクター名','character'],['item','商品名','title']];
+ const seen=new Set(),out=[];
+ for(const [kind,heading,field] of buckets)for(const source of sources){
+  const original=String(source[field]||'').trim(),tag=hashtagify(original),key=tag.toLocaleLowerCase('ja-JP');
+  if(!tag||seen.has(key))continue;
+  seen.add(key);out.push({kind,heading,tag,original});
+ }
+ return out;
+}
+function selectedTagText(){return tagCandidates().filter(t=>!app.tagExcluded.has(t.tag)).map(t=>t.tag).join(' ')}
+// 投稿全体の上限280を安全側で概算。日本語・絵文字は2、ASCIIは1として数える。
+// Twitter-textのすべての例外（URLや複雑な絵文字）は網羅しないため、X投稿画面でも確認してね。
+// Xの標準280ウェイト上限（日本語なら約140文字）。日本語・絵文字2、英数字1を目安に扱う。
+// URL・特殊な絵文字は別計算になるので、コピー後はX側のカウンターでも確認してね。
+function xWeight(str){let count=0;for(const c of String(str||'').normalize('NFC')){const cp=c.codePointAt(0);count+=(cp<=0x10FF||(cp>=0x2000&&cp<=0x200D)||(cp>=0x2010&&cp<=0x201F)||(cp>=0x2032&&cp<=0x2037))?1:2}return count}
+function tagBatches(text,reserve=180){
+ const tokens=[...new Set(String(text||'').trim().split(/\s+/).filter(Boolean))];
+ const candidates=tagCandidates();
+ const tagsByKind={series:new Set(candidates.filter(t=>t.kind==='series').map(t=>t.tag)),character:new Set(candidates.filter(t=>t.kind==='character').map(t=>t.tag))};
+ const series=tokens.filter(t=>tagsByKind.series.has(t));
+ const character=tokens.filter(t=>!tagsByKind.series.has(t)&&tagsByKind.character.has(t));
+ const item=tokens.filter(t=>!tagsByKind.series.has(t)&&!tagsByKind.character.has(t));
+ // 原文用はユーザーの本文スペースを確保。返信は最大280ウェイト＝日本語なら140文字。
+ let mainMax=Math.max(10,280-Math.max(0,Math.min(270,Number(reserve)||0)));
+ // 重要なシリーズ名は元ポストへ。予約していた本文の余白を超えるときは注意を表示。
+ if(series.length&&xWeight(series[0])<=280)mainMax=Math.max(mainMax,xWeight(series[0]));
+ const maxReply=280;
+ const batches=[],overflow=[];
+ let main='';
+ for(const tag of series){const next=main?main+' '+tag:tag;if(xWeight(next)<=mainMax)main=next;else overflow.push(tag)}
+ batches.push({text:main,used:xWeight(main),max:mainMax});
+ let reply='';
+ function commit(){if(reply){batches.push({text:reply,used:xWeight(reply),max:maxReply});reply=''}}
+ // なるべく「シリーズ→キャラ名→商品名」ごとに並べ、タグの途中では絶対に切らない。
+ for(const group of [overflow,character,item]){
+  if(!group.length)continue;
+  let isNewGroup=true;
+  for(const tag of group){
+   if(xWeight(tag)>maxReply){commit();batches.push({text:tag,used:xWeight(tag),max:maxReply,tooLong:true});isNewGroup=false;continue}
+   const gap=reply?(isNewGroup?'\n':' '):'';
+   const next=reply+gap+tag;
+   if(xWeight(next)>maxReply){commit();reply=tag}else reply=next;
+   isNewGroup=false;
+  }
+ }
+ commit();
+ return batches;
+}
+function tagBatchHtml(value){const reserve=app.tagReserved,batches=tagBatches(value,reserve);
+ return `<div class="tag-batch-title">✦ X用に文字数を分ける</div>${batches[0]?.max>280-Math.max(0,Math.min(270,Number(reserve)||0))?'<div class="note">商品シリーズ名を元ポストに優先したよ。本文を短くするか、確保文字数を調整してね。</div>':''}<p class="help">日本語なら<strong>140文字</strong>、英数字は半分の重さとして計算。上限を超える前にハッシュタグの切れ目で<strong>リプ1・リプ2…</strong>へ分割。キャラ名と商品名はできるだけまとまりごとに整理するよ。</p><label class="label" for="tag-reserve">元ポストの募集本文のために空けておく文字数</label><input class="field" type="number" min="0" max="260" step="10" id="tag-reserve" value="${reserve}" inputmode="numeric"><p class="help">X換算値で指定：日本語90文字の本文なら180。本文用に指定した分を引いて、残りを商品シリーズ名のタグに使うよ。</p><div id="tag-batches-list">${batches.map((b,i)=>`<div class="tag-batch"><div class="row" style="justify-content:space-between;gap:8px"><b>${i===0?'元ポスト用':'リプ'+i+'用'}</b><small class="muted">日本語換算 約${Math.ceil(b.used/2)} / ${Math.ceil(b.max/2)}字</small></div>${b.text?`<div class="tag-batch-text">${esc(b.text).replace(/\n/g,'<br>')}</div>`:'<small class="muted">本文用の空きが多いため、シリーズ名タグが入りきらないよ。</small>'}<button type="button" class="soft wide" data-tag-chunk="${i}" ${!b.text||b.tooLong?'disabled':''}>📋 ${i===0?'元ポスト用':'リプ'+i+'用'}をコピー</button>${b.tooLong?'<p class="help" style="color:#b32964">このタグ単体で140字相当を超えるよ。短く編集してね。</p>':''}</div>`).join('')}</div><p class="help">※Xは日本語と英数字で文字数換算が異なるよ。URLや一部の記号は別ルールのため、投稿前にX上でも確認してね。</p>`;
+}
+function currentTagInput(){return $('#overlay #hashtag-result-text')||$('#hashtag-copy-text')}
+function updateTagBatches(){const where=$('#overlay #tag-batches')||$('#tag-batches');if(where)where.innerHTML=tagBatchHtml(currentTagInput()?.value||'')}
+async function copyTagChunk(i){const batches=tagBatches(currentTagInput()?.value||'',app.tagReserved),batch=batches[i];if(!batch?.text||batch.tooLong){toast('このまとまりはコピーできません');return}await copyAnyText(batch.text,`投稿${i+1}用のタグをコピーしたよ ♡`)}
+function hashtagsInner(){
+ const candidates=tagCandidates();
+ const groups=['series','character','item'].map(k=>{
+  const group=candidates.filter(x=>x.kind===k);if(!group.length)return '';
+  return `<div class="tag-group"><div class="tag-heading">${group[0].heading}</div><div class="tag-chips">${group.map(c=>`<button type="button" class="tag-chip ${app.tagExcluded.has(c.tag)?'':'on'}" aria-pressed="${app.tagExcluded.has(c.tag)?'false':'true'}" data-hashtag="${esc(c.tag)}" title="${esc(c.original)}"><span class="checkmark">${app.tagExcluded.has(c.tag)?'＋':'✓'}</span>${esc(c.tag)}</button>`).join('')}</div></div>`;
+ }).join('');
+ const content=app.tagManual?app.tagDraft:selectedTagText();
+ return `<div class="panel-title"># Xに貼り付けるハッシュタグ</div><p class="help">募集文は自分で作成。必要なタグだけタップして選び、まとめてコピーできるよ。</p>${candidates.length?`${groups}<div class="tag-toolbar"><button type="button" class="outline mini" data-hash-all="on">全部選ぶ</button><button type="button" class="outline mini" data-hash-all="off">全部外す</button></div>`:'<p class="note">'+'上で「求」または「譲」を選ぶと候補が出るよ。'+'</p>'}<label class="label" for="hashtag-copy-text">コピーするハッシュタグ（編集も可能）</label><textarea id="hashtag-copy-text" class="field tag-textarea" placeholder="#商品シリーズ名 #キャラ名 #商品名" spellcheck="false">${esc(content)}</textarea><button type="button" class="soft wide" data-action="hashtag-copy" style="margin-top:10px">📋 ハッシュタグを全部コピー</button><div id="tag-batches">${tagBatchHtml(content)}</div><p class="tag-tip">Xで使えるよう空白や記号を除去し、同じタグは1回だけ表示。あとから追加したキャラ名なども、新しい候補として自動反映するよ。必要なタグを選んでね。</p>`;
+}
+function hashtagsPanel(){return `<section id="hashtag-panel" class="panel">${hashtagsInner()}</section>`}
+function refreshHashtags(){
+ const candidates=tagCandidates(),current=new Set(candidates.map(t=>t.tag));
+ if(app.tagManual&&app.tagCandidateSnapshot){
+  const additions=candidates.filter(t=>!app.tagCandidateSnapshot.has(t.tag)&&!app.tagExcluded.has(t.tag)).map(t=>t.tag);
+  if(additions.length)app.tagDraft=[app.tagDraft,...additions].filter(Boolean).join(' ').trim();
+ }
+ app.tagCandidateSnapshot=current;
+ const panel=$('#hashtag-panel');if(panel)panel.innerHTML=hashtagsInner();
+}
+function tradeSearchText(x){return '【交換】'+String(x.series||x.title||'').trim()}
+function tradeSearchRows(items){
+ const names=[...new Set(items.map(tradeSearchText).filter(x=>x!=='【交換】'))];
+ return names.length?names.map(q=>`<div class="row group-item"><span class="grow" style="font-size:12px;overflow-wrap:anywhere">${esc(q)}</span><button class="outline mini" data-search-word="${esc(q)}">コピー</button></div>`).join(''):'<p class="help">「求」を選ぶと、商品シリーズ名だけの検索ワードが表示されるよ。</p>';
+}
+function refreshSearchRows(){let el=$('[data-search-list]');if(el)el.innerHTML=tradeSearchRows(selectedTrades().wants)}
+function trade(){
+ const opts=tradeKindEntries(),kind=app.tradeKind||'gacha',side=app.tradeSide||'both';
+ const typeNames={cards:'カード',goods:'グッズ',gacha:'ガチャ'};
+ const sideNames={offer:'譲',want:'求',both:'譲＆求'};
+ const kindButtons=Object.keys(typeNames).map(k=>`<button type="button" class="${kind===k?'sel':''}" data-trade-kind="${k}">${typeNames[k]}</button>`).join('');
+ const sideButtons=Object.keys(sideNames).map(k=>`<button type="button" class="${side===k?'sel':''}" data-trade-side="${k}">${sideNames[k]}</button>`).join('');
+ const selectionMode=side==='both'?'「譲」と「求」を上下に配置した1枚の画像を作成するよ。':`「${sideNames[side]}」だけの1枚の画像を作成するよ。`;
+ return `${intro('TRADE STUDIO','交換画像メーカー','登録したアイテムを選ぶだけ。カード・グッズ・ガチャ × 譲・求・譲＆求の9パターンに対応。')}
+ <div class="panel"><div class="trade-setting"><div><label class="label">画像の種類</label><div class="segmented">${kindButtons}</div></div><div><label class="label">作る画像</label><div class="segmented">${sideButtons}</div></div></div>
+ <p class="trade-preview-note">🎀 ${typeNames[kind]} ／ ${sideNames[side]}：${selectionMode}</p></div>
+ <div class="panel"><div class="panel-title">♡ 交換に使うアイテムを選ぶ</div><p class="help">「求」「譲」をチェックして画像にまとめるよ。譲のアイテムは交換可能数も表示するよ。</p>
+ ${opts.length?opts.map(x=>`<div class="row group-item">${thumb(x.photo,'🎀')}<div class="grow"><b>${esc(x.title)}</b><small style="display:block;color:var(--sub)">${esc(x.work||'')} / ${esc(x.character||x.series||'')}</small>${n(x.trade)?`<small style="color:#9171ad;font-weight:800">交換可能 ${n(x.trade)}個</small>`:''}</div><div><label class="check"><input type="checkbox" data-trade="want" value="${esc(x.id)}" ${tradeDefaultSelected(x,'want')?'checked':''}> 求</label><label class="check"><input type="checkbox" data-trade="offer" value="${esc(x.id)}" ${tradeDefaultSelected(x,'offer')?'checked':''} ${x.trade?'':'disabled'}> 譲</label></div></div>`).join(''):'<div class="empty">この種類の登録アイテムがまだないよ 🎀</div>'}
+ <button class="primary wide" style="margin-top:12px" data-action="trade-export">${typeNames[kind]}・${sideNames[side]}をPNGにする</button></div>
+ ${hashtagsPanel()}
+ <details class="panel"><summary style="font-weight:800;color:#a75999;cursor:pointer">🔎 Xで探す検索ワード</summary><div data-search-list>${tradeSearchRows(selectedTrades().wants)}</div></details>`;
+}
+async function loadImage(src){return new Promise((ok,bad)=>{const im=new Image();im.onload=()=>ok(im);im.onerror=bad;im.src=src})}
+async function cropImage(file,max=950){if(!file.type.startsWith('image/'))throw Error('画像を選択');const url=URL.createObjectURL(file);try{let im=await loadImage(url),scale=Math.min(1,max/Math.max(im.naturalWidth,im.naturalHeight)),can=document.createElement('canvas');can.width=Math.max(1,Math.round(im.naturalWidth*scale));can.height=Math.max(1,Math.round(im.naturalHeight*scale));let ctx=can.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,can.width,can.height);ctx.drawImage(im,0,0,can.width,can.height);return can.toDataURL('image/jpeg',.72)}finally{URL.revokeObjectURL(url)}}
+function round(ctx,x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r)}
+function posterRoundRect(ctx,x,y,w,h,r){round(ctx,x,y,w,h,r)}
+function posterWrappedText(ctx,str,x,y,maxWidth,lines=2,lineHeight=31){
+ let chars=[...String(str||'')],out=[''];for(let ch of chars){let i=out.length-1;if(ctx.measureText(out[i]+ch).width>maxWidth&&out[i]&&out.length<lines)out.push(ch);else if(ctx.measureText(out[i]+ch).width>maxWidth&&out.length===lines)break;else out[i]+=ch}
+ out.forEach((line,j)=>ctx.fillText(line,x,y+j*lineHeight,maxWidth));
+}
+async function createTradePoster(items,side){
+ const offer=side==='offer',color=offer?'#976bc5':'#d95098',label=offer?'譲':'求',cols=items.length<=2?2:3,gap=20,margin=46,cardWidth=(1080-margin*2-gap*(cols-1))/cols,rows=Math.ceil(items.length/cols),cardHeight=270,top=128;
+ let c=document.createElement('canvas');c.width=1080;c.height=Math.max(500,top+rows*(cardHeight+gap)+52);let ctx=c.getContext('2d');let gradient=ctx.createLinearGradient(0,0,1080,c.height);gradient.addColorStop(0,'#fff1f9');gradient.addColorStop(1,'#eee3ff');ctx.fillStyle=gradient;ctx.fillRect(0,0,c.width,c.height);
+ ctx.setLineDash([9,12]);ctx.lineWidth=4;ctx.strokeStyle='#edbedf';ctx.strokeRect(17,17,c.width-34,c.height-34);ctx.setLineDash([]);
+ ctx.font='bold 68px sans-serif';ctx.fillStyle=color;ctx.fillText(offer?'✦ 譲':'♡ 求',margin,93);
+ for(let i=0;i<items.length;i++){
+  let it=items[i],x=margin+(i%cols)*(cardWidth+gap),y=top+Math.floor(i/cols)*(cardHeight+gap);
+  ctx.fillStyle='white';ctx.strokeStyle=offer?'#cdb4ea':'#f2b7d6';ctx.lineWidth=3;posterRoundRect(ctx,x,y,cardWidth,cardHeight,17);ctx.fill();ctx.stroke();
+  let imgX=x+13,imgY=y+12,imgW=cardWidth-26,imgH=185;
+  ctx.fillStyle='#faeaf5';posterRoundRect(ctx,imgX,imgY,imgW,imgH,13);ctx.fill();
+  if(it.photo){try{let im=await loadImage(it.photo),fit=Math.min(imgW/im.width,imgH/im.height);ctx.drawImage(im,imgX+(imgW-im.width*fit)/2,imgY+(imgH-im.height*fit)/2,im.width*fit,im.height*fit)}catch{}}
+  if(offer){let count=n(it.trade);let t=`×${count}`,pw=ctx.measureText(t).width+35;ctx.font='bold 31px sans-serif';pw=ctx.measureText(t).width+32;ctx.fillStyle='#8358b0';posterRoundRect(ctx,x+cardWidth-pw-20,y+imgH-27,pw,48,24);ctx.fill();ctx.fillStyle='white';ctx.fillText(t,x+cardWidth-pw-4,y+imgH+7)}
+  ctx.fillStyle='#674d71';ctx.font='bold 24px sans-serif';posterWrappedText(ctx,it.title,x+15,y+225,cardWidth-30,2,29);
+ }
+ return c.toDataURL('image/png');
+}
+async function createCombinedTradePoster(wants,offers){
+ const [wantSrc,offerSrc]=await Promise.all([wants.length?createTradePoster(wants,'want'):null,offers.length?createTradePoster(offers,'offer'):null]);
+ let imgs=[];for(const src of [wantSrc,offerSrc])if(src)imgs.push(await loadImage(src));
+ if(!imgs.length)throw Error('求・譲のアイテムがありません');
+ let c=document.createElement('canvas');c.width=1080;c.height=imgs.reduce((h,img)=>h+img.height,0);
+ const ctx=c.getContext('2d');let y=0;for(const im of imgs){ctx.drawImage(im,0,y);y+=im.height}
+ return c.toDataURL('image/png');
+}
+async function listPoster(){
+ const {wants,offers}=selectedTrades(),side=app.tradeSide||'both',type=app.tradeKind||'gacha';
+ const names={cards:'カード',goods:'グッズ',gacha:'ガチャ'},labels={want:'求',offer:'譲',both:'譲＆求'};
+ let images=[];
+ if(side==='want'){if(!wants.length){toast('求のアイテムを選んでね');return}images.push({side:'求',src:await createTradePoster(wants,'want'),name:`twinkle-${names[type]}-求.png`})}
+ if(side==='offer'){if(!offers.length){toast('譲のアイテムを選んでね');return}images.push({side:'譲',src:await createTradePoster(offers,'offer'),name:`twinkle-${names[type]}-譲.png`})}
+ if(side==='both'){if(!wants.length||!offers.length){toast('譲と求の両方を選んでね');return}images.push({side:'譲＆求',src:await createCombinedTradePoster(wants,offers),name:`twinkle-${names[type]}-譲＆求.png`})}
+ showTradeResults(images,$('#hashtag-copy-text')?.value??selectedTagText());
+}
+function showTradeResults(images,tags){app.tagDraft=tags;app.tagManual=true;$('#overlay').innerHTML=modal('交換画像ができたよ ♡',`${images.map(x=>`<div class="trade-image-card"><b>${x.side}の画像</b><img src="${x.src}" alt="${x.side}の交換募集画像"><p class="help">iPhoneは画像を長押しして「写真に保存」もできるよ。</p><a href="${x.src}" download="${x.name}" class="primary wide">↓ ${x.side}のPNGを保存</a></div>`).join('')}<div class="panel"><div class="panel-title"># X用ハッシュタグ</div><p class="help">自分で書いた募集文の最後に貼り付けてね。タグは編集できるよ。</p><textarea class="field tag-textarea" id="hashtag-result-text" spellcheck="false">${esc(tags)}</textarea><button class="soft wide" style="margin-top:10px" data-action="hashtag-copy">📋 ハッシュタグを全部コピー</button><div id="tag-batches">${tagBatchHtml(tags)}</div></div>`)}
+
+async function copyAnyText(txt,success='コピーしたよ ♡'){
+ if(!String(txt||'').trim()){toast('文章がありません');return}
+ try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(txt);toast(success);return}}catch(e){console.info('Clipboard APIを使用できません',e)}
+ let el=document.createElement('textarea');el.value=txt;el.style.cssText='position:fixed;left:4px;top:4px;width:95vw;height:40px;opacity:0.01;font-size:16px';document.body.appendChild(el);el.focus();el.select();
+ let ok=false;try{ok=document.execCommand?.('copy')||false}catch(e){}el.remove();if(ok)toast(success);else toast('長押しで文章を選択してコピーしてね');
+}
+async function copyHashtags(){let txt=($('#hashtag-result-text')||$('#hashtag-copy-text'))?.value||'';app.tagDraft=txt;app.tagManual=true;await copyAnyText(txt,'ハッシュタグをコピーしたよ ♡')}
+function showResult(src,name){$('#overlay').innerHTML=modal('交換画像ができたよ ♡',`<div class="image-result"><img src="${src}" alt="作成された交換画像"><p>iPhoneでは画像を長押しして「写真に保存」できるよ。</p><a href="${src}" download="${esc(name)}" class="primary wide" style="text-decoration:none;display:block;text-align:center">↓ PNGを保存</a></div>`)}
+function render(preserve=false){const y=preserve?window.scrollY:0;$$('[data-page]').forEach(btn=>btn.classList.toggle('on',btn.dataset.page===app.page));$('#add-button').style.display=['home','goods','gacha','cards'].includes(app.page)?'':'none';$('#content').innerHTML=app.page==='home'?home():['cards','goods','gacha'].includes(app.page)?listPage(app.page):app.page==='detail'?detail():app.page==='finance'?finance():app.page==='unpriced'?unpriced():app.page==='settings'?settings():trade();if(app.page==='trade'){refreshHashtags();refreshSearchRows()}window.scrollTo(0,y)}
+function page(p){if(p==='trade'&&app.page!=='trade'){app.tagManual=false;app.tagDraft='';app.tagCandidateSnapshot=null;}app.page=p;app.query='';app.tab='all';render();window.scrollTo(0,0)}
+function splitParts(v){return String(v||'').split(':')}
+function closeOverlay(){app.ocrDraft=null;app.editor=null;app.buy=null;$('#overlay').innerHTML=''}
+// 画面ごとの要素は毎回作り直すため、イベントは一か所で受け取る。
+document.addEventListener('click',async ev=>{let b=ev.target.closest('button');if(!b)return;let d=b.dataset;try{
+if(d.filterReset){app.catalogFilters[d.filterReset]={open:true};render(true);return}
+ if(d.tradeKind){if($$('[data-trade]').length){saveTradeSelections();tradeSelectionSet().initialized=true}app.tradeKind=d.tradeKind;app.tagSeriesId='';app.tagExcluded.clear();app.tagManual=false;render(true);return}
+ if(d.tradeSide){app.tradeSide=d.tradeSide;render(true);return}
+ if(d.action==='master-open'){app.masterType='work';app.masterQuery='';app.masterSeries='初代アイカツ！';app.masterWork='アイカツ！';renderMaster();return}if(d.masterRename){await masterRename(d.masterRename);return}if(d.masterHide){await masterHide(d.masterHide);return}
+if(d.charPick){let v=variantById(d.charId);if(v){v.character=d.charPick;let row=b.closest('.lineup-row'),field=row?.querySelector('[data-vfield="character"]'),pop=row?.querySelector('[data-char-choices]');if(field)field.value=d.charPick;if(pop)pop.hidden=true;}return}
+if(d.crop){let [sid,vid]=splitParts(d.crop);cropOpen(sid,vid);return}if(d.ledger){let [sid,vid]=splitParts(d.ledger);ledgerOpen(sid,vid);return}if(d.ledgerEdit){ledgerEdit(d.ledgerEdit);return}if(d.ledgerRemove){await ledgerRemove(d.ledgerRemove);return}
+if(d.page){page(d.page);return}if(d.cardDetail){openCardDetail(d.cardDetail);return}if(d.cardEdit){openCardEditor(d.cardEdit);return}if(d.cardBrand){applyBrandToDraft(d.cardBrand);return}if(d.add){openEditor(d.add);return}if(d.view){viewSeries(d.view);return}if(d.editSeries){openEditor(null,d.editSeries);return}if(d.listback){page(d.listback);return}if(d.legacy){legacyEdit(d.legacy);return}if(d.addpurchase){let [sid,vid]=splitParts(d.addpurchase);addPurchase(sid,vid);return}if(d.stock){let [sid,vid,delta]=splitParts(d.stock);await stockChange(sid,vid,+delta);return}if(d.tab){app.tab=d.tab;app.cardRoundFilter='';render(true);return}if(d.etype){if(d.etype==='cards'){app.editor=null;openCardEditor();return}app.editor.type=d.etype;renderEditor();return}if(d.select==='brand'&&app.cardDraft){applyBrandToDraft(d.value);return}if(d.select){app.editor[d.select]=d.value;let f=$('[data-e-field="'+d.select+'"]');if(f)f.value=d.value;refreshChoices(d.select,d.value);return}if(d.vstep){let [vid,key,delta]=splitParts(d.vstep);let v=variantById(vid);if(!v)return;v[key]=Math.max(0,n(v[key])+(+delta));if(key==='owned')v.trade=Math.min(v.trade,v.owned);if(key==='trade')v.trade=Math.min(v.trade,v.owned);refreshStepRow(vid);return}if(d.reorder){let [vid,dir]=splitParts(d.reorder);moveVariant(vid,+dir);return}if(d.deletevariant){if(app.editor.variants.length===1){toast('最低1種類は必要だよ');return}if(confirm('この種類を一覧から削除する？')){app.editor.variants=app.editor.variants.filter(v=>v.id!==d.deletevariant);renderEditor()}return}if(d.hashtag){app.tagExcluded.has(d.hashtag)?app.tagExcluded.delete(d.hashtag):app.tagExcluded.add(d.hashtag);app.tagManual=false;refreshHashtags();return}if(d.tagChunk!==undefined){await copyTagChunk(Number(d.tagChunk));return}if(d.hashAll){for(const t of tagCandidates()){if(d.hashAll==='on')app.tagExcluded.delete(t.tag);else app.tagExcluded.add(t.tag)}app.tagManual=false;refreshHashtags();return}
+if(d.action==='photo-settings'){imageSearchSettings();return}if(d.action==='photo-config-save'){imageSearchConfigSave();return}if(d.action==='photo-config-back'||d.action==='photo-search-back'){renderEditor();return}if(d.action==='photo-find'){await imageSearchStart();return}if(d.action==='photo-select-match'){applyPhotoResult('match',Number(d.pick));return}if(d.action==='photo-select-price'){applyPhotoResult('price',Number(d.pick));return}if(d.action==='ocr-start'){await startOcr();return}if(d.action==='ocr-back'){app.ocrDraft=null;renderEditor();return}if(d.action==='ocr-apply'){applyOcrCandidates();return}if(d.action==='crop-cancel'){cropClose();return}if(d.action==='crop-save'){await cropSave();return}if(d.action==='ledger-close'){app.ledger=null;$('#overlay').innerHTML='';return}if(d.action==='ledger-fill'){await ledgerFill();return}if(d.action==='ledger-edit-cancel'){renderLedger();return}if(d.action==='ledger-edit-save'){await ledgerSave();return}
+if(d.officialCard!==undefined&&app.cardDraft){
+ const x=officialCardMatches()[Number(d.officialCard)];if(x){Object.assign(app.cardDraft,{title:x.title,code:x.code,rarity:x.rarity,cardType:x.cardType||'',cardCategory:x.cardCategory||'',brand:x.brand||'',cardRound:x.round||app.cardDraft.cardRound,officialSourceUrl:x.url});renderCardEditor();}return;
+}
+if(d.action==='close'){app.crop=null;app.ledger=null;app.cardDraft=null;closeOverlay();return}if(d.action==='card-save'){await saveCardEditor();return}if(d.action==='ed-next'){edStep(1);return}if(d.action==='ed-prev'){edStep(-1);return}if(d.action==='ed-add1'){addVariants(1);return}if(d.action==='ed-add5'){addVariants(5);return}if(d.action==='ed-add10'){addVariants(10);return}if(d.action==='ed-paste'){pasteNames();return}if(d.action==='ed-save'){b.disabled=true;await saveEditor();return}if(d.action==='save-purchase'){await savePurchase();return}if(d.action==='save-legacy'){await saveLegacy();return}if(d.action==='backup'){backup();return}if(d.action==='rename'){await renameBatch();return}if(d.action==='trade-export'){await listPoster();return}if(d.action==='hashtag-copy'){await copyHashtags();return}if(d.searchWord){await copyAnyText(d.searchWord,'検索ワードをコピーしたよ ♡');return}if(d.searchCopy){const entry=tradeEntries().find(x=>String(x.id)===d.searchCopy);if(entry)await copyAnyText(tradeSearchText(entry),'検索ワードをコピーしたよ ♡');return}
+}catch(e){console.error(e);toast('操作に失敗しました。もう一度試してね')}});
+document.addEventListener('input',ev=>{let t=ev.target;if(t.id==='hashtag-copy-text'||t.id==='hashtag-result-text'){app.tagDraft=t.value;app.tagManual=true;updateTagBatches();return}if(t.id==='tag-reserve'){app.tagReserved=Math.max(0,Math.min(260,n(t.value)));updateTagBatches();return}if(t.id==='master-search'){app.masterQuery=t.value;let rows=$('#master-result-list');if(rows){let entries=masterEntries(),q=t.value.toLocaleLowerCase('ja-JP');rows.innerHTML=masterRows(entries.filter(x=>x.toLocaleLowerCase('ja-JP').includes(q)),masterType(),masterScope())}return}if(t.id==='query'){app.query=t.value;let html=listPage(app.page);let doc=new DOMParser().parseFromString(html,'text/html');if($('#listing'))$('#listing').innerHTML=doc.querySelector('#listing')?.innerHTML||'';if($('#catalog-result-count'))$('#catalog-result-count').textContent=doc.querySelector('#catalog-result-count')?.textContent||'';if($('.card-toolbar .total'))$('.card-toolbar .total').textContent=doc.querySelector('.card-toolbar .total')?.textContent||'';return}if(t.dataset.cardField&&app.cardDraft){app.cardDraft[t.dataset.cardField]=t.value;if(t.dataset.cardField==='brand'&&BRAND_TYPE[t.value])app.cardDraft.cardType=BRAND_TYPE[t.value];return}if(t.id==='card-rarity-custom'&&app.cardDraft){app.cardDraft.rarity=t.value;return}if(t.id==='card-round-custom'&&app.cardDraft){app.cardDraft.cardRound=t.value;return}if(t.dataset.eField&&app.editor){let k=t.dataset.eField;app.editor[k]=k==='price'?(t.value===''?null:n(t.value)):t.value;if(k==='work'||k==='category'||k==='brand')refreshChoices(k,t.value);let btn=$('[data-action="photo-find"]');if(btn)btn.disabled=!(app.editor.photo&&app.editor.work.trim());return}if(t.dataset.vfield&&app.editor){let v=variantById(t.dataset.vid);if(v)v[t.dataset.vfield]=t.value;if(t.dataset.vfield==='character')refreshCharacterChoices(t);return}if(t.id==='buy-cost'&&app.buy)app.buy.cost=t.value;if(t.id==='ledger-amount'&&app.ledger)app.ledger.amount=t.value;});
+document.addEventListener('focusin',ev=>{let t=ev.target;if(t.dataset.vfield==='character'&&app.editor)refreshCharacterChoices(t)});
+document.addEventListener('focusout',ev=>{if(ev.target.dataset.cardField==='brand'&&app.cardDraft){let value=ev.target.value,guess=BRAND_TYPE[value];if(guess){app.cardDraft.cardType=guess;const select=$('[data-card-select="cardType"]');if(select)select.value=guess}}let t=ev.target;if(t.dataset.vfield==='character'){const box=t.closest('.lineup-row')?.querySelector('[data-char-choices]');setTimeout(()=>{if(box)box.hidden=true},180)}});
+document.addEventListener('change',async ev=>{let t=ev.target;try{
+if(t.dataset.filter&&['goods','gacha'].includes(app.page)){const f=catalogFilterState(app.page);f.open=true;f[t.dataset.filter]=t.value;if(t.dataset.filter==='work')f.character='';render(true);return}if(t.id==='master-type'){app.masterType=t.value;app.masterQuery='';renderMaster();return}if(t.id==='master-series'){app.masterSeries=t.value;app.masterQuery='';renderMaster();return}if(t.id==='master-work'){app.masterWork=t.value;app.masterQuery='';renderMaster();return}
+if(t.id==='official-card-query'&&app.cardDraft){app.cardDraft.officialQuery=t.value;renderCardEditor();return}
+if(t.id==='card-series-select'&&app.cardDraft){app.cardDraft.cardSeries=t.value;app.cardDraft.cardRound=(CARD_ROUNDS[t.value]||[])[0]||'';app.cardDraft.cardRoundCustom=false;app.cardDraft.rarity='';app.cardDraft.officialQuery='';app.cardDraft.officialSourceUrl='';renderCardEditor();return}
+if(t.id==='card-round-select'&&app.cardDraft){app.cardDraft.cardRoundCustom=t.value==='__custom__';if(!app.cardDraft.cardRoundCustom)app.cardDraft.cardRound=t.value;else app.cardDraft.cardRound='';renderCardEditor();return}
+if(t.dataset.cardSelect&&app.cardDraft){if(t.dataset.cardSelect==='rarity'){app.cardDraft.rarityCustom=t.value==='__custom__';app.cardDraft.rarity=app.cardDraft.rarityCustom?'':t.value;if(app.cardDraft.rarityCustom)renderCardEditor()}else app.cardDraft[t.dataset.cardSelect]=t.value;return}
+if(t.id==='card-wanted'&&app.cardDraft){app.cardDraft.wanted=t.checked;return}
+if(t.dataset.cardQty&&app.cardDraft){let c=app.cardDraft,key=t.dataset.cardQty,val=t.value==='custom'?askQuantity(key==='owned'?'所持数':'交換可能数',c[key],0,key==='owned'?99999:n(c.owned)):n(t.value);if(val!==null){c[key]=n(val);c.trade=Math.min(n(c.trade),n(c.owned))}renderCardEditor();return}
+if(t.id==='card-photo'&&app.cardDraft){let file=t.files?.[0];if(!file)return;app.cardDraft.photo=await cropImage(file);renderCardEditor();toast('写真を追加したよ ♡');return}
+if(t.id==='card-round-filter'){app.cardRoundFilter=t.value;render(true);return}if(t.id==='card-sort'){app.cardSort=t.value;render(true);return}
+if(t.dataset.trade){saveTradeSelections();tradeSelectionSet().initialized=true;refreshSearchRows();app.tagManual=false;refreshHashtags();return}
+if(t.dataset.vqty&&app.editor){let v=variantById(t.dataset.vid),key=t.dataset.vqty;if(!v)return;let val=t.value==='custom'?askQuantity(key==='owned'?'所持数':'交換可能数',v[key],0,key==='owned'?99999:n(v.owned)):Number(t.value);if(val!==null){v[key]=n(val);if(key==='owned')v.trade=Math.min(n(v.trade),n(v.owned));else v.trade=Math.min(n(v.trade),n(v.owned));}refreshStepRow(v.id);return}
+if(t.dataset.detailQty){let [sid,vid]=splitParts(t.dataset.detailQty),s=allSeries().find(x=>x.id===sid),v=s?.variants.find(x=>x.id===vid);if(!v)return;let val=t.value==='custom'?askQuantity('所持数',v.owned):Number(t.value);if(val===null){t.innerHTML=quantityOptions(v.owned);return}let copy={owned:v.owned,trade:v.trade};v.owned=n(val);v.trade=Math.min(n(v.trade),v.owned);try{await persist();let row=t.closest('[data-detail-vid]');row.querySelector('[data-detail-owned]').textContent='所持 '+v.owned;row.querySelector('[data-detail-trade]').textContent='交換 '+v.trade;row.querySelector('[data-detail-qty]').innerHTML=quantityOptions(v.owned);let summary=$('[data-detail-summary]');if(summary)summary.textContent=s.variants.length+'種類 / 所持 '+s.variants.reduce((sum,x)=>sum+n(x.owned),0)+'個'}catch(ex){Object.assign(v,copy);t.innerHTML=quantityOptions(v.owned);toast('保存に失敗しました')}return}
+if(t.id==='buy-qty'&&app.buy){let val=t.value==='custom'?askQuantity('購入個数',app.buy.qty,1):Number(t.value);if(val!==null){app.buy.qty=Math.max(1,n(val));renderPurchase()}else t.innerHTML=quantityOptions(app.buy.qty,30,1);return}
+if(t.dataset.vcheck&&app.editor){let v=variantById(t.dataset.vid);if(v){v[t.dataset.vcheck]=t.dataset.vcheck==='want'?(t.checked?1:0):!!t.checked;if(t.dataset.vcheck==='mercari')renderEditor()}return}if(t.id==='buy-mercari'&&app.buy){app.buy.mercari=t.checked;renderPurchase();return}if(t.id==='ledger-mercari'&&app.ledger){app.ledger.isMercari=t.checked;renderLedgerEdit();return}
+if(t.dataset.cardField&&app.cardDraft){app.cardDraft[t.dataset.cardField]=t.value;if(t.dataset.cardField==='brand'){let box=$('[data-card-brand-box]');if(box)box.innerHTML=choices('brand',t.value)}return}if(t.id==='card-rarity-custom'&&app.cardDraft){app.cardDraft.rarity=t.value;return}if(t.id==='card-round-custom'&&app.cardDraft){app.cardDraft.cardRound=t.value;return}if(t.dataset.eField&&app.editor){let k=t.dataset.eField;app.editor[k]=t.value;return}
+if(t.dataset.upload){let f=t.files?.[0];if(!f)return;toast('写真を読み込んでいます…');let data=await cropImage(f);if(t.dataset.upload==='series')app.editor.photo=data;else{let v=variantById(t.dataset.vid);if(v)v.photo=data}renderEditor();toast('写真を読み込んだよ ♡');return}
+
+if(t.id==='restore-input'&&t.files?.[0]){await restore(t.files[0]);return}
+}catch(e){console.error(e);toast('画像・ファイルを読み込めませんでした')}});
+document.addEventListener('pointerdown',ev=>{if(ev.target.id!=='crop-canvas'||!app.crop?.img)return;let c=ev.target,p=cropPoint(ev);app.crop.start=p;app.crop.rect={x:p.x,y:p.y,w:1,h:1};try{c.setPointerCapture(ev.pointerId)}catch{}cropPaint()});
+document.addEventListener('pointermove',ev=>{if(ev.target.id!=='crop-canvas'||!app.crop?.start)return;let p=cropPoint(ev),st=app.crop.start;app.crop.rect={x:Math.min(st.x,p.x),y:Math.min(st.y,p.y),w:Math.abs(p.x-st.x),h:Math.abs(p.y-st.y)};cropPaint()});
+document.addEventListener('pointerup',ev=>{if(ev.target.id!=='crop-canvas'||!app.crop?.start)return;let r=app.crop.rect,c=$('#crop-canvas');if(r.w<12||r.h<12){let side=Math.min(c.width,c.height)*.19;app.crop.rect={x:Math.max(0,Math.min(c.width-side,r.x-side/2)),y:Math.max(0,Math.min(c.height-side,r.y-side/2)),w:side,h:side}}app.crop.start=null;cropPaint()});
+
+$('#add-button').addEventListener('click',()=>openEditor(app.page==='gacha'?'gacha':app.page==='cards'?'cards':'goods'));
+$('#settings-button').addEventListener('click',()=>page('settings'));
+async function initialize(){try{app.db=await openDb();app.ready=true;let saved=await dbGet(app.db,'snap','main');if(saved&&Array.isArray(saved.series)){app.state=saved}else{let oldCount=await oldImport();await persist();if(oldCount)toast(`v1の${oldCount}件を引き継いだよ ♡`)}}catch(e){console.error(e);app.ready=false;$('#content').insertAdjacentHTML('afterbegin','<div class="note">このプレビュー環境では保存機能が使えません。Netlifyで公開したURLをSafariから開いてね。</div>')}render();if(!app.ready){$('#content').insertAdjacentHTML('afterbegin','<div class="note">⚠️ 保存にはSafariから公開したサイトを開いてね。</div>');$('#add-button').disabled=true}}
+initialize();
+</script></body></html>
