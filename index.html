@@ -1,4 +1,4 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f9d0ec"><meta name="apple-mobile-web-app-capable" content="yes"><title>Twinkle Closet ♡ v2.61</title>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f9d0ec"><meta name="apple-mobile-web-app-capable" content="yes"><title>Twinkle Closet ♡ v2.62</title>
 <style>
 :root{--pink:#e65da2;--rose:#cc468a;--lav:#9874d3;--pale:#ffe5f2;--lavp:#f1e9ff;--paper:#fffbfe;--ink:#60426c;--sub:#927a99;--line:#eed8e9;--gold:#ddae43;--shade:0 7px 22px #b58bba22}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:#ece4f1;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;color:var(--ink);font-size:14px}button,input,select,textarea{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent}button:disabled{opacity:.45;cursor:default}input,select,textarea{min-width:0}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #aa83e2;outline-offset:2px}h1,h2,h3,p{margin:0}img{max-width:100%;display:block}.app{max-width:520px;margin:auto;min-height:100dvh;box-shadow:0 0 60px #745e8730;background:var(--paper)}
@@ -69,7 +69,7 @@ button{touch-action:manipulation}
 .trade-preview-note{font-size:12px;color:#9871a3;background:#fff0fa;border-radius:12px;padding:9px;margin:10px 0}
 .master-scope-select{margin-top:6px}
 @media(min-width:450px){.trade-setting{grid-template-columns:1fr 1fr}}
-</style></head><body><div class="app"><header><div class="brand"><div class="bow">🎀</div><div><b>Twinkle <span style="color:#d8559c">Closet</span></b><small>MY LITTLE TREASURES ✦ v2.61</small></div></div><button class="iconbtn" id="settings-button" aria-label="設定">⚙</button></header><main class="main" id="content"><p class="note">読み込み中…</p></main><button class="floating" id="add-button" aria-label="商品を登録">＋</button><nav class="bottom" id="nav"><button class="nav on" data-page="home"><em>⌂</em>ホーム</button><button class="nav" data-page="cards"><em>♧</em>カード</button><button class="nav" data-page="goods"><em>🎁</em>グッズ</button><button class="nav" data-page="gacha"><em>🎰</em>ガチャ</button><button class="nav" data-page="trade"><em>♡</em>交換</button></nav></div><div id="overlay"></div><div id="toast" class="hide" role="status"></div>
+</style></head><body><div class="app"><header><div class="brand"><div class="bow">🎀</div><div><b>Twinkle <span style="color:#d8559c">Closet</span></b><small>MY LITTLE TREASURES ✦ v2.62</small></div></div><button class="iconbtn" id="settings-button" aria-label="設定">⚙</button></header><main class="main" id="content"><p class="note">読み込み中…</p></main><button class="floating" id="add-button" aria-label="商品を登録">＋</button><nav class="bottom" id="nav"><button class="nav on" data-page="home"><em>⌂</em>ホーム</button><button class="nav" data-page="cards"><em>♧</em>カード</button><button class="nav" data-page="goods"><em>🎁</em>グッズ</button><button class="nav" data-page="gacha"><em>🎰</em>ガチャ</button><button class="nav" data-page="trade"><em>♡</em>交換</button></nav></div><div id="overlay"></div><div id="toast" class="hide" role="status"></div>
 <script>
 'use strict';
 const DB='twinkle-closet-v2', OLDDB='twinkle-closet-v1';
@@ -2423,27 +2423,29 @@ function officialCardMatches(){
  const c=app.cardDraft||{},q=String(c.officialQuery||'').trim().toLocaleLowerCase('ja-JP');
  return allCardSeeds().filter(x=>x.series===cardSeriesKey(c.cardSeries)&&(!q||[x.code,x.title,x.brand].join(' ').toLocaleLowerCase('ja-JP').includes(q)));
 }
-const OFFICIAL_CARD_IMAGE_SUFFIX={
+const ONPARADE_CARD_IMAGE_SUFFIX={
  'レジェンドプレミアムレア':'lpr','プレミアムレア':'pr','レア':'r','ノーマル':'n',
- 'キャンペーンレア':'cp','ジュエリングレア':'jlr','アンコールレア':'ER'
+ 'キャンペーンレア':'cp','ジュエリングレア':'jlr'
 };
+const ENCORE_CARD_IMAGE_SUFFIX={'プレミアムレア':'PR','レア':'R','ノーマル':'N','アンコールレア':'ER'};
+const OLD_ENCORE_CARD_IMAGE_SUFFIX={'プレミアムレア':'pr','レア':'r','ノーマル':'n','アンコールレア':'ER'};
 function officialCardImageUrl(x){
  const code=String(x?.code||'').trim().replace(/\s+(?:LPR|PR|JLR|CP|R|N|P)$/i,'');if(!code)return '';
  if(x.series==='アンコール'){
-  const suffix=OFFICIAL_CARD_IMAGE_SUFFIX[x.rarity];if(!suffix)return '';
+  const suffix=ENCORE_CARD_IMAGE_SUFFIX[x.rarity];if(!suffix)return '';
   return `https://dcd.aikatsu.com/encore/images/cardlist/card/${code}_${suffix}.webp`;
  }
  if(x.series==='オンパレード'||x.series==='オンパレード！'){
   const category=String(x.url||'').match(/[?&]category=(\d+)/)?.[1];if(!category)return '';
-  const suffix=category==='491901'?'p':OFFICIAL_CARD_IMAGE_SUFFIX[x.rarity];if(!suffix)return '';
+  const suffix=category==='491901'?'p':ONPARADE_CARD_IMAGE_SUFFIX[x.rarity];if(!suffix)return '';
   return `https://card.aikatsu.net/onparade/images/cardlist/card/${category}/${code.toLowerCase()}${suffix}_00.png`;
  }
  return '';
 }
 function migrateOfficialCardImages(){
- const cards=allSingles().filter(c=>c.type==='cards'&&!c.photo&&c.code);if(!cards.length)return false;
+ const cards=allSingles().filter(c=>c.type==='cards'&&c.code);if(!cards.some(c=>!c.photo||String(c.photo).startsWith('https://dcd.aikatsu.com/encore/images/cardlist/card/')))return false;
  const index=new Map();for(const x of allCardSeeds()){const series=cardSeriesKey(x.series),key=`${series}|${x.code}|${x.title}`;index.set(key,x)}
- let changed=false;for(const c of cards){const series=cardSeriesKey(c.cardSeries||c.series||c.work);let x=index.get(`${series}|${c.code}|${c.title}`);if(!x){const matches=[...index.values()].filter(y=>cardSeriesKey(y.series)===series&&y.code===c.code);if(matches.length===1)x=matches[0]}const url=x&&officialCardImageUrl(x);if(url){c.photo=url;changed=true}}
+ let changed=false;for(const c of cards){const series=cardSeriesKey(c.cardSeries||c.series||c.work);let x=index.get(`${series}|${c.code}|${c.title}`);if(!x){const matches=[...index.values()].filter(y=>cardSeriesKey(y.series)===series&&y.code===c.code);if(matches.length===1)x=matches[0]}if(!x)continue;const url=officialCardImageUrl(x);if(!url)continue;if(!c.photo){c.photo=url;changed=true;continue}if(x.series==='アンコール'){const oldSuffix=OLD_ENCORE_CARD_IMAGE_SUFFIX[x.rarity],oldUrl=oldSuffix?`https://dcd.aikatsu.com/encore/images/cardlist/card/${x.code}_${oldSuffix}.webp`:'';if(oldUrl&&c.photo===oldUrl&&c.photo!==url){c.photo=url;changed=true}}}
  return changed;
 }
 function officialCardResultHtml(){
