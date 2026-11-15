@@ -43,10 +43,11 @@ button{touch-action:manipulation}
 .card-series-tabs{display:grid;grid-template-columns:.72fr .88fr .88fr 1.22fr 1fr .9fr;gap:3px;margin:10px 0 12px;padding:4px;border:1px solid var(--line);border-radius:17px;background:#fff8fd}
 .card-series-tabs button{min-width:0;border:1px solid #e9d8eb;border-radius:12px;background:#fff;color:var(--ink);padding:8px 1px;font-size:clamp(8px,2.6vw,11px);font-weight:900;white-space:nowrap;overflow:hidden}
 .card-series-tabs button.sel{background:linear-gradient(115deg,#ef86b7,#ac97e9);color:#fff;border-color:transparent}
-.card-filter-search{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.4fr);gap:8px;margin-top:11px;align-items:stretch}
-.card-filter-search>.field{height:48px;min-height:48px;padding:9px 8px;font-size:12px}
-.card-filter-search .search{min-width:0;height:48px;padding:9px 9px;gap:6px}
-.card-filter-search input{min-width:0;font-size:12px}
+.card-filter-search{display:grid;grid-template-columns:104px minmax(0,1fr);gap:8px;margin-top:11px;align-items:stretch}
+.card-filter-search>.field{height:48px;min-height:48px;padding:9px 7px;font-size:11px}
+.card-filter-search .search{min-width:0;height:48px;padding:9px 7px;gap:5px}
+.card-filter-search input{min-width:0;font-size:11px}
+@media(max-width:360px){.card-filter-search{grid-template-columns:minmax(0,1fr)}.card-filter-search>.field,.card-filter-search input{font-size:12px}}
 .card-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:9px 0 14px}
 .card-art{border:0;padding:0;margin:0;min-width:0;background:#fff;position:relative;border-radius:9px;overflow:hidden;box-shadow:0 3px 9px #a771a02a;aspect-ratio:0.704;display:flex;align-items:center;justify-content:center}
 .card-art img{width:100%;height:100%;object-fit:contain;display:block}
