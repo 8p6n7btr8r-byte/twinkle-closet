@@ -41,12 +41,19 @@ button{touch-action:manipulation}
 .card-sort{width:min(170px,48%);border:1px solid #e8c6e0;color:#8c4d86;background:#fff;border-radius:18px;padding:9px 10px;font-weight:800;font-size:12px;min-width:0}
 .stat-link{width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;appearance:none;-webkit-appearance:none}
 .card-series-tabs{display:grid;grid-template-columns:.72fr .88fr .88fr 1.22fr 1fr .9fr;gap:3px;margin:10px 0 12px;padding:4px;border:1px solid var(--line);border-radius:17px;background:#fff8fd}
-.card-series-tabs button{min-width:0;border:1px solid #e9d8eb;border-radius:12px;background:#fff;color:var(--ink);padding:8px 1px;font-size:clamp(8px,2.6vw,11px);font-weight:900;white-space:nowrap;overflow:hidden}
+.card-series-tabs button{min-width:0;border:1px solid #e9d8eb;border-radius:12px;background:#fff;color:var(--ink);padding:8px 1px;font-size:clamp(10px,3vw,12px);font-weight:900;white-space:nowrap;overflow:hidden}
 .card-series-tabs button.sel{background:linear-gradient(115deg,#ef86b7,#ac97e9);color:#fff;border-color:transparent}
 .card-filter-search{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.9fr);gap:8px;margin-top:11px;align-items:stretch}
 .card-filter-search>.field{height:48px;min-height:48px;padding:9px 7px;font-size:11px}
 .card-filter-search .search{min-width:0;height:48px;padding:9px 7px;gap:5px}
 .card-filter-search input{min-width:0;font-size:10px}
+.card-intro{text-align:center;margin:0 0 14px;padding:0 0 5px}
+.card-intro h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:25px;line-height:1.4;color:#7a155f;font-weight:600;letter-spacing:.02em;margin:0 0 4px}
+.card-intro .subline{display:flex;align-items:center;justify-content:center;gap:14px;color:#e44a9d;font-size:10px;letter-spacing:3.2px;margin:0}
+.card-intro .subline:before,.card-intro .subline:after{content:"";width:34px;height:1px;background:#e9a8d2}
+.card-filter-search .card-search-icon{width:22px;height:22px;flex:0 0 22px;display:flex;align-items:center;justify-content:center;color:#a4298b}
+#query{font-size:16px!important}
+#query::placeholder{font-size:10px!important;color:#a7a0a8;opacity:1}
 .card-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:9px 0 14px}
 .card-art{border:0;padding:0;margin:0;min-width:0;background:#fff;position:relative;border-radius:9px;overflow:hidden;box-shadow:0 3px 9px #a771a02a;aspect-ratio:0.704;display:flex;align-items:center;justify-content:center}
 .card-art img{width:100%;height:100%;object-fit:contain;display:block}
@@ -265,10 +272,10 @@ function cardGalleryPage(){
  cards=sortedCardList(cards);
  const old=allSeries().filter(s=>s.type==='cards').filter(s=>cardSeriesKey(s.cardSeries)===app.tab&&(!q||[s.title,s.work].join(' ').toLocaleLowerCase('ja-JP').includes(q)));
  const options=[['code-asc','カード番号順'],['code-desc','カード番号降順'],['rarity-asc','レアリティ昇順'],['rarity-desc','レアリティ降順'],['name','カード名順'],['latest','最近更新した順']];
- return `${intro('MY CARD CLOSET','アイカツカード','カード画像を並べて図鑑のように一覧表示。タップで詳細や編集ができるよ。')}
+ return `<div class="card-intro"><h1>アイカツカード</h1><div class="subline">MY CARD CLOSET</div></div>
  <div class="card-series-tabs" role="tablist" aria-label="カードシリーズ">${seriesTabs.map(([key,label])=>`<button type="button" role="tab" aria-selected="${app.tab===key}" data-tab="${esc(key)}" class="${app.tab===key?'sel':''}">${label}</button>`).join('')}</div>
  <div class="card-filter-search"><select class="field" id="card-round-filter" aria-label="弾数で絞り込む"><option value="">すべての弾数</option>${cardRounds(app.tab).map(r=>`<option value="${esc(r)}" ${app.cardRoundFilter===r?'selected':''}>${esc(r)}</option>`).join('')}</select>
- <div class="search">⌕ <input id="query" type="text" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="カード番号・名前・ブランドで検索" value="${esc(app.query)}"></div></div>
+ <div class="search"><span class="card-search-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><input id="query" type="text" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="カード番号・名前・ブランドで検索" value="${esc(app.query)}"></div></div>
  <div class="card-toolbar"><span class="total">見つかったカード ${cards.length}枚</span><select id="card-sort" class="card-sort" aria-label="並び替え">${options.map(([v,l])=>`<option value="${v}" ${cardSortValue()===v?'selected':''}>${l}</option>`).join('')}</select></div>
  <p class="card-gallery-help">画像をタップするとカードの詳細・編集ができるよ。画像なしのカードは仮の表示になるよ。</p>
  <div class="card-gallery" id="listing">${cards.map(c=>`<button class="card-art" data-card-detail="${esc(c.id)}" aria-label="${esc(c.title)}、所持数${n(c.owned)}。詳細を表示" title="${esc(c.title)}">${c.photo?`<img src="${esc(c.photo)}" loading="lazy" alt="${esc(c.title)}">`:`<div class="card-blank"><span class="placeholder-symbol">🃏</span><b>${esc(c.title||'画像未登録')}</b></div>`}<span class="card-owned-badge" aria-label="所持数 ${n(c.owned)}">${n(c.owned)}</span></button>`).join('')}</div>
