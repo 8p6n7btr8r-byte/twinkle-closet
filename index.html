@@ -1,4 +1,4 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f9d0ec"><meta name="apple-mobile-web-app-capable" content="yes"><title>Twinkle Collection ♡ v3.94</title>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f9d0ec"><meta name="apple-mobile-web-app-capable" content="yes"><title>Twinkle Collection ♡ v3.95</title>
 <style>
 :root{--pink:#e65da2;--rose:#cc468a;--lav:#9874d3;--pale:#ffe5f2;--lavp:#f1e9ff;--paper:#fffbfe;--ink:#60426c;--sub:#927a99;--line:#eed8e9;--gold:#ddae43;--shade:0 7px 22px #b58bba22}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:#ece4f1;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;color:var(--ink);font-size:14px}button,input,select,textarea{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent}button:disabled{opacity:.45;cursor:default}input,select,textarea{min-width:0}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #aa83e2;outline-offset:2px}h1,h2,h3,p{margin:0}img{max-width:100%;display:block}.app{max-width:520px;margin:auto;min-height:100dvh;box-shadow:0 0 60px #745e8730;background:var(--paper)}
@@ -238,6 +238,19 @@ header.collection-header:before{content:"";right:0;top:0;left:0;letter-spacing:0
 .card-gallery-help-row .card-outfit-filter-secondary .card-incomplete-toggle{
   box-sizing:border-box;height:33px;min-height:0;padding:3px 6px;
   border-radius:14px;font-size:clamp(10px,2.8vw,12px);line-height:1.1;
+}
+
+
+/* Keep all four filter labels at one size; the plus remains an icon. */
+.card-gallery-help-row .card-outfit-filter-primary .card-register-label span,
+.card-gallery-help-row .card-outfit-filter-primary .card-duplicates-label span,
+.card-gallery-help-row .card-outfit-filter-secondary .card-incomplete-toggle{
+  font-size:12px;
+  line-height:1.15;
+}
+.card-gallery-help-row .card-outfit-filter-primary .card-register-toggle .card-register-plus{
+  font-size:18px;
+  line-height:1;
 }
 
 </style></head><body><div class="app"><header id="collection-header" class="collection-header"><div class="collection-brand"><div class="collection-title"><span class="logo-sparkle">✦</span> Twinkle Collection <span class="logo-sparkle">✦</span></div></div></header><main class="main" id="content"><p class="note">読み込み中…</p></main><button class="floating" id="add-button" aria-label="商品を登録">＋</button><nav class="bottom" id="nav"><button class="nav on" data-page="home"><em>🏡</em>ホーム</button><button class="nav" data-page="cards"><em><svg class="card-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="13" y="4" width="38" height="56" rx="6" fill="#fff5f9" stroke="#e998b7" stroke-width="3"/><path d="M27 16l5 5 5-5 6 4-4 8-3 2 5 5 7 15q-16 7-32 0l7-15 5-5-3-2-4-8z" fill="#f2a9c5"/><path d="M28 19l4 4 4-4M27 32q5 3 10 0M24 36q8 3 16 0" fill="none" stroke="#fff7fb" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 52h24" stroke="#e998b7" stroke-width="2" stroke-linecap="round"/></svg></em>カード</button><button class="nav" data-page="goods"><em>🎁</em>グッズ</button><button class="nav" data-page="gacha"><em><span class="gacha-icon" role="img" aria-label="ガチャ"></span></em>ガチャ</button><button class="nav" data-page="trade"><em>🔄</em>交換</button></nav></div><div id="overlay"></div><div id="toast" class="hide" role="status"></div>
